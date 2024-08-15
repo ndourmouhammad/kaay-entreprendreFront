@@ -1,0 +1,1 @@
+Ici on mets les composants qui sont communs à tout : comme login, register, header, footer, etc.

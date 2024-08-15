@@ -44,3 +44,13 @@ html, body {
 input {
     border-radius: 15px;
 }
+/* Fond bleu pour les champs de saisie */
+.form-control {
+  background-color: #00214A; /* Bleu foncé */
+  color: #ffffff5c; /* Couleur du texte (blanc) pour contraste */
+}
+
+/* Couleur des placeholders */
+.form-control::placeholder {
+  color: #ffffff71; /* Couleur du placeholder (blanc) */
+}

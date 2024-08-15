@@ -1,0 +1,46 @@
+/* Assurer que le fond couvre toute la hauteur de la page */
+html, body {
+  height: 100%;
+  margin: 0;
+}
+.container-fluid {
+  background-color: #00214A; /* Bleu */
+  color: #fbf8f5; /* Couleur du texte (orange modifiée pour la lisibilité) */
+  min-height: 100vh;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+.btn-warning {
+  color: #fbf8f5;
+  background-color: #FF9700; /* Orange */
+  border: none;
+}
+.btn-warning:hover {
+  background-color: #e68900; /* Couleur légèrement plus foncée au survol */
+}
+.text-warning {
+  color: #FF9700; /* Orange */
+}
+.row {
+  margin-left: -15px;
+  margin-right: -15px;
+}
+.col-md-6 {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+.col-md-6:not(:last-child) {
+  padding-right: 30px; /* Marge de 30px entre les colonnes */
+}
+.text-left {
+  text-align: left;
+}
+.mt-4 {
+  margin-top: 1.5rem;
+}
+.mb-0 {
+  margin-bottom: 0;
+}
+input {
+    border-radius: 15px;
+}

@@ -1,0 +1,45 @@
+<router-outlet></router-outlet>
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Menu</title>
+    
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="logo.png" alt="Logo" class="logo">
+        </div>
+        <nav class="navbar">
+            <ul class="nav-links">
+                <li><a href="#">Accueil</a></li>
+                <li><a href="#">Ressource</a></li>
+                <li><a href="#">Événement</a></li>
+                <li><a href="#">Guide</a></li>
+            </ul>
+            <button class="connexion-btn">Connexion</button>
+        </nav>
+        <div class="hamburger-menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+    </header>
+
+  <script>
+    const hamburgerMenu = document.querySelector('.hamburger-menu');
+const navbar = document.querySelector('.navbar');
+
+hamburgerMenu.addEventListener('click', () => {
+    navbar.classList.toggle('active');
+});
+
+  </script>
+</body>
+</html>
+
+
+

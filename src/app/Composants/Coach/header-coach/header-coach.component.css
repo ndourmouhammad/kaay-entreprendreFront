@@ -1,0 +1,15 @@
+.navbar-brand img {
+    height: 40px;
+}
+.btn-custom {
+    color: white;
+    font-weight: bold;
+}
+.btn-logout {
+    background-color: #FFA500;
+    border-color: #FFA500;
+}
+.btn-profile {
+    background-color: #002E5F;
+    border-color: #002E5F;
+}

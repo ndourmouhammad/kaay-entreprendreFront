@@ -1,17 +1,17 @@
 <router-outlet></router-outlet>
 <!DOCTYPE html>
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Responsive Menu</title>
-    
+   
 </head>
 <body>
     <header>
         <div class="logo-container">
-            <img src="logo.png" alt="Logo" class="logo">
+<img src="assets/Group.png" alt="Logo" class="logo">
+
         </div>
         <nav class="navbar">
             <ul class="nav-links">
@@ -29,15 +29,21 @@
         </div>
     </header>
 
-  <script>
-    const hamburgerMenu = document.querySelector('.hamburger-menu');
+<script>
+    // Sélectionne le menu hamburger et la barre de navigation
+const hamburgerMenu = document.querySelector('.hamburger-menu');
 const navbar = document.querySelector('.navbar');
 
+// Ajoute un écouteur d'événements pour le clic sur le menu hamburger
 hamburgerMenu.addEventListener('click', () => {
+    // Bascule la classe 'active' sur la barre de navigation
     navbar.classList.toggle('active');
+
+    // Bascule la classe 'open' sur le menu hamburger pour l'animation
+    hamburgerMenu.classList.toggle('open');
 });
 
-  </script>
+</script>
 </body>
 </html>
 

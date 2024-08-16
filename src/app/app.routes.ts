@@ -5,6 +5,7 @@ import { RessourceFormComponent } from './Composants/Coach/ressource-form/ressou
 import { RessourceDetailComponent } from './Composants/Coach/ressource-detail/ressource-detail.component';
 import { CategorieCoachComponent } from './Composants/Coach/categorie-coach/categorie-coach.component';
 import { EvenementCoachComponent } from './Composants/Coach/evenement-coach/evenement-coach.component';
+import { DetailEvenementCoachComponent } from './Composants/Coach/detail-evenement-coach/detail-evenement-coach.component';
 
 export const routes: Routes = [
     { path: '', redirectTo: 'visiteur', pathMatch: 'full' },
@@ -13,5 +14,6 @@ export const routes: Routes = [
     { path: 'ressource-form', component: RessourceFormComponent},
     { path: 'ressource-details' , component: RessourceDetailComponent},
     { path: 'ressources-categorie', component: CategorieCoachComponent},
-    { path: 'events-coach', component: EvenementCoachComponent}
+    { path: 'events-coach', component: EvenementCoachComponent},
+    { path: 'events-details-coach', component: DetailEvenementCoachComponent}
 ];

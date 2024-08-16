@@ -3,15 +3,15 @@ import { HeaderCoachComponent } from '../header-coach/header-coach.component';
 import { RouterModule } from '@angular/router';
 
 @Component({
-  selector: 'app-dashboard-coach',
+  selector: 'app-ressource',
   standalone: true,
   imports: [
     HeaderCoachComponent,
-    RouterModule
+    RouterModule,
   ],
-  templateUrl: './dashboard-coach.component.html',
-  styleUrl: './dashboard-coach.component.css'
+  templateUrl: './ressource.component.html',
+  styleUrl: './ressource.component.css'
 })
-export class DashboardCoachComponent {
+export class RessourceComponent {
 
 }

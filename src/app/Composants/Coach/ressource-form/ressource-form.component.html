@@ -1,0 +1,83 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-5 d-none d-lg-block mt-4 ml-5">
+            <img src="../../../../assets/bienvenue.png" alt="Bienvenue" class="img-fluid">
+        </div>
+        <div class="col-lg-6 col-md-12">
+            <div class="container form-container">
+                <h1>Ajouter une ressource</h1>
+                
+                <!-- Remplacez par des messages d'erreur statiques si nécessaire -->
+                <div class="alert alert-danger mt-4 d-none">Votre compte est désactivé. Veuillez contacter l'administrateur.</div>
+                
+                <form enctype="multipart/form-data">
+                    <div class="form-row">
+                        <div class="form-group col-md-12">
+                            <label for="titre">Titre</label>
+                            <input type="text" class="form-control" id="titre" name="titre" value="">
+                            <!-- Message d'erreur -->
+                            <span class="invalid-feedback d-none" role="alert">
+                                <strong>Erreur pour le nom</strong>
+                            </span>
+                        </div>
+
+                      
+                        
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group col-md-12">
+                            <label for="category">Catégorie</label>
+                            <select class="form-control" id="category" name="category">
+                                <option value="">Sélectionnez une catégorie</option>
+                                <option value="musique">Musique</option>
+                                <option value="art">Art</option>
+                                <option value="sport">Sport</option>
+                                <option value="technologie">Technologie</option>
+                                <option value="gastronomie">Gastronomie</option>
+                                <!-- Ajoutez plus de catégories selon les besoins -->
+                            </select>
+                            <!-- Message d'erreur -->
+                            <span class="invalid-feedback d-none" role="alert">
+                                <strong>Erreur pour la sélection de la catégorie</strong>
+                            </span>
+                        </div>
+                    </div>
+
+                   
+
+                    <div class="form-group">
+                        <label for="description">Description</label>
+                        <textarea class="form-control" id="description" name="description" rows="5"></textarea>
+                        <!-- Message d'erreur -->
+                        <span class="invalid-feedback d-none" role="alert">
+                            <strong>Erreur pour la description</strong>
+                        </span>
+                    </div>
+                    <div class="form-group">
+                        <label for="contenu">Contenu</label>
+                        <input type="file" class="form-control-file" id="contenu" name="contenu">
+                        <!-- Message d'erreur -->
+                        <span class="invalid-feedback d-none" role="alert">
+                            <strong>Erreur pour l'contenu</strong>
+                        </span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="image">Image</label>
+                        <input type="file" class="form-control-file" id="image" name="image">
+                        <!-- Message d'erreur -->
+                        <span class="invalid-feedback d-none" role="alert">
+                            <strong>Erreur pour l'image</strong>
+                        </span>
+                    </div>
+
+                    <div class="d-flex justify-content-between">
+                        <button type="submit" class="btn evenement ">Ajouter</button>
+                        <a routerLink="/ressources-coach" class="btn btn-annuler ">Annuler</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

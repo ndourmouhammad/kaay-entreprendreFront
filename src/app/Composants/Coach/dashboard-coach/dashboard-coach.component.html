@@ -1,3 +1,97 @@
-<header>
+<header class="container">
     <app-header-coach></app-header-coach>
 </header>
+<main class="container mt-4">
+    <div class="row">
+        <!-- Left Section (Image, Ressources, Catégories) -->
+        <div class="col-lg-8 mb-4">
+            <section class="mb-4">
+                <div class="row">
+                    <div class="col-lg-10">
+                        <img src="../../../../assets/pattern.png" class="img-fluid rounded" alt="Header Image">
+                    </div>
+                </div>
+            </section>
+        
+            <section class="row mt-5">
+                <div class="col-lg-5 col-md-6 mb-4">
+                    <div class="card text-center">
+                        <div class="card-body">
+                            <img src="../../../../assets/folder.svg" alt="Icon" class="mb-3">
+                            <h5 class="card-title">RESSOURCES</h5>
+                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-5 col-md-6 mb-4">
+                    <div class="card text-center">
+                        <div class="card-body">
+                            <img src="../../../../assets/category.svg" alt="Icon" class="mb-3">
+                            <h5 class="card-title">CATÉGORIES</h5>
+                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Right Section (Événements) -->
+        <div class="col-lg-4">
+            <section>
+                <div class="d-flex align-items-center justify-content-between">
+                    <h4 class="font-weight-bold">Événements</h4>
+                    <a routerLink="/events-coach" class="btn btn-custom">Voir tout</a>
+                </div>
+                <hr class="my-5">
+                
+                <div class="event-card-container row ">
+                    <div class="col-12 col-sm-12 col-md-12 col-lg-12 mb-3">
+                        <div class="card event-card">
+                            <div class="card-body">
+                                <h5 class="card-title">Masterclass</h5>
+                                <p class="card-text">Simplon Sénégal</p>
+                                <div class="event-details d-flex align-items-center">
+                                    <i class="fas fa-clock icon-white mr-2"></i>
+                                    <div class="dates ml-2">
+                                        <p>Date début</p>
+                                        <p>Date fin</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-12 col-md-12 col-lg-12 mb-3">
+                        <div class="card event-card">
+                            <div class="card-body">
+                                <h5 class="card-title">Meet up</h5>
+                                <p class="card-text">Institut français</p>
+                                <div class="event-details d-flex align-items-center">
+                                    <i class="fas fa-clock icon-white mr-2"></i>
+                                    <div class="dates ml-2">
+                                        <p>Date début</p>
+                                        <p>Date fin</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-12 col-md-12 col-lg-12 mb-3">
+                        <div class="card event-card">
+                            <div class="card-body">
+                                <h5 class="card-title">Session de mentorat</h5>
+                                <p class="card-text">Cinéma Pathé</p>
+                                <div class="event-details d-flex align-items-center">
+                                    <i class="fas fa-clock icon-white mr-2"></i>
+                                    <div class="dates ml-2">
+                                        <p>Date début</p>
+                                        <p>Date fin</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+</main>

@@ -1,0 +1,79 @@
+body {
+    font-family: "Poppins", sans-serif;
+    background: url("../../../../assets/background.png");
+}
+/* Event Cards Styles */
+.event-card-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.card-body .card-title {
+    color: #ff9700;
+
+}
+
+.event-card {
+    background-color: #ff9700;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    position: relative;
+    padding: 5px;
+    height: 137px; /* Assures cards take full height */
+    width: 319px;
+}
+.d-flex-ressource {
+    display: flex;
+    gap: 55px;
+}
+
+.event-card .card-body .card-title {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: white;
+    
+}
+
+.event-card .card-text {
+    font-size: 12px;
+    font-weight: 700px;
+    margin-bottom: 10px;
+    color: black;
+}
+
+.event-details {
+    display: flex;
+    align-items: center;
+    color: black;
+}
+
+.event-details p {
+    margin: 0;
+    font-size: 12px;
+}
+
+.event-details i {
+    font-size: 24px;
+}
+.icon-white {
+    color: white;
+}
+
+.dates p {
+    margin: 0;
+    line-height: 1.2;
+}
+
+.dates {
+    margin-left: 8px;
+}
+
+/* Ensure consistent card height in mobile view */
+@media (max-width: 768px) {
+    .event-card-container .event-card {
+        min-height: 150px;
+    }
+}

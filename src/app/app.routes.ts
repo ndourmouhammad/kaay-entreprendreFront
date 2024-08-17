@@ -17,7 +17,4 @@ export const routes: Routes = [
     {path:'header2',component:Header2Component },
     {path:'Acceuil',component:AcceuilComponent },
     {path:'footer',component:FooterComponent}
-
-    
-
 ];

@@ -1,11 +1,12 @@
 import { Component, AfterViewInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { Header1Component } from '../../headerFooter/header1/header1.component';
+import { FooterComponent } from '../../headerFooter/footer/footer.component';
 
 @Component({
   selector: 'app-acceuil',
   standalone: true,
-  imports: [RouterOutlet,Header1Component ],
+  imports: [RouterOutlet,Header1Component,FooterComponent],
   templateUrl: './acceuil.component.html',
   styleUrl: './acceuil.component.css'
 })

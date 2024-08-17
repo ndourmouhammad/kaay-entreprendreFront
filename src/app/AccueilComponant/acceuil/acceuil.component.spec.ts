@@ -20,4 +20,5 @@ describe('AcceuilComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+  
 });

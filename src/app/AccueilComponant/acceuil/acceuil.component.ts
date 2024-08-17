@@ -7,6 +7,7 @@ import { FooterComponent } from '../../headerFooter/footer/footer.component';
   selector: 'app-acceuil',
   standalone: true,
   imports: [RouterOutlet,Header1Component,FooterComponent],
+
   templateUrl: './acceuil.component.html',
   styleUrl: './acceuil.component.css'
 })

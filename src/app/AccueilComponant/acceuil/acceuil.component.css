@@ -93,8 +93,10 @@ body{
    color: #00214A;
    margin: 10px;
    }
+
    .apropos .hr{
    background-color: #00214A;
+
    color: #00214A;
     width: 137px;
     height: 5px;
@@ -432,9 +434,11 @@ margin-left: 8%;
 .contactlink p{
   margin:8%;
 }
+
 footer{
   margin-top: 5%
 }
+
    @media screen and (max-width: 390px) {
     .image{
         display: none;

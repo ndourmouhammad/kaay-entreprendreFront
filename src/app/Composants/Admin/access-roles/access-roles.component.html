@@ -5,45 +5,47 @@
 <div class="container mt-4 users">
     <div class="d-flex mb-3">
         <img src="../../../../assets/retour.svg" alt="" routerLink="/access-admin">
-    <h2 >Gestion des utilisateurs</h2>
+    <h2 >Gestion des rôles</h2>
     </div>
     <div class="search-bar">
-        <div class="alert alert-success" style="display: none;">Status message goes here</div>
-        <input type="text" class="form-control d-inline-block" placeholder="Rechercher par mail">
-        <button class="btn btn-ajout d-inline-block">Rechercher</button>
+        
+        <form action="">
+            <input type="text" class="form-control d-inline-block" placeholder="Ajouter un rôle">
+        <button class="btn btn-ajout d-inline-block">Ajouter</button>
+        </form>
     </div>
+    
 
-    <table class="table table-bordered">
+    <table class="table table-bordered mt-4">
         <thead>
             <tr>
-                <th class="responsive-mobile">Id</th>
-                <th class="responsive-mobile">Nom complet</th>
-                <th>Adresse email</th>
-                <th>Rôles</th>
+                <th>Id</th>
+                <th>Nom</th>
                 <th>Action</th>
             </tr>
         </thead>
+
         <tbody>
             <tr>
-                <td class="responsive-mobile">1</td>
-                <td class="responsive-mobile">John Doe</td>
-                <td><a href="#">john.doeexample.com</a></td>
-                <td>
-                    <span>
-                        <label class="badge mx-1 text-white" style="border: 1px solid #FF8200; background:#FF8200; color: white; font-weight:500; padding:2px 5px">Admin</label>
-                    </span>
-                </td>
+                <td >1</td>
+                <td >Admin</td>
                 <td class="action">
                     <a routerLink="/access-users-details">
+                        <button class="btn btn-permission">
+                            <span class="btn-text"> Octroyer des permissions</span>
+                            <span class="btn-icon"><img src="../../../../assets/key.svg" alt="edit icon"></span>
+                        </button>
+                    </a>
+                    <a routerLink="/access-users-details">
                         <button class="btn btn-custom btn-logout">
-                            <span class="btn-text"> Voir</span>
+                            <span class="btn-text">Modifier</span>
                             <span class="btn-icon"><img src="../../../../assets/eye1.svg" alt="edit icon"></span>
                         </button>
                     </a>
 
                     <form action="#" method="POST" class="d-inline">
                         <button type="submit" class="btn btn-custom btn-supprimer">
-                            <span class="btn-text">Bannir</span>
+                            <span class="btn-text">Supprimer</span>
                             <span class="btn-icon"><img src="../../../../assets/delete.svg" alt="delete icon"></span>
                         </button>
                     </form>

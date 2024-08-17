@@ -1,13 +1,14 @@
 import { Component } from '@angular/core';
 import { HeaderCoachComponent } from '../header-coach/header-coach.component';
-import { RouterModule } from '@angular/router';
+import { RouterLink, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard-coach',
   standalone: true,
   imports: [
     HeaderCoachComponent,
-    RouterModule
+    RouterModule,
+    RouterLink
   ],
   templateUrl: './dashboard-coach.component.html',
   styleUrl: './dashboard-coach.component.css'

@@ -12,6 +12,7 @@ import { AccessAdminComponent } from './Composants/Admin/access-admin/access-adm
 import { AccessUsersComponent } from './Composants/Admin/access-users/access-users.component';
 import { AccessUsersDetailComponent } from './Composants/Admin/access-users-detail/access-users-detail.component';
 import { AccessRolesComponent } from './Composants/Admin/access-roles/access-roles.component';
+import { AccessPermissionsComponent } from './Composants/Admin/access-permissions/access-permissions.component';
 
 export const routes: Routes = [
     { path: '', redirectTo: 'visiteur', pathMatch: 'full' },
@@ -31,5 +32,6 @@ export const routes: Routes = [
     { path: 'access-admin', component: AccessAdminComponent},
     { path: 'access-users', component: AccessUsersComponent},
     { path: 'access-users-details', component: AccessUsersDetailComponent},
-    { path: 'access-roles', component: AccessRolesComponent}
+    { path: 'access-roles', component: AccessRolesComponent},
+    { path: 'access-permissions', component: AccessPermissionsComponent},
 ];

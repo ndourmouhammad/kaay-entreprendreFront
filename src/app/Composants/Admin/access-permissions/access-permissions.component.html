@@ -5,12 +5,12 @@
 <div class="container mt-4 users">
     <div class="d-flex mb-3">
         <img src="../../../../assets/retour.svg" alt="" routerLink="/access-admin">
-    <h2 >Gestion des rôles</h2>
+    <h2 >Gestion des permissions</h2>
     </div>
     <div class="search-bar">
         
         <form action="">
-            <input type="text" class="form-control d-inline-block" placeholder="Ajouter un rôle">
+            <input type="text" class="form-control d-inline-block" placeholder="Ajouter une permission">
         <button class="btn btn-ajout d-inline-block">Ajouter</button>
         </form>
     </div>
@@ -28,14 +28,9 @@
         <tbody>
             <tr>
                 <td >1</td>
-                <td >Admin</td>
+                <td >Ajouter un rôle</td>
                 <td class="action">
-                    <a routerLink="/access-users-details">
-                        <button class="btn btn-permission">
-                            <span class="btn-text"> Octroyer des permissions</span>
-                            <span class="btn-icon"><img src="../../../../assets/key.svg" alt="edit icon"></span>
-                        </button>
-                    </a>
+                   
                     <a routerLink="/access-users-details">
                         <button class="btn btn-custom btn-logout">
                             <span class="btn-text">Modifier</span>

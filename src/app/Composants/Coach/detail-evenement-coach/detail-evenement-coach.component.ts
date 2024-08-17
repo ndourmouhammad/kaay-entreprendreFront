@@ -3,16 +3,16 @@ import { HeaderCoachComponent } from '../header-coach/header-coach.component';
 import { RouterLink, RouterModule } from '@angular/router';
 
 @Component({
-  selector: 'app-dashboard-coach',
+  selector: 'app-detail-evenement-coach',
   standalone: true,
   imports: [
     HeaderCoachComponent,
     RouterModule,
     RouterLink
   ],
-  templateUrl: './dashboard-coach.component.html',
-  styleUrl: './dashboard-coach.component.css'
+  templateUrl: './detail-evenement-coach.component.html',
+  styleUrl: './detail-evenement-coach.component.css'
 })
-export class DashboardCoachComponent {
+export class DetailEvenementCoachComponent {
 
 }

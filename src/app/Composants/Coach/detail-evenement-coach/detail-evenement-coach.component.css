@@ -1,0 +1,66 @@
+.banniere {
+    height: 50vh;
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+}
+.banniere img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.content {
+    padding: 20px;
+}
+.info-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+.info-item i {
+    margin-right: 10px;
+    color: #FF8200;
+}
+.leaf {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    background-color: #f39c12;
+    border-radius: 50%;
+}
+.leaf:nth-child(1) {
+    top: 20%;
+    left: 20%;
+}
+.leaf:nth-child(2) {
+    top: 60%;
+    left: 80%;
+}
+.btn-dark{
+    background: transparent;
+    color: #FF8200;
+    border: none;
+    
+}
+.btn-custom {
+    color: white;
+    font-weight: 500px;
+    font-family: "Poppins", sans-serif;
+    font-size: 16px;
+    width: 140px;
+    height: 55px;
+}
+.btn-profile {
+    background-color: #00214a;
+    border-color: #00214a;   
+}
+.content h3 {
+    font-family: "Poppins", sans-serif;
+    font-size: 24px;
+    font-weight: bold;
+}
+.content p {
+    font-family: "Poppins", sans-serif;
+    font-size: 14px;
+}

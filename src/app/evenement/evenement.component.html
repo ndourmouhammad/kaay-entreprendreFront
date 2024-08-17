@@ -3,79 +3,219 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Les événements</title>
+    <title>Événements</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/css/bootstrap.min.css" rel="stylesheet">
     <style>
-        .bg-card {
-            background-color: #f8f9fa; /* Couleur de fond des cartes */
+        /* Section contenant toutes les cartes avec une seule image de fond */
+        .events-section {
+            background-image: url('assets/images/pattern1.png'); /* Utilisez la fonction `url()` pour référencer l'image */
+            background-size: cover;
+            background-position: center;
         }
-        .text-primary {
-            color: #0d6efd; /* Couleur du texte principal */
+
+        .header-section {
+            text-align: center;
+            margin-bottom: 40px;
+            background-color: #F9F5FF;
+            padding: 20px;
+            border-radius: 10px;
         }
-        .text-secondary {
-            color: #6c757d; /* Couleur du texte secondaire */
+
+        .header-section h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #4a4a4a;
         }
-        .text-muted-foreground {
-            color: #6c757d; /* Couleur du texte atténué */
+
+        .header-section p {
+            color: #6c757d;
+            font-size: 1.1rem;
+            margin-top: 10px;
         }
-        .custom-image {
-            width: 100%; /* S'adapte à la largeur du conteneur */
-            height: auto; /* Conserve le ratio de l'image */
-            border-radius: 8px; /* Coins arrondis */
-            margin-bottom: 1.5rem; /* Espace en bas de l'image */
+
+        .card-event {
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        .card-event img {
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+
+        .card-event .card-body {
+            padding: 1.25rem;
+        }
+
+        .card-event .card-title {
+            font-weight: 700;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+
+        .card-event .card-text {
+            color: #6c757d;
+            font-size: 0.9rem;
+        }
+
+        .card-event .event-info {
+            display: flex;
+            align-items: center;
+            margin-top: 15px;
+        }
+
+        .card-event .event-info img {
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            margin-right: 10px;
+        }
+
+        .card-event .event-info .event-date {
+            color: #6c757d;
+            font-size: 0.85rem;
+        }
+
+        .card-event .event-category {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #8e44ad; /* Couleur violet */
+        }
+
+        .arrow-icon {
+            font-size: 1rem;
+            color: #000 !important; /* Couleur noire */
+            margin-left: auto;
+            background: none !important; /* Pas de fond */
+            border: none; /* Pas de bordure */
+            padding: 0; /* Pas de padding */
+        }
+        .search-container {
+            max-width: 400px; /* Largeur maximale du champ de recherche */
+            margin: 0 auto; /* Centre le conteneur */
         }
     </style>
 </head>
 <body>
-    <div class="container p-6">
-        <h1 class="text-3xl fw-bold text-primary mb-4">Les événements</h1>
-        <p class="text-muted-foreground mb-8">Les événements qui vont vous permettre d'accélérer votre processus entrepreneurial</p>
-
-        <!-- Insertion de l'image -->
-        <div class="row mb-4">
-            <div class="col-12">
-                <img src="src/app/assets/images/log.png" alt="Les événements" class="custom-image">
-            </div>
-        </div>
-        
-        <div class="row">
-            <div class="col-md-4 mb-4">
-                <div class="bg-card rounded-lg shadow-md p-4">
-                    <h2 class="text-lg fw-semibold text-secondary">Semaine de l’entrepreneuriat</h2>
-                    <p class="text-muted-foreground">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus pharetra vitae urna auctor efficitur.</p>
-                    <div class="d-flex justify-content-between align-items-center mt-4">
-                        <span class="text-sm text-muted">DER</span>
-                        <span class="text-sm text-muted">20 Jan 2024</span>
-                        <a href="#" class="text-primary">→</a>
+    <!-- Section avec image de fond -->
+    <div class="events-section">
+        <div class="container mt-5">
+            <div class="header-section">
+                <h1>Les événements</h1>
+                <p>Les événements qui vont vous permettre d'accélérer votre processus entrepreneurial</p>
+            <!-- Conteneur pour la barre de recherche -->
+            <div class="search-container">
+                <input type="text" class="form-control mx-auto" placeholder="Search" aria-label="Search">
+            </div>            </div>
+            
+            <div class="row">
+                <!-- Première carte -->
+                <div class="col-md-4">
+                    <div class="card card-event">
+                        <img src="assets/images/image25.png" class="card-img-top" alt="Image d'événement">
+                        <div class="card-body">
+                            <p class="event-category">Entrepreneuriat</p>
+                            <div class="d-flex align-items-center">
+                                <h5 class="card-title">Semaine de l'entrepreneuriat</h5>
+                            </div>
+                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus pharetra vitae urna auctor efficitur.</p>
+                            <div class="event-info">
+                                <img src="assets/images/image25.png" alt="Profil DER">
+                                <div>
+                                    <p class="mb-0">DER</p>
+                                    <p class="event-date">20 Jan 2024</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-            
-            <div class="col-md-4 mb-4">
-                <div class="bg-card rounded-lg shadow-md p-4">
-                    <h2 class="text-lg fw-semibold text-secondary">Entrepreneuriat féminin</h2>
-                    <p class="text-muted-foreground">Linear helps streamline software projects, tasks, and bug tracking. Here’s how to get started.</p>
-                    <div class="d-flex justify-content-between align-items-center mt-4">
-                        <span class="text-sm text-muted">Women in Africa</span>
-                        <span class="text-sm text-muted">19 Jan 2024</span>
-                        <a href="#" class="text-primary">→</a>
+                
+                <!-- Deuxième carte -->
+                <div class="col-md-4">
+                    <div class="card card-event">
+                        <img src="assets/images/image25.png" class="card-img-top" alt="Image d'événement">
+                        <div class="card-body">
+                            <p class="event-category">Entrepreneuriat</p>
+                            <div class="d-flex align-items-center">
+                                <h5 class="card-title">Entrepreneuriat féminin</h5>
+                            </div>
+                            <p class="card-text">Linear helps streamline software projects, sprints, tasks, and bug tracking.</p>
+                            <div class="event-info">
+                                <img src="assets/images/image25.png" alt="Profil Women in Africa">
+                                <div>
+                                    <p class="mb-0">Women in Africa</p>
+                                    <p class="event-date">19 Jan 2024</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-            
-            <div class="col-md-4 mb-4">
-                <div class="bg-card rounded-lg shadow-md p-4">
-                    <h2 class="text-lg fw-semibold text-secondary">Les outils digitaux</h2>
-                    <p class="text-muted-foreground">The rise of RESTful APIs has been met by a rise in tools for creating, testing, and managing them.</p>
-                    <div class="d-flex justify-content-between align-items-center mt-4">
-                        <span class="text-sm text-muted">Simpson SN</span>
-                        <span class="text-sm text-muted">18 Jan 2022</span>
-                        <a href="#" class="text-primary">→</a>
+                
+                <!-- Troisième carte -->
+                <div class="col-md-4">
+                    <div class="card card-event">
+                        <img src="assets/images/image25.png" class="card-img-top" alt="Image d'événement">
+                        <div class="card-body">
+                            <p class="event-category">Digital</p>
+                            <div class="d-flex align-items-center">
+                                <h5 class="card-title">Les outils digitaux</h5>
+                            </div>
+                            <p class="card-text">The rise of RESTful APIs has been met by a rise in tools for creating, testing, and managing them.</p>
+                            <div class="event-info">
+                                <img src="assets/images/image25.png" alt="Profil Simpson SN">
+                                <div>
+                                    <p class="mb-0">Simpson SN</p>
+                                    <p class="event-date">18 Jan 2024</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card card-event">
+                        <img src="assets/images/image25.png" class="card-img-top" alt="Image d'événement">
+                        <div class="card-body">
+                            <p class="event-category">Digital</p>
+                            <div class="d-flex align-items-center">
+                                <h5 class="card-title">Les outils digitaux</h5>
+                            </div>
+                            <p class="card-text">The rise of RESTful APIs has been met by a rise in tools for creating, testing, and managing them.</p>
+                            <div class="event-info">
+                                <img src="assets/images/image25.png" alt="Profil Simpson SN">
+                                <div>
+                                    <p class="mb-0">Simpson SN</p>
+                                    <p class="event-date">18 Jan 2024</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card card-event">
+                        <img src="assets/images/image25.png" class="card-img-top" alt="Image d'événement">
+                        <div class="card-body">
+                            <p class="event-category">Digital</p>
+                            <div class="d-flex align-items-center">
+                                <h5 class="card-title">Les outils digitaux</h5>
+                            </div>
+                            <p class="card-text">The rise of RESTful APIs has been met by a rise in tools for creating, testing, and managing them.</p>
+                            <div class="event-info">
+                                <img src="assets/images/image25.png" alt="Profil Simpson SN">
+                                <div>
+                                    <p class="mb-0">Simpson SN</p>
+                                    <p class="event-date">18 Jan 2024</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

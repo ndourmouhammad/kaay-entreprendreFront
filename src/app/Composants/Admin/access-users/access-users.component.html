@@ -1,0 +1,66 @@
+<header class="container">
+    <app-header-admin></app-header-admin>
+</header>
+
+<div class="container mt-4 users">
+    <div class="d-flex mb-3">
+        <img src="../../../../assets/retour.svg" alt="" routerLink="/access-admin">
+    <h2 >Gestion des utilisateurs</h2>
+    </div>
+    <div class="search-bar">
+        <div class="alert alert-success" style="display: none;">Status message goes here</div>
+        <input type="text" class="form-control d-inline-block" placeholder="Rechercher par mail">
+        <button class="btn btn-ajout d-inline-block">Rechercher</button>
+    </div>
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th class="responsive-mobile">Id</th>
+                <th class="responsive-mobile">Nom complet</th>
+                <th>Adresse email</th>
+                <th>Rôles</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="responsive-mobile">1</td>
+                <td class="responsive-mobile">John Doe</td>
+                <td><a href="#">john.doeexample.com</a></td>
+                <td>
+                    <span>
+                        <label class="badge mx-1 text-white" style="border: 1px solid #FF8200; background:#FF8200; color: white; font-weight:500; padding:2px 5px">Admin</label>
+                    </span>
+                </td>
+                <td class="action">
+                    <a routerLink="/access-users-details">
+                        <button class="btn btn-custom btn-logout">
+                            <span class="btn-text"> Voir</span>
+                            <span class="btn-icon"><img src="../../../../assets/eye1.svg" alt="edit icon"></span>
+                        </button>
+                    </a>
+
+                    <form action="#" method="POST" class="d-inline">
+                        <button type="submit" class="btn btn-custom btn-supprimer">
+                            <span class="btn-text">Bannir</span>
+                            <span class="btn-icon"><img src="../../../../assets/delete.svg" alt="delete icon"></span>
+                        </button>
+                    </form>
+                </td>
+            </tr>
+            <!-- Repeat for more users -->
+        </tbody>
+    </table>
+    <!-- Pagination links -->
+    <nav aria-label="Page navigation">
+        <ul class="pagination">
+            <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+            <li class="page-item"><a class="page-link" href="#">1</a></li>
+            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">Next</a></li>
+        </ul>
+    </nav>
+
+    <p style="display: none;">Aucun utilisateur trouvé.</p>
+</div>

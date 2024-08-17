@@ -7,9 +7,15 @@ import { CategorieCoachComponent } from './Composants/Coach/categorie-coach/cate
 import { EvenementCoachComponent } from './Composants/Coach/evenement-coach/evenement-coach.component';
 import { DetailEvenementCoachComponent } from './Composants/Coach/detail-evenement-coach/detail-evenement-coach.component';
 import { ProfilCoachComponent } from './Composants/Coach/profil-coach/profil-coach.component';
+import { DashboardAdminComponent } from './Composants/Admin/dashboard-admin/dashboard-admin.component';
+import { AccessAdminComponent } from './Composants/Admin/access-admin/access-admin.component';
+import { AccessUsersComponent } from './Composants/Admin/access-users/access-users.component';
+import { AccessUsersDetailComponent } from './Composants/Admin/access-users-detail/access-users-detail.component';
 
 export const routes: Routes = [
     { path: '', redirectTo: 'visiteur', pathMatch: 'full' },
+
+    // Routes pour Coach
     { path: 'dashboard-coach', component: DashboardCoachComponent},
     { path: 'ressources-coach', component: RessourceComponent},
     { path: 'ressource-form', component: RessourceFormComponent},
@@ -17,5 +23,11 @@ export const routes: Routes = [
     { path: 'ressources-categorie', component: CategorieCoachComponent},
     { path: 'events-coach', component: EvenementCoachComponent},
     { path: 'events-details-coach', component: DetailEvenementCoachComponent},
-    { path: 'profil-coach', component: ProfilCoachComponent}
+    { path: 'profil-coach', component: ProfilCoachComponent},
+
+    // Routes pour Admin
+    { path: 'dashboard-admin', component: DashboardAdminComponent},
+    { path: 'access-admin', component: AccessAdminComponent},
+    { path: 'access-users', component: AccessUsersComponent},
+    { path: 'access-users-details', component: AccessUsersDetailComponent}
 ];

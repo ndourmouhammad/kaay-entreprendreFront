@@ -4,6 +4,8 @@ import { DashboardCoachComponent } from './Composants/Coach/dashboard-coach/dash
 import { EvenementComponent } from './evenement/evenement.component';
 import { DetailEvenementComponent } from './detail-evenement/detail-evenement.component';
 import { GuideComponent } from './guide/guide.component';
+import { ForumComponent } from './forum/forum.component';
+import { DetailForumComponent } from './detail-forum/detail-forum.component';
 
 export const routes: Routes = [
     { path: '', redirectTo: 'visiteur', pathMatch: 'full' },
@@ -11,5 +13,7 @@ export const routes: Routes = [
     { path: 'evenement', component: EvenementComponent},
     { path: 'detail_evenement', component: DetailEvenementComponent},
     { path: 'guide', component: GuideComponent},
+    { path: 'forum', component: ForumComponent},
+    { path: 'detail-forum', component:DetailForumComponent}
     
 ];

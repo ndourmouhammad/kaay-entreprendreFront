@@ -17,6 +17,7 @@ import { EvenementAdminComponent } from './Composants/Admin/evenement-admin/even
 import { EvenementsDetailsAdminComponent } from './Composants/Admin/evenements-details-admin/evenements-details-admin.component';
 import { ReservationsComponent } from './Composants/Admin/reservations/reservations.component';
 import { AjoutEvenementComponent } from './Composants/Admin/ajout-evenement/ajout-evenement.component';
+import { ProfilAdminComponent } from './Composants/Admin/profil-admin/profil-admin.component';
 
 export const routes: Routes = [
     { path: '', redirectTo: 'visiteur', pathMatch: 'full' },
@@ -40,6 +41,7 @@ export const routes: Routes = [
     { path: 'access-permissions', component: AccessPermissionsComponent},
     { path: 'evenement-admin', component: EvenementAdminComponent},
     { path: 'events-details-admin', component: EvenementsDetailsAdminComponent},
-    {path: 'reservations', component: ReservationsComponent},
-    {path: 'ajouter-evenement', component: AjoutEvenementComponent}
+    { path: 'reservations', component: ReservationsComponent},
+    { path: 'ajouter-evenement', component: AjoutEvenementComponent},
+    { path: 'profil-admin', component: ProfilAdminComponent}
 ];

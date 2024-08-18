@@ -1,4 +1,4 @@
-
+<!-- 
   <div class="container-fluid p-5">
     <h1 class="text-left mb-4">Inscription</h1>
     <div class="row">
@@ -44,4 +44,93 @@
       <p class="mt-4 mb-0">Déjà un compte? <a routerLink="/login" class="text-warning">Cliquez ici</a></p>
     </div>
   </div>
+   -->
+
+   <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" enctype="multipart/form-data">
+    <div>
+      <label for="name">Name</label>
+      <input id="name" formControlName="name" type="text">
+      <div *ngIf="registerForm.get('name')?.invalid && registerForm.get('name')?.touched">
+        Name is required and must be less than 255 characters.
+      </div>
+    </div>
+  
+    <div>
+      <label for="email">Email</label>
+      <input id="email" formControlName="email" type="email">
+      <div *ngIf="registerForm.get('email')?.invalid && registerForm.get('email')?.touched">
+        A valid email is required and must be unique.
+      </div>
+    </div>
+  
+    <div>
+      <label for="password">Password</label>
+      <input id="password" formControlName="password" type="password">
+      <div *ngIf="registerForm.get('password')?.invalid && registerForm.get('password')?.touched">
+        Password is required and must be at least 8 characters long.
+      </div>
+    </div>
+  
+    <div>
+      <label for="password_confirmation">Confirm Password</label>
+      <input id="password_confirmation" formControlName="password_confirmation" type="password">
+      <div *ngIf="registerForm.hasError('notSame') && registerForm.get('password_confirmation')?.touched">
+        Passwords do not match.
+      </div>
+    </div>
+  
+    <div>
+      <label for="photo">Photo</label>
+      <input id="photo" formControlName="photo" type="file" (change)="onFileSelected($event)">
+      <div *ngIf="registerForm.get('photo')?.invalid && registerForm.get('photo')?.touched">
+        A photo is required (jpeg, jpg, png, max 2MB).
+      </div>
+    </div>
+  
+    <div>
+      <label for="adresse">Adresse</label>
+      <input id="adresse" formControlName="adresse" type="text">
+      <div *ngIf="registerForm.get('adresse')?.invalid && registerForm.get('adresse')?.touched">
+        Adresse is required and must be less than 255 characters.
+      </div>
+    </div>
+  
+    <div>
+      <label for="telephone">Telephone</label>
+      <input id="telephone" formControlName="telephone" type="text">
+      <div *ngIf="registerForm.get('telephone')?.invalid && registerForm.get('telephone')?.touched">
+        Telephone is required and must be unique.
+      </div>
+    </div>
+  
+    <div>
+      <label for="role">Role</label>
+      <select id="role" formControlName="role">
+        <option value="entrepreneur">Entrepreneur</option>
+        <option value="coach">Coach</option>
+      </select>
+      <div *ngIf="registerForm.get('role')?.invalid && registerForm.get('role')?.touched">
+        Role is required.
+      </div>
+    </div>
+  
+    <div>
+      <label for="cv">CV (optional)</label>
+      <input id="cv" formControlName="cv" type="file" (change)="onCVSelected($event)">
+    </div>
+  
+    <div>
+      <label for="secteur_activite_id">Secteur d'activité</label>
+      <select id="secteur_activite_id" formControlName="secteur_activite_id">
+        <option *ngFor="let secteur of secteurActivites" [value]="secteur.id">{{ secteur.titre }}</option>
+        <option *ngIf="secteurActivites.length === 0">Aucun secteur d'activité disponible</option>
+      </select>
+      
+      <div *ngIf="registerForm.get('secteur_activite_id')?.invalid && registerForm.get('secteur_activite_id')?.touched">
+        Secteur d'activité is required.
+      </div>
+    </div>
+  
+    <button type="submit" [disabled]="registerForm.invalid">Register</button>
+  </form>
   

@@ -18,6 +18,17 @@ export class AuthService {
     return this.http.post(`${apiUrl}login`, identifiant);
   }
 
+  // Méthode pour récuperer les secteurs d'activités
+  getSecteurActivites(): Observable<SecteurActiviteModel[]> {
+    return this.http.get<SecteurActiviteModel[]>(`${apiUrl}secteurs`);
+  }
+  
+
+  // Méthode pour l'inscription
+  register(identifiant: any){
+    return this.http.post(`${apiUrl}register`, identifiant);
+  }
+
   // Méthodes pour se déconnecter
   logout() {
     return this.http.post(`${apiUrl}logout`, {}, {

@@ -18,6 +18,7 @@ import { EvenementsDetailsAdminComponent } from './Composants/Admin/evenements-d
 import { ReservationsComponent } from './Composants/Admin/reservations/reservations.component';
 import { AjoutEvenementComponent } from './Composants/Admin/ajout-evenement/ajout-evenement.component';
 import { ProfilAdminComponent } from './Composants/Admin/profil-admin/profil-admin.component';
+import { RegisterComponent } from './Composants/Commun/register/register.component';
 import { LoginComponent } from './Composants/Commun/login/login.component';
 
 export const routes: Routes = [
@@ -47,6 +48,7 @@ export const routes: Routes = [
     { path: 'profil-admin', component: ProfilAdminComponent},
 
     // Routes pour l'authentification
-    { path: 'login', component: LoginComponent}
+    { path: 'login', component: LoginComponent},
+    { path: 'register', component: RegisterComponent}
     
 ];

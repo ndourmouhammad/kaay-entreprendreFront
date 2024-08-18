@@ -1,1 +1,76 @@
-<p>user-profil works!</p>
+<router-outlet></router-outlet>
+<app-header2></app-header2>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Document</title>
+</head>
+<body>
+   <div class="banner">
+<h1>mon profil</h1>
+<div class="info_profil">
+<div class="profil">
+    <div class="profil2">
+        <div><img src="assets/profil/Ellipse 255.png" alt=""></div>
+        <div><button>modifier</button></div>
+    </div>
+    <div class="data">
+        <p>prenom et nom</p>
+        <div class="info">
+            <p>anna marone</p>
+            <button>edit</button>
+        </div>
+        <p>Email</p>
+        <div class="info">
+            <p>annamarone14gmail</p>
+            <button>edit</button>
+        </div>
+        <p>téléphone</p>
+        <div class="info">
+            <p>77777777777</p>
+            <button>edit</button>
+        </div>
+    </div>
+</div>
+<div class="rese">
+    <div class="titre">Liste reservation</div>
+    <div class="table">
+        <table>
+            <thead>
+              <tr>
+                <th>numero</th>
+                <th>Date</th>
+                <th>evénement</th>
+                <th>action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>7</td>
+                <td>20/03/204</td>
+                <td>Conférence </td>
+                <td><i class="fa-solid fa-trash" style="color: #a12c0e;"></i></td>
+              </tr>
+              <tr>
+                <td>7</td>
+                <td>20/03/204</td>
+                <td>Conférence </td>
+                <td><i class="fa-solid fa-trash" style="color: #a12c0e;"></i></td>
+              </tr>
+              
+            </tbody>
+        </table>
+            
+          <blockquote> Responsive Table </blockquote>
+    </div>
+</div>
+</div>
+   </div>
+   <footer>
+    <app-footer></app-footer>
+   </footer>
+</body>
+</html>

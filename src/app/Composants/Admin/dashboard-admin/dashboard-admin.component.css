@@ -1,0 +1,84 @@
+body {
+    color: black;
+    font-family: "Poppins", sans-serif;
+}
+
+.navbar-brand img {
+    width: 100%;
+    height: 116px;
+}
+.btn-custom {
+    color: white;
+    font-weight: 500px;
+    font-family: "Poppins", sans-serif;
+    font-size: 16px;
+    width: 140px;
+    height: 55px;
+}
+.btn-logout {
+    background-color: #ff9700;
+    border-color: #ff9700;
+    
+}
+.btn-profile {
+    background-color: #00214a;
+    border-color: #00214a;   
+}
+
+.card-title {
+    font-size: 16px;
+    font-weight: 500px;
+    font-family: "Poppins", sans-serif;
+}
+.card-text {
+    font-size: 12px;
+    font-weight: 400px;
+    font-family: "Poppins", sans-serif;
+}
+
+.dates p {
+    font-size: 12px;
+    font-weight: 400px;
+    font-family: "Poppins", sans-serif;
+}
+#navbarNav ul li a {
+    font-size: 16px;
+    font-weight: bold;
+    font-family: "Poppins", sans-serif;
+    color: black;
+}
+
+#navbarNav ul li a.active {
+    color: #ff9700;
+}
+
+.stat-box {
+    font-family: "Poppins", sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+}
+
+.stat-box .stats {
+    font-size: 64px;
+}
+
+.stat-box p {
+    font-size: 20px;
+}
+
+.bg-warning {
+    background-color: #ff9700 !important;
+}
+
+.bg-dark {
+    background-color: #00214a !important;
+}
+
+@media (max-width: 768px) {
+    .row {
+        display: flex;
+        flex-direction: column;
+    }
+}

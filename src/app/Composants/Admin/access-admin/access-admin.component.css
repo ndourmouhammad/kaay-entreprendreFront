@@ -1,0 +1,48 @@
+/* Ombre blanc pour mon bordure */
+.ombre {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 5rem;
+}
+
+h2 {
+    font-weight: bold;
+    text-align: center;
+    font-size: 25px;
+    color: #00214A;
+    margin-bottom: 20px;
+    font-family: "Poppins", sans-serif;
+}
+
+p {
+    color: black;
+    line-height: 1.6;
+    font-family: "Poppins", sans-serif;
+    font-size: 13px;
+    font-weight: 200px;
+    margin-bottom: 20px;
+}
+
+.access-icon {
+    max-width: 80%;
+    height: auto;
+}
+
+.btn-custom {
+    color: white;
+    font-weight: 500px;
+    font-family: "Poppins", sans-serif;
+    font-size: 14px;
+    width: 292px;
+    height: 55px;
+}
+.btn-logout {
+    background-color: #ff9700;
+    border-color: #ff9700;
+    
+}
+
+@media (max-width: 768px) {
+    .access-icon {
+        display: none;
+    }
+}

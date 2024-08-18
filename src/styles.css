@@ -5,3 +5,5 @@ body {
     font-family: 'Poppins', sans-serif;
     background: url('./assets/background.png');
 }
+/* styles.css */
+@import 'bootstrap/dist/css/bootstrap.min.css';

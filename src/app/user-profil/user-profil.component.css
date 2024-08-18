@@ -42,6 +42,16 @@ body{
     margin-top:5%;
    
 }
+.rese .titre{
+    width: 281px;
+    height: 53px;
+    border: 1px solid rgba(0, 0, 0, 0.425);
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+   margin: 10px;
+   text-align: justify;
+   font-size: 16px;
+}
 .info_profil{
     display: flex;
     justify-content: center;

@@ -13,6 +13,6 @@ export const routes: Routes = [
     { path: 'dashboard-coach', component: DashboardCoachComponent},
     {path:'header1',component:Header1Component},
     {path:'footer',component:FooterComponent},
-    {path:'profil',component:UserProfilComponent},
+    {path:'userprofil',component:UserProfilComponent},
     {path:'modifier',component:ModifierProfilComponent},
 ];

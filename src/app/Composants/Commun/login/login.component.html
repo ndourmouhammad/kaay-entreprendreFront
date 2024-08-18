@@ -9,19 +9,36 @@
         <form>
           <div class="mb-3">
             <label for="email" class="form-label">Email</label>
-            <input type="email" id="email" placeholder="example@gmail.com" class="form-control custom-placeholder" style="background-color: #00214A; color: white;" required>
+            <input type="email" 
+       id="email" 
+       placeholder="example@gmail.com" 
+       class="form-control custom-placeholder" 
+       style="background-color: #00214A; color: white;" 
+       required 
+       [(ngModel)]="userObject.email" 
+       name="email">
+
           </div>
           <div class="mb-3">
             <label for="password" class="form-label">Mot de passe</label>
-            <input type="password" id="password" placeholder="********" class="form-control custom-placeholder" style="background-color: #00214A; color: white;" required>
+            <input type="password" 
+       id="password" 
+       placeholder="********" 
+       class="form-control custom-placeholder" 
+       style="background-color: #00214A; color: white;" 
+       required 
+       [(ngModel)]="userObject.password" 
+       name="password">
+
           </div>
           <!-- <div class="form-check mb-4">
             <input type="checkbox" id="remember" class="form-check-input">
             <label for="remember" class="form-check-label">Se souvenir de moi</label>
           </div> -->
-          <button type="submit" class="btn btn-warning text-white" style="background-color: #FF9700;">Connexion</button>
+          <button type="submit" class="btn btn-warning text-white" style="background-color: #FF9700;" (click)="login()">Connexion</button>
         </form>
-        <p class="mt-4 text-sm">Pas de compte? <a href="#" class="text-warning">Cliquez ici</a></p>
+        <p class="mt-4 text-sm">Pas de compte? <a href="/register" class="text-warning">Cliquez ici</a></p>
+        
       </div>
     </div>
   </div>

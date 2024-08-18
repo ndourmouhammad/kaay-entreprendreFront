@@ -1,0 +1,89 @@
+.banniere {
+    height: 50vh;
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+    background: url('../../../../assets/events1.png') no-repeat center center / cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+ .banniere img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+} 
+.content {
+    padding: 20px;
+}
+.info-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+.info-item i {
+    margin-right: 10px;
+    color: #FF8200;
+}
+
+
+.btn-dark{
+    background: transparent;
+    color: #FF8200;
+    border: none;
+    
+}
+
+.content h3 {
+    font-family: "Poppins", sans-serif;
+    font-size: 24px;
+    font-weight: bold;
+}
+.content p {
+    font-family: "Poppins", sans-serif;
+    font-size: 14px;
+}
+.participants-table {
+    margin-top: 20px;
+}
+
+.participants-table table {
+    width: 100%;
+}
+
+.participants-table table th, .participants-table table td {
+    text-align: center;
+    vertical-align: middle;
+}
+
+.table-actions img {
+    width: 20px;
+    height: 20px;
+}
+
+.voir-tous {
+    text-align: left;
+    margin-top: 10px;
+}
+
+.voir-tous a {
+    color: #FF8200;
+    text-decoration: none;
+    font-weight: bold;
+}
+.btn-modifier {
+    color: white;
+    font-weight: 500px;
+    font-family: "Poppins", sans-serif;
+    font-size: 14px;
+    width: 120px;
+    height: 55px;
+    background-color: #ff9700;
+    border-color: #ff9700;
+    margin-top: 20rem;
+}
+.info-item .titre {
+    font-family: "Poppins", sans-serif;
+    font-size: 16px;
+}

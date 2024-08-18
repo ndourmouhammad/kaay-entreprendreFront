@@ -13,6 +13,10 @@ import { AccessUsersComponent } from './Composants/Admin/access-users/access-use
 import { AccessUsersDetailComponent } from './Composants/Admin/access-users-detail/access-users-detail.component';
 import { AccessRolesComponent } from './Composants/Admin/access-roles/access-roles.component';
 import { AccessPermissionsComponent } from './Composants/Admin/access-permissions/access-permissions.component';
+import { EvenementAdminComponent } from './Composants/Admin/evenement-admin/evenement-admin.component';
+import { EvenementsDetailsAdminComponent } from './Composants/Admin/evenements-details-admin/evenements-details-admin.component';
+import { ReservationsComponent } from './Composants/Admin/reservations/reservations.component';
+import { AjoutEvenementComponent } from './Composants/Admin/ajout-evenement/ajout-evenement.component';
 
 export const routes: Routes = [
     { path: '', redirectTo: 'visiteur', pathMatch: 'full' },
@@ -34,4 +38,8 @@ export const routes: Routes = [
     { path: 'access-users-details', component: AccessUsersDetailComponent},
     { path: 'access-roles', component: AccessRolesComponent},
     { path: 'access-permissions', component: AccessPermissionsComponent},
+    { path: 'evenement-admin', component: EvenementAdminComponent},
+    { path: 'events-details-admin', component: EvenementsDetailsAdminComponent},
+    {path: 'reservations', component: ReservationsComponent},
+    {path: 'ajouter-evenement', component: AjoutEvenementComponent}
 ];

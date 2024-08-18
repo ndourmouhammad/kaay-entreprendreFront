@@ -1,0 +1,13 @@
+*{
+    margin: 0;
+    box-sizing: border-box;
+}
+.banner{
+    margin-top: 10px;
+    width: 100%;
+    height: 500px;
+    background-image: url("/assets/détail/pattern1.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}

@@ -6,6 +6,7 @@ import { Header2Component } from './headerFooter/header2/header2.component';
 import { AccueilComponent } from './AccueilComponent/accueil/accueil.component';
 import { FooterComponent } from './headerFooter/footer/footer.component';
 import { UserProfilComponent } from './user-profil/user-profil.component';
+import { ModifierProfilComponent } from './modifier-profil/modifier-profil.component';
 
 export const routes: Routes = [
     { path: '', redirectTo: 'visiteur', pathMatch: 'full' },
@@ -13,4 +14,5 @@ export const routes: Routes = [
     {path:'header1',component:Header1Component},
     {path:'footer',component:FooterComponent},
     {path:'profil',component:UserProfilComponent},
+    {path:'modifier',component:ModifierProfilComponent},
 ];

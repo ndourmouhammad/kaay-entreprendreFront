@@ -10,10 +10,9 @@ import { FooterComponent } from './headerFooter/footer/footer.component';
 
 
 export const routes: Routes = [
-    { path: '', redirectTo: 'visiteur', pathMatch: 'full' },
+    { path: '', redirectTo: 'Acceuil', pathMatch: 'full' },
     { path: 'dashboard-coach', component: DashboardCoachComponent},
     {path:'header1',component:Header1Component},
-
     {path:'header2',component:Header2Component },
     {path:'Acceuil',component:AcceuilComponent },
     {path:'footer',component:FooterComponent}

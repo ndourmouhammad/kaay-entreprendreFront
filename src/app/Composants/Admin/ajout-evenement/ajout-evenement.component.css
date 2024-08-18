@@ -1,0 +1,57 @@
+.container-fluid {
+    font-family: "Poppins", sans-serif;
+    color: black;
+}
+.image-container {
+    height: 110vh;
+}
+.img-fluid {
+    height: 90vh;
+    width: 35em;
+}
+.form-container {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+}
+.form-container h1 {
+    font-family: "Poppins", sans-serif;
+    font-size: 45px;
+}
+.form-group label {
+    font-family: "Poppins", sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+}
+.evenement{
+    color: white;
+    font-weight: 500px;
+    font-family: "Poppins", sans-serif;
+    font-size: 16px;
+    width: 140px;
+    height: 55px;
+    background-color: #00214a;
+    border-color: #00214a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}        
+
+.btn-annuler{
+    color: white;
+    font-weight: 500px;
+    font-family: "Poppins", sans-serif;
+    font-size: 16px;
+    width: 140px;
+    height: 55px;
+    background-color: #ff9700;
+    border-color: #ff9700;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+label{
+    font-weight: bold;
+    font-size: 14px;
+
+}

@@ -20,32 +20,34 @@ import { AjoutEvenementComponent } from './Composants/Admin/ajout-evenement/ajou
 import { ProfilAdminComponent } from './Composants/Admin/profil-admin/profil-admin.component';
 import { RegisterComponent } from './Composants/Commun/register/register.component';
 import { LoginComponent } from './Composants/Commun/login/login.component';
+import { administrationGuard } from './Guards/administration.guard';
+import { coachGuard } from './Guards/coach.guard';
 
 export const routes: Routes = [
     { path: '', redirectTo: 'visiteur', pathMatch: 'full' },
 
     // Routes pour Coach
-    { path: 'dashboard-coach', component: DashboardCoachComponent},
-    { path: 'ressources-coach', component: RessourceComponent},
-    { path: 'ressource-form', component: RessourceFormComponent},
-    { path: 'ressource-details' , component: RessourceDetailComponent},
-    { path: 'ressources-categorie', component: CategorieCoachComponent},
-    { path: 'events-coach', component: EvenementCoachComponent},
-    { path: 'events-details-coach', component: DetailEvenementCoachComponent},
-    { path: 'profil-coach', component: ProfilCoachComponent},
+    { path: 'dashboard-coach', component: DashboardCoachComponent, canActivate: [coachGuard]},
+    { path: 'ressources-coach', component: RessourceComponent, canActivate: [coachGuard]},
+    { path: 'ressource-form', component: RessourceFormComponent, canActivate: [coachGuard]},
+    { path: 'ressource-details' , component: RessourceDetailComponent, canActivate: [coachGuard]},
+    { path: 'ressources-categorie', component: CategorieCoachComponent, canActivate: [coachGuard]},
+    { path: 'events-coach', component: EvenementCoachComponent, canActivate: [coachGuard]},
+    { path: 'events-details-coach', component: DetailEvenementCoachComponent, canActivate: [coachGuard]},
+    { path: 'profil-coach', component: ProfilCoachComponent, canActivate: [coachGuard]},
 
     // Routes pour Admin
-    { path: 'dashboard-admin', component: DashboardAdminComponent},
-    { path: 'access-admin', component: AccessAdminComponent},
-    { path: 'access-users', component: AccessUsersComponent},
-    { path: 'access-users-details', component: AccessUsersDetailComponent},
-    { path: 'access-roles', component: AccessRolesComponent},
-    { path: 'access-permissions', component: AccessPermissionsComponent},
-    { path: 'evenement-admin', component: EvenementAdminComponent},
-    { path: 'events-details-admin', component: EvenementsDetailsAdminComponent},
-    { path: 'reservations', component: ReservationsComponent},
-    { path: 'ajouter-evenement', component: AjoutEvenementComponent},
-    { path: 'profil-admin', component: ProfilAdminComponent},
+    { path: 'dashboard-admin', component: DashboardAdminComponent, canActivate: [administrationGuard]},
+    { path: 'access-admin', component: AccessAdminComponent, canActivate: [administrationGuard]},
+    { path: 'access-users', component: AccessUsersComponent, canActivate: [administrationGuard]},
+    { path: 'access-users-details', component: AccessUsersDetailComponent, canActivate: [administrationGuard]},
+    { path: 'access-roles', component: AccessRolesComponent, canActivate: [administrationGuard]},
+    { path: 'access-permissions', component: AccessPermissionsComponent, canActivate: [administrationGuard]},
+    { path: 'evenement-admin', component: EvenementAdminComponent, canActivate: [administrationGuard]},
+    { path: 'events-details-admin', component: EvenementsDetailsAdminComponent, canActivate: [administrationGuard]},
+    { path: 'reservations', component: ReservationsComponent, canActivate: [administrationGuard]},
+    { path: 'ajouter-evenement', component: AjoutEvenementComponent, canActivate: [administrationGuard]},
+    { path: 'profil-admin', component: ProfilAdminComponent, canActivate: [administrationGuard]},
 
     // Routes pour l'authentification
     { path: 'login', component: LoginComponent},

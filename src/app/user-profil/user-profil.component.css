@@ -16,6 +16,9 @@ body{
     border-radius: 10px;
     border: 1px solid white;
 }
+.banner h1{
+    color: #fff;
+}
 .profil{
     width: 421px;
     height: 411px;

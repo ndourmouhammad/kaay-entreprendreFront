@@ -1,9 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-// import { Header1Component } from './headerFooter/header1/header1.component';
-// import { FooterComponent } from './headerFooter/footer/footer.component';
-// import { Header2Component } from './headerFooter/header2/header2.component';
-// import { AcceuilComponent } from './AccueilComponant/acceuil/acceuil.component';
+
 
 
 @Component({

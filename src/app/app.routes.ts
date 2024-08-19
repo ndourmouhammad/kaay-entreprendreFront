@@ -28,6 +28,17 @@ import { AcceuilComponent } from './Composants/Visiteur/acceuil/acceuil.componen
 import { FooterComponent } from './Composants/Commun/footer/footer.component';
 import { RessourcesComponent } from './Composants/Visiteur/ressources/ressources.component';
 
+// import { EvenementComponent } from './evenement/evenement.component';
+// import { DetailEvenementComponent } from './detail-evenement/detail-evenement.component';
+// import { GuideComponent } from './guide/guide.component';
+// import { ForumComponent } from './forum/forum.component';
+// import { DetailForumComponent } from './detail-forum/detail-forum.component';
+import { EvenementComponent } from './Composants/Visiteur/evenement/evenement.component';
+import { DetailEvenementComponent } from './Composants/Visiteur/detail-evenement/detail-evenement.component';
+import { GuideComponent } from './Composants/Visiteur/guide/guide.component';
+import { ForumComponent } from './Composants/Visiteur/forum/forum.component';
+import { DetailForumComponent } from './Composants/Visiteur/detail-forum/detail-forum.component';
+
 export const routes: Routes = [
     { path: '', redirectTo: 'Acceuil', pathMatch: 'full' },
 
@@ -59,8 +70,13 @@ export const routes: Routes = [
     { path: 'register', component: RegisterComponent},
 
     // Routes pour l'acceuil
+
+    { path: 'evenement', component: EvenementComponent},
+    { path: 'detail_evenement', component: DetailEvenementComponent},
+    { path: 'guide', component: GuideComponent},
+    { path: 'forum', component: ForumComponent},
+    { path: 'detail-forum', component:DetailForumComponent},
     
-    { path: 'dashboard-coach', component: DashboardCoachComponent},
     {path:'header1',component:Header1Component},
     {path:'header2',component:Header2Component },
     {path:'Acceuil',component:AcceuilComponent },

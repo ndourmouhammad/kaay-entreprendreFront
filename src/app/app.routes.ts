@@ -38,7 +38,8 @@ import { UserProfilComponent } from './Composants/Visiteur/user-profil/user-prof
 import { ModifierProfilComponent } from './Composants/Visiteur/modifier-profil/modifier-profil.component';
 import { DemandeComponent } from './Composants/Visiteur/demande/demande.component';
 import { DemandecoachComponent } from './Composants/Visiteur/demandecoach/demandecoach.component';
-import { RetourExperienceComponent } from './Composants/Visiteur/retour-experience/retour-experience.component';
+import { RetourExperienceComponent } from './Composants/Admin/retour-experience/retour-experience.component';
+import { RetourExperienceAccueilComponent } from './Composants/Visiteur/retour-experience-accueil/retour-experience-accueil.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'Acceuil', pathMatch: 'full' },
@@ -141,6 +142,11 @@ export const routes: Routes = [
     component: ProfilAdminComponent,
     canActivate: [administrationGuard],
   },
+  {
+    path: 'retour-experience-admin',
+    component: RetourExperienceComponent,
+    canActivate: [administrationGuard],
+  },
 
   // Routes pour l'authentification
   { path: 'login', component: LoginComponent },
@@ -164,7 +170,7 @@ export const routes: Routes = [
   { path: 'profil-entrepreneur', component: UserProfilComponent },
   { path: 'modifier-profil', component: ModifierProfilComponent },
 
-    { path:'demande-accompagnement', component:DemandeComponent},
+ { path:'demande-accompagnement', component:DemandeComponent},
 
 
 
@@ -173,5 +179,5 @@ export const routes: Routes = [
     
     { path: 'demande-accompagnement-coach' , component: DemandecoachComponent},
 
-    { path: 'retourexperience', component: RetourExperienceComponent}
+    { path: 'retourexperience', component: RetourExperienceAccueilComponent}
 ];

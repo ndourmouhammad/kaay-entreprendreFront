@@ -36,6 +36,7 @@ import { DetailForumComponent } from './Composants/Visiteur/detail-forum/detail-
 import { DetailRessourceComponent } from './Composants/Visiteur/detail-ressource/detail-ressource.component';
 import { UserProfilComponent } from './Composants/Visiteur/user-profil/user-profil.component';
 import { ModifierProfilComponent } from './Composants/Visiteur/modifier-profil/modifier-profil.component';
+import { DemandeComponent } from './Composants/Visiteur/demande/demande.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'Acceuil', pathMatch: 'full' },
@@ -160,4 +161,7 @@ export const routes: Routes = [
   { path: 'detail-ressource', component: DetailRessourceComponent },
   { path: 'profil-entrepreneur', component: UserProfilComponent },
   { path: 'modifier-profil', component: ModifierProfilComponent },
+
+    { path:'demande-accompagnement', component:DemandeComponent}
+
 ];

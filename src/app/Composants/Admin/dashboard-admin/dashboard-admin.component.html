@@ -17,25 +17,25 @@
                 <div class="row">
                     <div class="col-lg-6 mb-3">
                         <div class="stat-box bg-warning text-white text-center py-4">
-                            <p class="stats">125</p>
+                            <p class="stats">{{ entrepreneurCount }}</p>
                             <p>ENTREPRENEURS</p>
                         </div>
                     </div>
                     <div class="col-lg-6 mb-3">
                         <div class="stat-box bg-dark text-white text-center py-4">
-                            <p class="stats">25</p>
+                            <p class="stats">{{ coachCount }}</p>
                             <p>COACHS</p>
                         </div>
                     </div>
                     <div class="col-lg-6 mb-3">
                         <div class="stat-box bg-dark text-white text-center py-4">
-                            <p class="stats">15</p>
+                            <p class="stats">{{ eventsCount }}</p>
                             <p>EVENEMENTS</p>
                         </div>
                     </div>
                     <div class="col-lg-6 mb-3">
                         <div class="stat-box bg-warning text-white text-center py-4">
-                            <p class="stats">5</p>
+                            <p class="stats">{{ eventsCome }}</p>
                             <p>EVENEMENTS <br> A VENIR</p>
                         </div>
                     </div>
@@ -53,51 +53,24 @@
                 <hr class="my-5">
                 
                 <div class="event-card-container row ">
-                    <div class="col-12 col-sm-12 col-md-12 col-lg-12 mb-3">
+                    <div *ngFor="let event of events" class="col-12 col-sm-12 col-md-12 col-lg-12 mb-3">
                         <div class="card event-card">
-                            <div class="card-body">
-                                <h5 class="card-title">Masterclass</h5>
-                                <p class="card-text">Simplon Sénégal</p>
-                                <div class="event-details d-flex align-items-center">
-                                    <img src="../../../../assets/calendar.svg" alt="">
-                                    <div class="dates ml-2">
-                                        <p>Date début</p>
-                                        <p>Date fin</p>
-                                    </div>
-                                </div>
+                          <div class="card-body">
+                            <h5 class="card-title">{{ event.theme }}</h5>
+                            <p class="card-text">{{ event.lieu }}</p>
+                            <div class="event-details d-flex align-items-center">
+                              <img src="../../../../assets/calendar.svg" alt="Calendar icon">
+                              <div class="dates ml-2">
+                                <p>Date début: {{ event.date_debut | date:'yyyy-MM-dd HH:mm' }}</p>
+                                <p>Date fin: {{ event.date_fin | date:'yyyy-MM-dd HH:mm' }}</p>
+
+                              </div>
                             </div>
+                          </div>
                         </div>
-                    </div>
-                    <div class="col-12 col-sm-12 col-md-12 col-lg-12 mb-3">
-                        <div class="card event-card">
-                            <div class="card-body">
-                                <h5 class="card-title">Meet up</h5>
-                                <p class="card-text">Institut français</p>
-                                <div class="event-details d-flex align-items-center">
-                                    <img src="../../../../assets/calendar.svg" alt="">
-                                    <div class="dates ml-2">
-                                        <p>Date début</p>
-                                        <p>Date fin</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-sm-12 col-md-12 col-lg-12 mb-3">
-                        <div class="card event-card">
-                            <div class="card-body">
-                                <h5 class="card-title">Session de mentorat</h5>
-                                <p class="card-text">Cinéma Pathé</p>
-                                <div class="event-details d-flex align-items-center">
-                                    <img src="../../../../assets/calendar.svg" alt="">
-                                    <div class="dates ml-2">
-                                        <p>Date début</p>
-                                        <p>Date fin</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                      </div>
+
+                    
                 </div>
             </section>
         </div>

@@ -1,5 +1,5 @@
 import { Injectable, inject } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { apiUrl } from './apiUrl';
 import { Observable } from 'rxjs';
 import { SecteurActiviteModel } from '../Models/secteuractivite.model';
@@ -37,4 +37,16 @@ export class AuthService {
       }
     });
   }
+
+  // Méthode pour récuperer le nombre de users avec le role entrepreneur
+  getEntrepreneurCount(): Observable<any> {
+    return this.http.get<any>(`${apiUrl}nombre_entrepreneur`);
+  }
+
+  // Méthode pour récuperer le nombre de users avec le role coach
+  getCoachCount(): Observable<any> {
+    return this.http.get<any>(`${apiUrl}nombre_coach`);
+  }
+
+  
 }

@@ -1,0 +1,75 @@
+/*Page Profil Coach*/
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+body{
+  margin: 40px;
+  font-family: poppins;
+  text-align: justify;
+}
+
+
+.profil{
+  border: solid rgb(159, 154, 154) 2px;
+  width: 80%;
+  padding: 20px;
+  margin: 20px;
+  border-radius: 30px;
+  margin-top: 50px;
+
+
+}
+
+#h5{
+  text-align: center;
+}
+
+.profil1{
+  display: grid;
+  grid-template-columns: 500px 500px;
+  gap: 100px;
+  margin-top: 40px;
+
+}
+
+#envoyer{
+  border-radius: 10px;
+  background-color: #FF9700;
+  margin-left: 50px;
+  color: white;
+  font-weight: bold;
+  border: solid rgb(195, 193, 193) 1px;
+  font-size: 1em;
+
+}
+
+
+
+
+#image_pro{
+
+  width: 400px;
+  border-radius: 150px;
+}
+
+@media screen and (max-width: 480px) {
+
+  .profil1 {
+    display:block;
+    text-align: justify;
+}
+
+#image_pro{
+
+  width: 300px;
+}
+
+.profil{
+  width: 100%;
+  margin-left: 5px;
+}
+
+#h2{
+  margin-top: 30px;
+}
+
+}

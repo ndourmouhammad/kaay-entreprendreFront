@@ -1,0 +1,114 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+*{
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    margin: 0;
+    font-family: Poppins, sans-serif;
+}
+.banner{
+    margin-top: 10px;
+    width: 100%;
+    height: 500px;
+    background-image: url("/assets/détail/pattern1.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: space-between;
+   margin: 5% auto;
+}
+.banner img{
+    width: 600px;
+    height: 400px;
+    border-radius: 8px;
+}
+.banner h1{
+    font-size: 30px;
+    margin: auto;
+    margin-left: 10px;
+
+}
+.contenu {
+    margin: auto;
+}
+.contenu h1{
+font-size: 47px;
+margin: 10px;
+}
+.contenu h6{
+    font-size: 18px;
+}
+.contenu hr{
+   border: 2px dotted #00214A;
+}
+.contenu p{
+    width: 1009px;
+    height: 700px;
+    margin:10px auto;
+}
+.contenu img{
+ float: right;
+ width: 158px;
+ height: 156px;
+}
+footer{
+    margin-top: 15%;
+}
+@media screen and (max-width: 390px) {
+    .banner{
+        margin-top: 10px;
+        height: 500px;
+        display: block;
+        flex-direction: column;
+       margin: 5% auto;
+    } 
+    .banner img{
+        width: 390px;
+        height: 400px;
+        border-radius: 8px;
+    }
+    .contenu p{
+        max-height: 550px; /* Ajustez la hauteur maximale selon vos besoins */
+        width: 330px;
+        margin: auto;
+        overflow-y: scroll; 
+      
+    }
+    .banner h1{
+        font-size: 18px;
+        margin: auto;
+        margin-left: 10px;
+    
+    }
+    .contenu h1{
+        font-size: 16px;
+        margin: 10px;
+        font-weight: bolder;
+        }
+    .contenu img{
+       margin: auto;
+       }
+       .contenu p::-webkit-scrollbar {
+        width: 6px;
+      }
+    
+      .contenu p::-webkit-scrollbar-thumb {
+        background-color: #888;
+        border-radius: 10px;
+      }
+    
+      .contenu p::-webkit-scrollbar-thumb:hover {
+        background-color: #555;
+      }
+     footer{
+        margin-top: 30%;
+     }
+     .contenu img{
+        float: right;
+        width: 108px;
+        height: 80px;
+        margin-bottom: 10%;
+       }
+}

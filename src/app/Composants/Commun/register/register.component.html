@@ -1,0 +1,98 @@
+<form [formGroup]="registerForm" (ngSubmit)="onSubmit()" enctype="multipart/form-data" class="container-fluid p-5">
+  <h1 class="text-left mb-4">Inscription</h1>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="mb-3">
+        <label for="name" class="form-label">Nom</label>
+        <input id="name" formControlName="name" type="text" class="form-control" placeholder="nom">
+        <div *ngIf="registerForm.get('name')?.invalid && registerForm.get('name')?.touched" class="text-danger">
+          Name is required and must be less than 255 characters.
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input id="email" formControlName="email" type="email" class="form-control" placeholder="example@gmail.com">
+        <div *ngIf="registerForm.get('email')?.invalid && registerForm.get('email')?.touched" class="text-danger">
+          A valid email is required and must be unique.
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="photo" class="form-label">Photo</label>
+        <input id="photo" formControlName="photo" type="file" class="form-control" (change)="onFileSelected($event)">
+        <div *ngIf="registerForm.get('photo')?.invalid && registerForm.get('photo')?.touched" class="text-danger">
+          A photo is required (jpeg, jpg, png, max 2MB).
+        </div>
+      </div>
+
+     
+
+      <div class="mb-3">
+        <label for="cv" class="form-label">CV (optionnel)</label>
+        <input id="cv" formControlName="cv" type="file" class="form-control" (change)="onCVSelected($event)">
+      </div>
+
+      <div class="mb-3">
+        <label for="adresse" class="form-label">Adresse</label>
+        <input id="adresse" formControlName="adresse" type="text" class="form-control" placeholder="adresse">
+        <div *ngIf="registerForm.get('adresse')?.invalid && registerForm.get('adresse')?.touched" class="text-danger">
+          Adresse is required and must be less than 255 characters.
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <div class="mb-3">
+        <label for="telephone" class="form-label">Téléphone</label>
+        <input id="telephone" formControlName="telephone" type="text" class="form-control" placeholder="770000000">
+        <div *ngIf="registerForm.get('telephone')?.invalid && registerForm.get('telephone')?.touched" class="text-danger">
+          Telephone is required and must be unique.
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="secteur_activite_id" class="form-label">Secteur d'activité</label>
+        <select id="secteur_activite_id" formControlName="secteur_activite_id" class="form-control">
+          <option *ngFor="let secteur of secteurActivites" [value]="secteur.id">{{ secteur.titre }}</option>
+          <option *ngIf="secteurActivites.length === 0">Aucun secteur d'activité disponible</option>
+        </select>
+        <div *ngIf="registerForm.get('secteur_activite_id')?.invalid && registerForm.get('secteur_activite_id')?.touched" class="text-danger">
+          Secteur d'activité is required.
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="password" class="form-label">Mot de passe</label>
+        <input id="password" formControlName="password" type="password" class="form-control" placeholder="********">
+        <div *ngIf="registerForm.get('password')?.invalid && registerForm.get('password')?.touched" class="text-danger">
+          Password is required and must be at least 8 characters long.
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="password_confirmation" class="form-label">Confirmer le mot de passe</label>
+        <input id="password_confirmation" formControlName="password_confirmation" type="password" class="form-control" placeholder="********">
+        <div *ngIf="registerForm.hasError('notSame') && registerForm.get('password_confirmation')?.touched" class="text-danger">
+          Passwords do not match.
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="role" class="form-label">Rôle</label>
+        <select id="role" formControlName="role" class="form-control">
+          <option value="entrepreneur">Entrepreneur</option>
+          <option value="coach">Coach</option>
+        </select>
+        <div *ngIf="registerForm.get('role')?.invalid && registerForm.get('role')?.touched" class="text-danger">
+          Role is required.
+        </div>
+      </div>
+    </div>
+    
+  </div>
+
+  <div class="text-left mt-4">
+    <button type="submit" [disabled]="registerForm.invalid" class="btn btn-warning">Inscription</button>
+    <p class="mt-4 mb-0">Déjà un compte? <a routerLink="/login" class="text-warning">Cliquez ici</a></p>
+  </div>
+</form>

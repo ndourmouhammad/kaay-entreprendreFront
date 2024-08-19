@@ -38,6 +38,7 @@ import { UserProfilComponent } from './Composants/Visiteur/user-profil/user-prof
 import { ModifierProfilComponent } from './Composants/Visiteur/modifier-profil/modifier-profil.component';
 import { DemandeComponent } from './Composants/Visiteur/demande/demande.component';
 import { DemandecoachComponent } from './Composants/Visiteur/demandecoach/demandecoach.component';
+import { RetourExperienceComponent } from './Composants/Visiteur/retour-experience/retour-experience.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'Acceuil', pathMatch: 'full' },
@@ -170,6 +171,7 @@ export const routes: Routes = [
 
 
     
-    { path: 'demande-accompagnement-coach' , component: DemandecoachComponent}
+    { path: 'demande-accompagnement-coach' , component: DemandecoachComponent},
 
+    { path: 'retourexperience', component: RetourExperienceComponent}
 ];

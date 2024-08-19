@@ -22,6 +22,14 @@ import { RegisterComponent } from './Composants/Commun/register/register.compone
 import { LoginComponent } from './Composants/Commun/login/login.component';
 import { administrationGuard } from './Guards/administration.guard';
 import { coachGuard } from './Guards/coach.guard';
+// import { Header1Component } from './headerFooter/header1/header1.component';
+// import { Header2Component } from './headerFooter/header2/header2.component';
+// import { AcceuilComponent } from './AccueilComponant/acceuil/acceuil.component';
+// import { FooterComponent } from './headerFooter/footer/footer.component';
+import { Header1Component } from './Composants/Commun/header1/header1.component';
+import { Header2Component } from './Composants/Commun/header2/header2.component';
+import { AcceuilComponent } from './Composants/Visiteur/acceuil/acceuil.component';
+import { FooterComponent } from './Composants/Commun/footer/footer.component';
 
 export const routes: Routes = [
     { path: '', redirectTo: 'visiteur', pathMatch: 'full' },
@@ -51,6 +59,13 @@ export const routes: Routes = [
 
     // Routes pour l'authentification
     { path: 'login', component: LoginComponent},
-    { path: 'register', component: RegisterComponent}
-    
+    { path: 'register', component: RegisterComponent},
+
+    // Routes pour l'acceuil
+    { path: '', redirectTo: 'Acceuil', pathMatch: 'full' },
+    { path: 'dashboard-coach', component: DashboardCoachComponent},
+    {path:'header1',component:Header1Component},
+    {path:'header2',component:Header2Component },
+    {path:'Acceuil',component:AcceuilComponent },
+    {path:'footer',component:FooterComponent}
 ];

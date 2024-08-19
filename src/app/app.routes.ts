@@ -28,57 +28,136 @@ import { AcceuilComponent } from './Composants/Visiteur/acceuil/acceuil.componen
 import { FooterComponent } from './Composants/Commun/footer/footer.component';
 import { RessourcesComponent } from './Composants/Visiteur/ressources/ressources.component';
 
-
 import { EvenementComponent } from './Composants/Visiteur/evenement/evenement.component';
 import { DetailEvenementComponent } from './Composants/Visiteur/detail-evenement/detail-evenement.component';
 import { GuideComponent } from './Composants/Visiteur/guide/guide.component';
 import { ForumComponent } from './Composants/Visiteur/forum/forum.component';
 import { DetailForumComponent } from './Composants/Visiteur/detail-forum/detail-forum.component';
 import { DetailRessourceComponent } from './Composants/Visiteur/detail-ressource/detail-ressource.component';
+import { UserProfilComponent } from './Composants/Visiteur/user-profil/user-profil.component';
+import { ModifierProfilComponent } from './Composants/Visiteur/modifier-profil/modifier-profil.component';
 
 export const routes: Routes = [
-    { path: '', redirectTo: 'Acceuil', pathMatch: 'full' },
+  { path: '', redirectTo: 'Acceuil', pathMatch: 'full' },
 
-    // Routes pour Coach
-    { path: 'dashboard-coach', component: DashboardCoachComponent, canActivate: [coachGuard]},
-    { path: 'ressources-coach', component: RessourceComponent, canActivate: [coachGuard]},
-    { path: 'ressource-form', component: RessourceFormComponent, canActivate: [coachGuard]},
-    { path: 'ressource-details' , component: RessourceDetailComponent, canActivate: [coachGuard]},
-    { path: 'ressources-categorie', component: CategorieCoachComponent, canActivate: [coachGuard]},
-    { path: 'events-coach', component: EvenementCoachComponent, canActivate: [coachGuard]},
-    { path: 'events-details-coach', component: DetailEvenementCoachComponent, canActivate: [coachGuard]},
-    { path: 'profil-coach', component: ProfilCoachComponent, canActivate: [coachGuard]},
+  // Routes pour Coach
+  {
+    path: 'dashboard-coach',
+    component: DashboardCoachComponent,
+    canActivate: [coachGuard],
+  },
+  {
+    path: 'ressources-coach',
+    component: RessourceComponent,
+    canActivate: [coachGuard],
+  },
+  {
+    path: 'ressource-form',
+    component: RessourceFormComponent,
+    canActivate: [coachGuard],
+  },
+  {
+    path: 'ressource-details',
+    component: RessourceDetailComponent,
+    canActivate: [coachGuard],
+  },
+  {
+    path: 'ressources-categorie',
+    component: CategorieCoachComponent,
+    canActivate: [coachGuard],
+  },
+  {
+    path: 'events-coach',
+    component: EvenementCoachComponent,
+    canActivate: [coachGuard],
+  },
+  {
+    path: 'events-details-coach',
+    component: DetailEvenementCoachComponent,
+    canActivate: [coachGuard],
+  },
+  {
+    path: 'profil-coach',
+    component: ProfilCoachComponent,
+    canActivate: [coachGuard],
+  },
 
-    // Routes pour Admin
-    { path: 'dashboard-admin', component: DashboardAdminComponent, canActivate: [administrationGuard]},
-    { path: 'access-admin', component: AccessAdminComponent, canActivate: [administrationGuard]},
-    { path: 'access-users', component: AccessUsersComponent, canActivate: [administrationGuard]},
-    { path: 'access-users-details', component: AccessUsersDetailComponent, canActivate: [administrationGuard]},
-    { path: 'access-roles', component: AccessRolesComponent, canActivate: [administrationGuard]},
-    { path: 'access-permissions', component: AccessPermissionsComponent, canActivate: [administrationGuard]},
-    { path: 'evenement-admin', component: EvenementAdminComponent, canActivate: [administrationGuard]},
-    { path: 'events-details-admin', component: EvenementsDetailsAdminComponent, canActivate: [administrationGuard]},
-    { path: 'reservations', component: ReservationsComponent, canActivate: [administrationGuard]},
-    { path: 'ajouter-evenement', component: AjoutEvenementComponent, canActivate: [administrationGuard]},
-    { path: 'profil-admin', component: ProfilAdminComponent, canActivate: [administrationGuard]},
+  // Routes pour Admin
+  {
+    path: 'dashboard-admin',
+    component: DashboardAdminComponent,
+    canActivate: [administrationGuard],
+  },
+  {
+    path: 'access-admin',
+    component: AccessAdminComponent,
+    canActivate: [administrationGuard],
+  },
+  {
+    path: 'access-users',
+    component: AccessUsersComponent,
+    canActivate: [administrationGuard],
+  },
+  {
+    path: 'access-users-details',
+    component: AccessUsersDetailComponent,
+    canActivate: [administrationGuard],
+  },
+  {
+    path: 'access-roles',
+    component: AccessRolesComponent,
+    canActivate: [administrationGuard],
+  },
+  {
+    path: 'access-permissions',
+    component: AccessPermissionsComponent,
+    canActivate: [administrationGuard],
+  },
+  {
+    path: 'evenement-admin',
+    component: EvenementAdminComponent,
+    canActivate: [administrationGuard],
+  },
+  {
+    path: 'events-details-admin',
+    component: EvenementsDetailsAdminComponent,
+    canActivate: [administrationGuard],
+  },
+  {
+    path: 'reservations',
+    component: ReservationsComponent,
+    canActivate: [administrationGuard],
+  },
+  {
+    path: 'ajouter-evenement',
+    component: AjoutEvenementComponent,
+    canActivate: [administrationGuard],
+  },
+  {
+    path: 'profil-admin',
+    component: ProfilAdminComponent,
+    canActivate: [administrationGuard],
+  },
 
-    // Routes pour l'authentification
-    { path: 'login', component: LoginComponent},
-    { path: 'register', component: RegisterComponent},
+  // Routes pour l'authentification
+  { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegisterComponent },
 
-    // Routes pour l'acceuil
+  // Routes pour l'acceuil
 
-    { path: 'evenement', component: EvenementComponent},
-    { path: 'detail_evenement', component: DetailEvenementComponent},
-    { path: 'guide', component: GuideComponent},
-    { path: 'forum', component: ForumComponent},
-    { path: 'detail-forum', component:DetailForumComponent},
-    
-    {path:'header1',component:Header1Component},
-    {path:'header2',component:Header2Component },
-    {path:'Acceuil',component:AcceuilComponent },
-    {path:'footer',component:FooterComponent},
+  { path: 'evenement', component: EvenementComponent },
+  { path: 'detail_evenement', component: DetailEvenementComponent },
+  { path: 'guide', component: GuideComponent },
+  { path: 'forum', component: ForumComponent },
+  { path: 'detail-forum', component: DetailForumComponent },
 
-    {path:'ressources',component:RessourcesComponent},
-    {path:'detail-ressource',component:DetailRessourceComponent},
+  { path: 'header1', component: Header1Component },
+  { path: 'header2', component: Header2Component },
+  { path: 'Acceuil', component: AcceuilComponent },
+  { path: 'footer', component: FooterComponent },
+
+  { path: 'ressources', component: RessourcesComponent },
+  { path: 'detail-ressource', component: DetailRessourceComponent },
+  { path: 'profil-entrepreneur', component: UserProfilComponent },
+  { path: 'modifier-profil', component: ModifierProfilComponent },
 ];

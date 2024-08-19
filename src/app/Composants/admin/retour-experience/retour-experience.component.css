@@ -1,0 +1,18 @@
+
+body{
+  font-family: poopins;
+}
+
+.card{
+  box-shadow: 2px 2px 2px 2px;
+  margin: 40px;
+
+
+}
+
+.img_titre{
+  display: flex;
+  gap: 30px;
+}
+
+

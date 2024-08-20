@@ -102,5 +102,21 @@ export class UsersService {
                 catchError(this.handleError)
             );
     }
+
+    // Méthode pour afficher les informations de l'utilisateur connecté
+    getMe(): Observable<any> {
+        const token = localStorage.getItem('access_token');
+        
+        if (!token) {
+            console.error('No authentication token found');
+            return throwError('No authentication token found');
+        }
+    
+        const headers = new HttpHeaders({
+            'Authorization': `Bearer ${token}`
+        });
+    
+        return this.http.get<any>(`${apiUrl}user_connecte`, { headers });
+    }
     
 }

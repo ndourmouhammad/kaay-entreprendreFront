@@ -103,7 +103,7 @@ export const routes: Routes = [
     canActivate: [administrationGuard],
   },
   {
-    path: 'access-users-details',
+    path: 'access-users-details/:id',
     component: AccessUsersDetailComponent,
     canActivate: [administrationGuard],
   },

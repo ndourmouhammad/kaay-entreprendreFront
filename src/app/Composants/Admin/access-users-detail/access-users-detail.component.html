@@ -2,43 +2,47 @@
     <app-header-admin></app-header-admin>
 </header>
 
-<div class="container ">
+<div class="container">
     <div class="d-flex mb-3 users">
         <img src="../../../../assets/retour.svg" alt="" routerLink="/access-users">
-    <h2 >Gestion des utilisateurs</h2>
+        <h2>Gestion des utilisateurs</h2>
     </div>
     <!-- Profile Banner -->
     <div class="profile-banner text-white text-center d-flex align-items-center justify-content-center">
-        <h1>Profile Coach</h1>
+        <h1>Profil</h1>
     </div>
 
     <!-- Profile Details -->
     <div class="profile-details row align-items-center mt-5">
         <div class="col-md-8">
-            <h2>Fatima Dansoko</h2>
+            <h2>{{ user.name }}</h2> <!-- Binding pour le nom de l'utilisateur -->
             <p>
                 <img src="../../../../assets/phone.svg" alt="">
-                <span class="ml-2">78 103 35 01</span>
+                <span class="ml-2">{{ user.telephone }}</span> <!-- Binding pour le numéro de téléphone -->
             </p>
             <p>
                 <img src="../../../../assets/mail.svg" alt="">
-                <span class="ml-2">fatoumatadansoko61gmail.com</span>
+                <span class="ml-2">{{ user.email }}</span> <!-- Binding pour l'email -->
             </p>
             <p>
                 <img src="../../../../assets/location.svg" alt="">
-                    <span class="ml-2">Dakar plateau</span>
+                <span class="ml-2">{{ user.adresse }}</span> <!-- Binding pour l'adresse -->
             </p>
             <p>
-                <i class="bi bi-briefcase"></i> Informatiques &nbsp;&nbsp;
-                <i class="bi bi-check-circle"></i> compte activé
+                <i class="bi bi-briefcase"></i> {{ user.secteuractivite_id }} &nbsp;&nbsp; <!-- Binding pour secteur d'activité -->
+                <i class="bi bi-check-circle" *ngIf="user.statut"></i> <!-- Affichage conditionnel pour le statut -->
+                <i class="bi bi-x-circle" *ngIf="!user.statut"></i>
             </p>
             <div class="mt-5 mb-5">
-                <button class="btn btn-custom btn-profile me-4">Désactiver</button>
-                <button class="btn btn-custom btn-logout">Activer</button>
+                <button class="btn btn-custom btn-profile me-4" (click)="toggleStatus()">
+                    {{ user.statut ? 'Désactiver' : 'Activer' }}
+                </button>
             </div>
         </div>
-        <div class="col-md-4 text-center ">
-            <img src="../../../../assets/profil.png" alt="Fatima Dansoko" class="rounded-circle img-fluid profile-pic">
+        <div class="col-md-4 text-center">
+            <!-- <img [src]="user.photo" alt="{{ user.name }}" class="rounded-circle img-fluid profile-pic"> Binding pour l'image de profil -->
+            <img *ngIf="user.photo" [src]="getPhotoUrl(user.photo)" alt="{{ user.name }}" class="rounded-circle img-fluid profile-pic">
+
         </div>
     </div>
 </div>

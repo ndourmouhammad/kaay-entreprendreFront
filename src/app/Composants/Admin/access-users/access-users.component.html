@@ -24,31 +24,42 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td class="responsive-mobile">1</td>
-                <td class="responsive-mobile">John Doe</td>
-                <td><a href="#">john.doeexample.com</a></td>
+            <tr *ngFor="let user of users; let i = index">
+                <td class="responsive-mobile">{{ i + 1 }}</td>
+                <td class="responsive-mobile">{{ user.name }}</td>
+                <td><a href="#">{{ user.email }}</a></td>
                 <td>
                     <span>
-                        <label class="badge mx-1 text-white" style="border: 1px solid #FF8200; background:#FF8200; color: white; font-weight:500; padding:2px 5px">Admin</label>
+                      <label class="badge mx-1 text-white"
+                             style="border: 1px solid #FF8200; background:#FF8200; color: white; font-weight:500; padding:2px 5px">
+                        {{ getRoleName(user) }}
+                      </label>
                     </span>
-                </td>
-                <td class="action">
-                    <a routerLink="/access-users-details">
-                        <button class="btn btn-custom btn-logout">
-                            <span class="btn-text"> Voir</span>
-                            <span class="btn-icon"><img src="../../../../assets/eye1.svg" alt="edit icon"></span>
-                        </button>
+                  </td>
+                  <td class="action">
+                    <!-- View Button -->
+                    <a [routerLink]="['/access-users-details', user.id]">
+                      <button class="btn btn-custom btn-logout">
+                        <span class="btn-text">Voir</span>
+                        <span class="btn-icon"><img src="../../../../assets/eye1.svg" alt="edit icon"></span>
+                      </button>
                     </a>
+                  
+                    <!-- Delete Button -->
+                    <!-- Delete Button -->
+                    <button *ngIf="user.id" (click)="deleteUser(user.id)" class="btn btn-custom btn-supprimer">
+                        <span class="btn-text">Bannir</span>
+                        <span class="btn-icon"><img src="../../../../assets/delete.svg" alt="delete icon"></span>
+                      </button>
+                      
+                      
 
-                    <form action="#" method="POST" class="d-inline">
-                        <button type="submit" class="btn btn-custom btn-supprimer">
-                            <span class="btn-text">Bannir</span>
-                            <span class="btn-icon"><img src="../../../../assets/delete.svg" alt="delete icon"></span>
-                        </button>
-                    </form>
-                </td>
-            </tr>
+                      
+                      
+                  </td>
+                  
+              </tr>
+              
             <!-- Repeat for more users -->
         </tbody>
     </table>

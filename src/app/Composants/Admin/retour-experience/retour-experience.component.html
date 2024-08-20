@@ -3,7 +3,10 @@
 </header>
 
 <div class="container mt-5">
-    <button class="btn btn-warning mb-3">Ajouter</button>
+  
+  <!-- Bouton "Ajouter" -->
+<button class="btn btn-warning mb-3" (click)="openModal()">Ajouter</button>
+
     <h2>Les retours d'expérience</h2>
     <div class="row mt-3">
       <div class="col-md-6 col-lg-4 mb-4" *ngFor="let retour of retourExperience">
@@ -29,3 +32,59 @@
     </div>
   </div>
   
+
+<!-- Modal pour l'ajout -->
+<!-- Modal pour l'ajout -->
+<div
+  class="modal fade"
+  id="addRetourExperienceModal"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Ajouter Retour d'Expérience</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form (ngSubmit)="onAddRetourExperience()" #addRetourExperienceForm="ngForm">
+          <div class="mb-3">
+            <label for="libelle" class="form-label">Libellé</label>
+            <input
+              type="text"
+              class="form-control"
+              id="libelle"
+              [(ngModel)]="newRetourExperience.libelle"
+              name="libelle"
+              required
+            />
+          </div>
+          <div class="mb-3">
+            <label for="contenu" class="form-label">Contenu</label>
+            <textarea
+              class="form-control"
+              id="contenu"
+              [(ngModel)]="newRetourExperience.contenu"
+              name="contenu"
+              required
+            ></textarea>
+          </div>
+          <div class="mb-3">
+            <label for="image" class="form-label">Image</label>
+            <input
+              type="file"
+              class="form-control"
+              id="image"
+              (change)="onFileSelected($event)"
+              accept="image/*"
+              name="image"
+            />
+          </div>
+          <button type="submit" class="btn btn-primary" [disabled]="!addRetourExperienceForm.valid">Ajouter</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

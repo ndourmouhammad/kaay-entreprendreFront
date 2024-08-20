@@ -1,7 +1,7 @@
 import { Injectable, inject } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { apiUrl } from './apiUrl';
-import { Observable } from 'rxjs';
+import { Observable, throwError } from 'rxjs';
 import { SecteurActiviteModel } from '../Models/secteuractivite.model';
 
 @Injectable({
@@ -31,12 +31,21 @@ export class AuthService {
 
   // Méthodes pour se déconnecter
   logout() {
-    return this.http.post(`${apiUrl}logout`, {}, {
-      headers: {
-        'Authorization': `Bearer ${localStorage.getItem('access_token')}`
-      }
+    const token = localStorage.getItem('access_token');
+  
+    if (!token) {
+      console.error('No authentication token found');
+      return throwError('No authentication token found');
+    }
+  
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}`,
+      'Content-Type': 'application/json'
     });
+  
+    return this.http.post(`${apiUrl}logout`, {}, { headers });
   }
+  
 
   // Méthode pour récuperer le nombre de users avec le role entrepreneur
   getEntrepreneurCount(): Observable<any> {

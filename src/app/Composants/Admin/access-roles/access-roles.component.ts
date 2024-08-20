@@ -6,6 +6,8 @@ import { Role } from '../../../Models/users.model';
 import { NgFor, NgIf } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
+import { Permission } from '../../../Models/permissions.models';
+import { PermissionsService } from '../../../Services/permissions.service';
 
 @Component({
   selector: 'app-access-roles',
@@ -33,16 +35,27 @@ export class AccessRolesComponent implements OnInit {
   roles: Role[] = [];
   newRole: Role = { id: 0, name: '' };
   selectedRole: Role = { id: 0, name: '' };
+  permissions: Permission[] = []; // Liste des permissions
+  selectedPermissionId: number | undefined;
 
   @ViewChild('editRoleModal', { static: true }) editRoleModal!: TemplateRef<any>;
+  @ViewChild('permissionModal') permissionModal!: TemplateRef<any>;
  // Declaration de la variable editRoleModal
 
-  constructor(private roleService: RolesService
-    , private modalService: NgbModal
+  constructor(private roleService: RolesService,
+    private modalService: NgbModal,
+    private permissionService: PermissionsService
   ) {}
 
   ngOnInit(): void {
     this.loadRoles();
+    this.loadPermissions(); 
+  }
+
+  loadPermissions(): void {
+    this.permissionService.getPermissions().subscribe((data) => {
+      this.permissions = data.data;
+    });
   }
 
   loadRoles(): void {
@@ -128,5 +141,26 @@ onUpdateRole(): void {
     }
   });
 }
+
+// Méthode pour ouvrir le modal
+  openPermissionModal(role: Role): void {
+    this.selectedRole = { ...role };
+    this.modalService.open(this.permissionModal);
+  }
+
+  // Méthode pour octroyer une permission à un rôle
+  onAssignPermission(): void {
+    if (this.selectedRole.id && this.selectedPermissionId) {
+      this.roleService.addPermissionToRole(this.selectedRole.id, this.selectedPermissionId).subscribe({
+        next: (response) => {
+          console.log('Permission assigned successfully:', response);
+          this.modalService.dismissAll(); // Ferme le modal après succès
+        },
+        error: (error) => {
+          console.error('Error assigning permission:', error);
+        }
+      });
+    }
+  }
 }
 

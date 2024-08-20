@@ -1,3 +1,12 @@
+<div *ngIf="ressource">
+    <h2>{{ ressource.titre }}</h2>
+    <img [src]="ressource.image" alt="{{ ressource.titre }}" />
+    <p>{{ ressource.description }}</p>
+    <a [href]="ressource.contenu" target="_blank">Voir le contenu</a>
+  </div>
+
+
+<!-- 
 <app-header1></app-header1>
 <!DOCTYPE html>
 <html lang="en">
@@ -14,7 +23,8 @@
         <div>
             <h1>Cours de gestion d'entreprise et d'entrepreneuriat pour les propriétaires de petites entreprises</h1>
         </div>
-
+       
+          
     </div>
     <section class="contenu">
 <h1>1. Fondamentaux de l'administration des affaires</h1>
@@ -35,4 +45,4 @@
         <app-footer></app-footer>
     </footer>
 </body>
-</html>
+</html> -->

@@ -1,4 +1,5 @@
 /* Assurer que le fond couvre toute la hauteur de la page */
+
 html, body {
   height: 100%;
   margin: 0;

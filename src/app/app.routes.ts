@@ -160,16 +160,11 @@ export const routes: Routes = [
   { path: 'footer', component: FooterComponent },
 
   { path: 'ressources', component: RessourcesComponent },
-  { path: 'detail-ressource', component: DetailRessourceComponent },
+  { path: 'detail-ressource/:id', component: DetailRessourceComponent },
   { path: 'profil-entrepreneur', component: UserProfilComponent },
   { path: 'modifier-profil', component: ModifierProfilComponent },
 
     { path:'demande-accompagnement', component:DemandeComponent},
-
-
-
-
-
     
     { path: 'demande-accompagnement-coach' , component: DemandecoachComponent},
 

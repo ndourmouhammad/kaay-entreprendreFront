@@ -94,4 +94,19 @@ export class RetourExperienceComponent implements OnInit {
       this.retourExperience = data.data;
     });
   }
+
+  onDeleteRetourExperience(id: number) {
+    if (confirm("Are you sure you want to delete this experience?")) {
+        this.retourExperienceService.deleteRetourExperience(id).subscribe({
+            next: (response) => {
+                console.log('Experience deleted:', response.message);
+                this.getRetourExperience(); // Refresh the list after deletion
+            },
+            error: (error) => {
+                console.error('Error deleting experience:', error);
+            }
+        });
+    }
+}
+
 }

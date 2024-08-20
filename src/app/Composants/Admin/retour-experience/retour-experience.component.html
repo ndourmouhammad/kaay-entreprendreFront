@@ -20,7 +20,10 @@
               </div>
               <div class="d-flex">
                 <button class="btn btn-sm"><img src="../../../../assets/edit.svg" alt="edit"></button>
-                <button class="btn btn-sm"><img src="../../../../assets/delete.svg" alt="delete"></button>
+                <button *ngIf="retour.id" (click)="onDeleteRetourExperience(retour.id)" class="btn btn-sm ms-2">
+                  <img src="../../../../assets/delete.svg" alt="delete icon">
+              </button>
+               
               </div>
             </div>
             <img src="../../../../assets/quote.svg" alt="">

@@ -4,7 +4,7 @@ import { RouterLink, RouterModule } from '@angular/router';
 import { UsersService } from '../../../Services/users.service';
 import { UserModel } from '../../../Models/users.model';
 import { NgFor, NgIf } from '@angular/common';
-import { MatDialogModule } from '@angular/material/dialog';
+
 
 @Component({
   selector: 'app-access-users',

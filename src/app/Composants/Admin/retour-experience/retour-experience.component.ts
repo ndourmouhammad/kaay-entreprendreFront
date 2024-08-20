@@ -32,6 +32,13 @@ export class RetourExperienceComponent implements OnInit {
   newRetourExperience: RetourExperienceModel = { libelle: '', contenu: '', image: '' };
   selectedFile: File | null = null;
 
+  
+ 
+  
+  editRetourExperience: RetourExperienceModel = { id: 0, libelle: '', contenu: '', image: '' };
+  
+  editSelectedFile: File | null = null;
+
   constructor(private retourExperienceService: RetourExperienceService) {}
 
   ngOnInit(): void {
@@ -108,5 +115,59 @@ export class RetourExperienceComponent implements OnInit {
         });
     }
 }
+
+ // Open the edit modal and populate it with the selected experience
+ openEditModal(retour: RetourExperienceModel) {
+  this.editRetourExperience = { ...retour };
+  const modalElement = document.getElementById('editRetourExperienceModal');
+  const modal = new bootstrap.Modal(modalElement);
+  modal.show();
+}
+
+// Handle file selection for the edit modal
+onEditFileSelected(event: Event) {
+  const input = event.target as HTMLInputElement;
+  if (input.files && input.files.length > 0) {
+    this.editSelectedFile = input.files[0];
+    console.log('File type:', this.editSelectedFile.type);  // Check the MIME type
+  }
+}
+
+
+onUpdateRetourExperience() {
+  const formData = new FormData();
+  formData.append('libelle', String(this.editRetourExperience.libelle));
+  formData.append('contenu', String(this.editRetourExperience.contenu));
+
+  if (this.editSelectedFile) {
+    formData.append('image', this.editSelectedFile as Blob);
+  }
+
+  // Include the ID if your backend expects it as part of the form data
+  formData.append('id', String(this.editRetourExperience.id));
+
+  // Call the service method with the FormData
+  this.retourExperienceService.updateRetourExperience(formData).subscribe({
+    next: (response) => {
+      console.log('Experience updated:', response.message);
+      this.getRetourExperience(); // Refresh the list
+      this.closeEditModal(); // Close the modal
+    },
+    error: (error) => {
+      console.error('Error updating experience:', error);
+      if (error.error && error.error.errors) {
+        console.error('Validation Errors:', error.error.errors);
+      }
+    }
+  });
+}
+
+
+closeEditModal() {
+  const modalElement = document.getElementById('editRetourExperienceModal');
+  const modal = bootstrap.Modal.getInstance(modalElement);
+  modal.hide();
+}
+
 
 }

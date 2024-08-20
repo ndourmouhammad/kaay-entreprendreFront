@@ -35,7 +35,7 @@ export class AccessPermissionsComponent implements OnInit {
     this.getPermissions();
   }
 
-  // Méthode pour afficher la liste des permissions
+ 
    // Méthode pour afficher la liste des permissions
    getPermissions(): void {
     this.permissionService.getPermissions().subscribe({
@@ -72,7 +72,7 @@ export class AccessPermissionsComponent implements OnInit {
     }
   }
 
-  // Méthode pour ajouter une permission
+  
   // Méthode pour ajouter une nouvelle permission
   addPermission(permission: Permission): void {
     this.permissionService.addPermission(permission).subscribe({

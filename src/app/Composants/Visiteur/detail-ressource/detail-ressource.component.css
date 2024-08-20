@@ -4,6 +4,7 @@
 * {
    margin: 0;
    box-sizing: border-box;
+   font-family: 'Poppins';
 }
 
 
@@ -17,21 +18,20 @@ body {
    margin-top: 10px;
    width: 80%;
    height: 350px;
-   background-image: url("/assets/détail/pattern1.png");
    background-repeat: no-repeat;
    background-size: cover;
    background-position: center;
    display: flex;
    justify-content: space-between;
    margin: 5% auto;
-   gap: 10%;
+   gap: 15%;
 }
 
 
 .banner img {
-   width: 100%;
+   width: 150%;
    max-width: 900px;
-   height: auto;
+   height: 100%;
    border-radius: 8px;
 }
 
@@ -57,11 +57,14 @@ body {
 
 .contenu h6 {
    font-size: 18px;
+   margin: auto;
 }
 
 
 .contenu hr {
    border: 2px dotted #00214A;
+   max-width: 1000px;
+   margin: auto;
 }
 
 
@@ -84,7 +87,11 @@ body {
 footer {
    margin-top: 15%;
 }
-
+h2{
+   font-size: 18px;
+   font-weight: bold;
+   width: 70%;
+}
 
 /* Media Queries pour les écrans moyens (tablettes) */
 @media screen and (max-width: 768px) {

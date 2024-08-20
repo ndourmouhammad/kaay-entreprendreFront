@@ -1,48 +1,24 @@
-<div *ngIf="ressource">
-    <h2>{{ ressource.titre }}</h2>
-    <img [src]="ressource.image" alt="{{ ressource.titre }}" />
-    <p>{{ ressource.description }}</p>
-    <a [href]="ressource.contenu" target="_blank">Voir le contenu</a>
-  </div>
 
-
-<!-- 
 <app-header1></app-header1>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <div class="banner">
+
+    <div  *ngIf="ressource" class="banner">
         <div>
-            <img src="https://cdn.pixabay.com/photo/2024/01/19/18/08/bird-8519547_1280.jpg" alt="">
+          <img [src]="ressource.image" alt="{{ ressource.titre }}" />
         </div>
         <div>
-            <h1>Cours de gestion d'entreprise et d'entrepreneuriat pour les propriétaires de petites entreprises</h1>
+            <h2>{{  ressource.description  }}</h2>
         </div>
        
           
     </div>
     <section class="contenu">
-<h1>1. Fondamentaux de l'administration des affaires</h1>
-<h6>page1</h6>
+<p>{{ ressource.titre }}</p>
 <hr>
-<p>Les principes fondamentaux de l'administration des affaires sont un ensemble de principes, de concepts et de techniques appliqués dans le processus de gestion d'une organisation. Comprendre ces principes fondamentaux est essentiel pour tout professionnel qui souhaite devenir un assistant administratif performant.
-    Le premier aspect fondamental est la compréhension de la structure organisationnelle d'une entreprise. Les organisations sont composées de différents départements ou fonctions, chacun avec ses responsabilités et objectifs spécifiques. La structure organisationnelle peut être hiérarchique, où l'autorité circule de haut en bas, ou elle peut être plus plate, où l'autorité est plus distribuée. Comprendre la structure organisationnelle est crucial pour savoir comment les décisions sont prises, comment les informations circulent et comment les responsabilités sont réparties.
-    Le deuxième aspect est la compréhension de l'environnement commercial. Cela implique de comprendre les forces économiques, politiques, sociales, technologiques et culturelles qui affectent l'entreprise. Par exemple, comprendre l’environnement économique peut aider à prédire les tendances du marché, tandis que comprendre l’environnement politique peut aider à anticiper les changements réglementaires.
-    Le troisième aspect est la compréhension des fonctions de gestion. Ceux-ci sont généralement divisés en planification, organisation, direction et contrôle. La planification implique de fixer des objectifs et de déterminer la meilleure façon de les atteindre. L'organisation implique l'allocation de ressources et la définition de tâches. Diriger consiste à diriger et à motiver les employés pour atteindre leurs objectifs. Le contrôle implique de surveiller les progrès vers les objectifs et de procéder aux ajustements nécessaires.
-    Le quatrième aspect est la compréhension des principes de gestion. Ce sont des lignes directrices qui aident les managers à prendre des décisions et à diriger leurs équipes. Certains des principes les plus courants comprennent la division du travail, l'autorité et la responsabilité, l'unité de commandement, l'unité de direction, la subordination des intérêts individuels aux intérêts généraux, la rémunération, la centralisation, la chaîne scalaire, l'ordre, l'équité, la stabilité du personnel, l'initiative et l'esprit d'équipe.
-    Le cinquième aspect consiste à comprendre les compétences nécessaires pour être un administrateur efficace. Celles-ci incluent des compétences techniques telles que la connaissance de processus et de procédures spécifiques, des compétences humaines telles que la capacité de bien travailler avec les autres et des compétences conceptuelles telles que la capacité de penser de manière stratégique et de résoudre des problèmes complexes.
-    En résumé, les principes fondamentaux de l'administration des affaires constituent un ensemble de connaissances essentielles à tout professionnel souhaitant devenir un assistant administratif performant. Comprendre ces principes fondamentaux peut vous aider à naviguer efficacement dans l'environnement commercial, à prendre des décisions éclairées et à diriger efficacement une équipe.
-    </p>
+<p><p>{{ ressource.contenu }}</p>
     <hr>
     <img src="assets/détail/Rectangle 6.png" alt="">
     </section>
     <footer>
         <app-footer></app-footer>
     </footer>
-</body>
-</html> -->
+

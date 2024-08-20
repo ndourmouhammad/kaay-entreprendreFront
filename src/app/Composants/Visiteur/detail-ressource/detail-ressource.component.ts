@@ -34,7 +34,7 @@ export class DetailRessourceComponent implements OnInit {
     if (id) {
       this.ressourceService.getRessourceById(id).subscribe(
         (response: any) => {
-          // Vérifiez si la réponse contient les propriétés attendues
+         
           if (response && response.id && response.titre) {
             this.ressource = response;
           } else {

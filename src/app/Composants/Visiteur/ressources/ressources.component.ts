@@ -71,35 +71,25 @@ fetchRessources(categorieId?: number) {
   if (categorieId) {
     this.ressourceService.getRessourcesByCategorie(categorieId).subscribe(
       (response: any) => {
-        if (response && response.data) {
-          this.tabRessources = response.data;
-          console.log(this.tabRessources);
+        if (Array.isArray(response)) {
+          this.tabRessources = response.filter((ressource: any) => ressource.categorie_id === categorieId);
+          console.log('Ressources de la catégorie', categorieId, ':', this.tabRessources);
         } else {
           console.error('La réponse de l\'API ne contient pas une liste de ressources:', response);
         }
       },
-      (error: any) => {
+      (error) => {
         console.error('Erreur lors de la récupération des ressources:', error);
       }
     );
   } else {
-    this.ressourceService.getAllRessource().subscribe(
-      (response: any) => {
-        if (Array.isArray(response)) {
-          console.log('Ressources:', response);
-          this.tabRessources = response.reverse().slice(0, 6);
-        } else {
-          console.error('API response is not an array:', response);
-        }
-      },
-      (error: any) => {
-        console.error('Error fetching resources:', error);
-      }
-    );
+    console.error('ID de catégorie non défini');
   }
 }
+
+
 onCategorieClick(categorieId: number | undefined) {
-  if (categorieId !== undefined) {
+  if (categorieId) {
     this.selectedCategorieId = categorieId;
     this.fetchRessources(categorieId);
   } else {

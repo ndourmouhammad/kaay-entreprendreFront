@@ -60,4 +60,20 @@ export class PermissionsService {
     
         return this.http.post<any>(`${apiUrl}permissions`, permission, { headers });
     }
+
+    // Mehtode pour modifier une permission
+    updatePermission(permission: Permission): Observable<any> {
+        const token = localStorage.getItem('access_token');
+        
+        if (!token) {
+            console.error('No authentication token found');
+            return throwError('No authentication token found');
+        }
+    
+        const headers = new HttpHeaders({
+            'Authorization': `Bearer ${token}`
+        });
+    
+        return this.http.post<any>(`${apiUrl}permissions/${permission.id}`, permission, { headers });
+    }
 }

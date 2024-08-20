@@ -29,12 +29,21 @@
           <td>{{ permission.id }}</td>
           <td>{{ permission.name }}</td>
           <td class="action">
-            <a routerLink="/access-users-details">
+
+            <!-- <a routerLink="/access-users-details">
               <button class="btn btn-custom btn-logout">
                 <span class="btn-text">Modifier</span>
                 <span class="btn-icon"><img src="../../../../assets/edit.svg" alt="edit icon"></span>
               </button>
-            </a>
+            </a> -->
+
+            <button class="btn btn-custom btn-logout" (click)="openModal(permission)">
+                <span class="btn-text">Modifier</span>
+                <span class="btn-icon"
+                  ><img src="../../../../assets/edit.svg" alt="edit icon"
+                /></span>
+              </button>
+
             <!-- Bouton pour supprimer la permission -->
        
         <button *ngIf="permission.id" (click)="deletePermission(permission.id)" class="btn btn-custom btn-supprimer">
@@ -51,4 +60,37 @@
     <pagination-controls (pageChange)="pageChanged($event)"></pagination-controls>
   </div>
   
-  
+  <!-- Modale de modification -->
+<ng-template #editPermissionModal let-modal>
+    <div class="modal-header">
+      <h5 class="modal-title" id="editPermissionModalLabel">Modifier la permission</h5>
+      <button
+        type="button"
+        class="btn-close"
+        aria-label="Close"
+        (click)="modal.dismiss('Cross click')"
+      ></button>
+    </div>
+    <div class="modal-body">
+      <form (ngSubmit)="onUpdatePermission()" #editPermissionForm="ngForm">
+        <div class="form-group">
+          <label for="permissionName">Nom de la permission</label>
+          <input
+            type="text"
+            class="form-control"
+            id="permissionName"
+            [(ngModel)]="selectedPermission.name"
+            name="name"
+            required
+          />
+        </div>
+        <button
+          type="submit"
+          class="btn btn-primary btn-primary-custom"
+          [disabled]="!editPermissionForm.valid"
+        >
+          Sauvegarder les modifications
+        </button>
+      </form>
+    </div>
+  </ng-template>

@@ -119,6 +119,11 @@ td {
     background-color: #00214A;
   }
 
+  .btn-primary-custom {
+    background-color: #ff8200;
+    border-color: #ff8200;
+  }
+
 .boites {
   margin-top: 6rem;
 }

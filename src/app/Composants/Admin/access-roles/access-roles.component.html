@@ -125,7 +125,8 @@
             <option *ngFor="let permission of permissions" [value]="permission.id">{{ permission.name }}</option>
           </select>
         </div>
-        <button type="submit" class="btn btn-primary" [disabled]="!permissionForm.valid">Octroyer</button>
+        <button type="submit" class="btn btn-primary btn-primary-custom" [disabled]="!permissionForm.valid">Octroyer</button>
+
       </form>
     </div>
   </ng-template>

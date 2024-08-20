@@ -1,10 +1,11 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject, OnInit, ViewChild, TemplateRef, ElementRef } from '@angular/core';
 import { HeaderAdminComponent } from '../header-admin/header-admin.component';
 import { RouterLink, RouterModule } from '@angular/router';
 import { RolesService } from '../../../Services/roles.service';
 import { Role } from '../../../Models/users.model';
 import { NgFor, NgIf } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-access-roles',
@@ -31,8 +32,14 @@ export class AccessRolesComponent implements OnInit {
   // Declaration de la variable roles
   roles: Role[] = [];
   newRole: Role = { id: 0, name: '' };
+  selectedRole: Role = { id: 0, name: '' };
 
-  constructor(private roleService: RolesService) {}
+  @ViewChild('editRoleModal', { static: true }) editRoleModal!: TemplateRef<any>;
+ // Declaration de la variable editRoleModal
+
+  constructor(private roleService: RolesService
+    , private modalService: NgbModal
+  ) {}
 
   ngOnInit(): void {
     this.loadRoles();
@@ -84,5 +91,42 @@ export class AccessRolesComponent implements OnInit {
     }
   }
   
+ // Méthode pour ouvrir la modale et sélectionner le rôle à modifier
+ openModal(role: Role): void {
+  this.selectedRole = { ...role }; // Copier les données du rôle sélectionné
+  this.modalService.open(this.editRoleModal, { ariaLabelledBy: 'editRoleModalLabel' }).result.then(
+    (result) => {
+      console.log(`Closed with: ${result}`);
+    },
+    (reason) => {
+      console.log(`Dismissed ${this.getDismissReason(reason)}`);
+    }
+  );
+}
+
+private getDismissReason(reason: any): string {
+  if (reason === ModalDismissReasons.ESC) {
+    return 'by pressing ESC';
+  } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
+    return 'by clicking on a backdrop';
+  } else {
+    return `with: ${reason}`;
+  }
+}
+
+
+// Méthode pour gérer la soumission du formulaire de modification
+onUpdateRole(): void {
+  this.roleService.updateRole(this.selectedRole).subscribe({
+    next: (response) => {
+      console.log('Role updated successfully:', response);
+      this.loadRoles(); // Rafraîchit la liste des rôles après modification
+      this.modalService.dismissAll(); // Ferme la modale après succès
+    },
+    error: (error) => {
+      console.error('Error updating role:', error);
+    }
+  });
+}
 }
 

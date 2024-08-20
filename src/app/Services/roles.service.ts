@@ -59,4 +59,20 @@ export class RolesService {
     
         return this.http.post<any>(`${apiUrl}roles`, role, { headers });
     }
+
+    // Mehtode pour modifier un role
+    updateRole(role: Role): Observable<any> {
+        const token = localStorage.getItem('access_token');
+        
+        if (!token) {
+            console.error('No authentication token found');
+            return throwError('No authentication token found');
+        }
+    
+        const headers = new HttpHeaders({
+            'Authorization': `Bearer ${token}`
+        });
+    
+        return this.http.post<any>(`${apiUrl}roles/${role.id}`, role, { headers });
+    }
 }

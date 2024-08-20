@@ -36,12 +36,11 @@
                             <span class="btn-icon"><img src="../../../../assets/key.svg" alt="edit icon"></span>
                         </button>
                     </a>
-                    <a routerLink="/access-users-details">
-                        <button class="btn btn-custom btn-logout">
-                            <span class="btn-text">Modifier</span>
-                            <span class="btn-icon"><img src="../../../../assets/edit.svg" alt="edit icon"></span>
-                        </button>
-                    </a>
+                    <!-- Button to trigger the modal -->
+                        <button class="btn btn-custom btn-logout" (click)="openModal(role)">
+    <span class="btn-text">Modifier</span>
+    <span class="btn-icon"><img src="../../../../assets/edit.svg" alt="edit icon"></span>
+  </button>
 
                     <button *ngIf="role.id" (click)="deleteRole(role.id)" class="btn btn-custom btn-supprimer">
                         <span class="btn-text">Supprimer</span>
@@ -53,3 +52,23 @@
     </table>
     
 </div>
+
+
+<!-- Modale de modification -->
+<ng-template #editRoleModal let-modal>
+    <div class="modal-header">
+      <h5 class="modal-title" id="editRoleModalLabel">Modifier le rôle</h5>
+      <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+    </div>
+    <div class="modal-body">
+      <form (ngSubmit)="onUpdateRole()" #editRoleForm="ngForm">
+        <div class="form-group">
+          <label for="roleName">Nom du rôle</label>
+          <input type="text" class="form-control" id="roleName" [(ngModel)]="selectedRole.name" name="name" required>
+        </div>
+        <button type="submit" class="btn btn-primary btn-primary-custom" [disabled]="!editRoleForm.valid">Sauvegarder les modifications</button>
+
+      </form>
+    </div>
+  </ng-template>
+  

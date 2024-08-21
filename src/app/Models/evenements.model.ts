@@ -5,8 +5,9 @@ export interface EvenementModel {
     date_debut?: string
     date_fin?: string
     lieu?: string
-    photo?: string
+    image?: string
     prix?: string
+    nombre_places?: number
     createdAt?: Date
     updatedAt?: Date
 }

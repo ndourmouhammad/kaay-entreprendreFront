@@ -5,119 +5,35 @@
     <div class="row mt-4">
         <div class="col-md-3">
             <div class="filter-sidebar">
-                <h5>Filtrer par thématique</h5>
-                <form action="#">
-                    <div class="form-group">
-                        <label for="activity_area">Sélectionner une catégorie</label>
-                        <select class="form-control" id="activity_area" name="activity_area">
-                            <!-- Exemple de valeurs statiques -->
-                            <option value="Activité 1">theme 1</option>
-                            <option value="theme 2">theme 2</option>
-                            <option value="theme 3">Activité 3</option>
-                        </select>
-                    </div>
-                    <button class="btn btn-custom btn-profile">Filtrer</button>
-                </form>
+                <h5>Rechercher par thématique</h5>
+                <div class="form-group">
+                    <label for="searchTheme">Rechercher un thème</label>
+                    <input type="text" class="form-control" id="searchTheme" [(ngModel)]="searchQuery" placeholder="Entrez un thème">
+                </div>
                 <button class="btn btn-custom btn-logout mt-4" routerLink="/ajouter-evenement">Ajouter une événement</button>
-            
             </div>
-            
-            
-            
         </div>
-        
     
-        <div class="col-md-9">
-            
+        <div class="col-md-9 ">
             <div class="row">
-                <!-- Exemple d'événements statiques -->
-                <div class="col-md-4 mb-4">
+                <!-- Loop through events dynamically and filter by search query -->
+                <div class="col-md-4 mb-4" *ngFor="let event of events ">
                     <div class="card mb-4">
-                        <img src="../../../../assets/events1.png" class="card-img-top" alt="Event Image">
-                        <span class="activity-badge">Activité 1</span>
-                        <div class="card-body">
-                            <h5 class="card-title">Nom de l'événement 1</h5>
-                            <p class="card-text">Description de l'événement 1.</p>
-                            <div class="d-flex justify-content-between">
-                                <button class="badge text-dark">10 places</button>
-                                <a routerLink="/events-details-admin" class="badge text-dark">Voir Détails</a>
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-4">
-                    <div class="card mb-4">
-                        <img src="../../../../assets/events2.png" class="card-img-top" alt="Event Image">
-                        <span class="activity-badge">Activité 2</span>
-                        <div class="card-body">
-                            <h5 class="card-title">Nom de l'événement 2</h5>
-                            <p class="card-text">Description de l'événement 2.</p>
-                            <div class="d-flex justify-content-between">
-                                <button class="badge text-dark">20 places</button>
-                                <a href="#" class="badge text-dark" routerLink="/events-details-admin">Voir Détails</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                        
 
-                <div class="col-md-4 mb-4">
-                    <div class="card mb-4">
-                        <img src="../../../../assets/events3.png" class="card-img-top" alt="Event Image">
-                        <span class="activity-badge">Activité 2</span>
+                        <img *ngIf="event.image" [src]="getPhotoUrl(event.image)" [alt]="event.theme" class="card-img-top">
+
+                        
                         <div class="card-body">
-                            <h5 class="card-title">Nom de l'événement 2</h5>
-                            <p class="card-text">Description de l'événement 2.</p>
+                            <h5 class="card-title">{{event.theme}}</h5>
+                            <p class="card-text">{{event.description}}</p>
                             <div class="d-flex justify-content-between">
-                                <button class="badge text-dark">20 places</button>
-                                <a  class="badge text-dark" routerLink="/events-details-admin">Voir Détails</a>
+                                <button class="badge text-dark">{{event.nombre_places}} places</button>
+                                <a [routerLink]="['/events-details-admin', event.id]" class="badge text-dark">Voir Détails</a>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4 mb-4">
-                    <div class="card mb-4">
-                        <img src="../../../../assets/events3.png" class="card-img-top" alt="Event Image">
-                        <span class="activity-badge">Activité 2</span>
-                        <div class="card-body">
-                            <h5 class="card-title">Nom de l'événement 2</h5>
-                            <p class="card-text">Description de l'événement 2.</p>
-                            <div class="d-flex justify-content-between">
-                                <button class="badge text-dark">20 places</button>
-                                <a href="#" class="badge text-dark" routerLink="/events-details-admin">Voir Détails</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-4">
-                    <div class="card mb-4">
-                        <img src="../../../../assets/events1.png" class="card-img-top" alt="Event Image">
-                        <span class="activity-badge">Activité 2</span>
-                        <div class="card-body">
-                            <h5 class="card-title">Nom de l'événement 2</h5>
-                            <p class="card-text">Description de l'événement 2.</p>
-                            <div class="d-flex justify-content-between">
-                                <button class="badge text-dark">20 places</button>
-                                <a href="#" class="badge text-dark">Voir Détails</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-4">
-                    <div class="card mb-4">
-                        <img src="../../../../assets/events2.png" class="card-img-top" alt="Event Image">
-                        <span class="activity-badge">Activité 2</span>
-                        <div class="card-body">
-                            <h5 class="card-title">Nom de l'événement 2</h5>
-                            <p class="card-text">Description de l'événement 2.</p>
-                            <div class="d-flex justify-content-between">
-                                <button class="badge text-dark">20 places</button>
-                                <a href="#" class="badge text-dark" routerLink="/events-details-admin">Voir Détails</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Ajoutez plus d'événements ici -->
             </div>
         </div>
     </div>

@@ -123,7 +123,7 @@ export const routes: Routes = [
     canActivate: [administrationGuard],
   },
   {
-    path: 'events-details-admin',
+    path: 'events-details-admin/:id',
     component: EvenementsDetailsAdminComponent,
     canActivate: [administrationGuard],
   },

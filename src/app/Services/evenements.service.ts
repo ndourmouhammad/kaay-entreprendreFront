@@ -28,6 +28,10 @@ export class EvenementsService {
     return this.http.get<{ message: string, data: EvenementModel[] }>(`${apiUrl}evenements`);
   }
   
+  // Méthode pour afficher les details d'un seul événement
+  getEvenement(id: number): Observable<any> {
+    return this.http.get<any>(`${apiUrl}evenements/${id}`);
+  }
 
   
 }

@@ -1,13 +1,11 @@
 .banniere {
     height: 50vh;
     border-radius: 20px;
-    overflow: hidden;
-    position: relative;
-    background: url('../../../../assets/events1.png') no-repeat center center / cover;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+    
+    
+    
+   
+} 
  .banniere img {
     width: 100%;
     height: 100%;
@@ -72,7 +70,7 @@
     text-decoration: none;
     font-weight: bold;
 }
-.btn-modifier {
+.btn-modifier, .center-btn {
     color: white;
     font-weight: 500px;
     font-family: "Poppins", sans-serif;
@@ -82,8 +80,26 @@
     background-color: #ff9700;
     border-color: #ff9700;
     margin-top: 20rem;
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10; /* Ensure the button appears above the image */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
 }
 .info-item .titre {
     font-family: "Poppins", sans-serif;
     font-size: 16px;
+}
+
+
+
+
+
+
+.center-btn:hover {
+    background-color: #051D30; /* Optional: Change color on hover */
 }

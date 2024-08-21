@@ -8,6 +8,7 @@ import { DatePipe, NgFor, NgIf } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ReservationModel } from '../../../Models/reservation.model';
 import { ReservationsService } from '../../../Services/reservations.service';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-evenements-details-admin',
@@ -32,6 +33,7 @@ export class EvenementsDetailsAdminComponent implements OnInit {
   baseUrl: string = environment.apiUrl;
   event: EvenementModel = {}; // Provide a default value if needed
   reservation: ReservationModel[] = []; // Initialize as an empty array
+
 
   ngOnInit(): void {
     const id = Number(this.route.snapshot.paramMap.get('id'));
@@ -72,4 +74,34 @@ export class EvenementsDetailsAdminComponent implements OnInit {
   getPhotoUrl(photoPath: string): string {
     return `${this.baseUrl}${photoPath}`;
   }
+
+  // Méthode pour approuver une reservation
+  approveReservation(reservationId: number): void {
+    this.reservationsService.acceptReservation(reservationId).subscribe(
+      (response: any) => {
+        console.log('Reservation Accepted:', response);
+        this.getReservation(reservationId);
+        
+      },
+      (error: any) => {
+        console.error('Reservation Error:', error);
+      }
+    );
+
+  }
+
+  // Méthode pour désapprouver une reservation
+  rejectReservation(reservationId: number): void {
+    this.reservationsService.refuserReservation(reservationId).subscribe(
+      (response: any) => {
+        console.log('Reservation Rejected:', response);
+        this.getReservation(reservationId);
+      },
+      (error: any) => {
+        console.error('Reservation Error:', error);
+      }
+    )
+  }
+  
+  
 }

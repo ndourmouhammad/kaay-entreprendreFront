@@ -13,6 +13,7 @@ export class ReservationsService {
 
     private http = inject(HttpClient);
 
+    // Méthode pour afficher la liste des reservations pour un evénement
     getReservations(id: number): Observable<{ message: string, data: ReservationModel[] }> {
         const token = localStorage.getItem('access_token');
         if (!token) {
@@ -27,5 +28,34 @@ export class ReservationsService {
         return this.http.get<{ message: string, data: ReservationModel[] }>(`${apiUrl}evenements/${id}/reservations`, { headers });
       }
       
+      // Méthode pour accepter une réservation : http://127.0.0.1:8000/api/reservations/{id}/confirmer
+      acceptReservation(id: number): Observable<{ message: string, data: ReservationModel}> {
+        const token = localStorage.getItem('access_token');
+        if (!token) {
+          console.error('No authentication token found');
+          return throwError('No authentication token found');
+        }
+      
+        const headers = new HttpHeaders({
+          'Authorization': `Bearer ${token}`
+        });
+      
+        return this.http.post<any>(`${apiUrl}reservations/${id}/confirmer`, { headers });
+      }
+
+      // Méthode pour refuser une reservation : http://127.0.0.1:8000/api/reservations/{id}/refuser
+      refuserReservation(id: number): Observable<{ message: string, data: ReservationModel}> {
+        const token = localStorage.getItem('access_token');
+        if (!token) {
+          console.error('No authentication token found');
+          return throwError('No authentication token found');
+        }
+      
+        const headers = new HttpHeaders({
+            'Authorization': `Bearer ${token}`
+        });
+
+        return this.http.post<any>(`${apiUrl}reservations/${id}/refuser`, { headers });
+      }
     
 }

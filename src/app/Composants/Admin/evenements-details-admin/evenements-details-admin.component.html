@@ -58,8 +58,21 @@
             <tr *ngFor="let item of reservation">
               <td>{{ item.user.name }}</td> <!-- Correction ici -->
               <td class="table-actions">
-                <img src="../../../../assets/check.svg" class="me-3" alt="Approve" />
-                <img src="../../../../assets/cancel.svg" alt="Reject" />
+                <img
+                src="../../../../assets/check.svg"
+                class="me-3"
+                alt="Approve"
+                (click)="approveReservation(item.id)"
+                style="cursor: pointer;"
+              />
+                <!-- <img src="../../../../assets/cancel.svg" alt="Reject" /> -->
+                <img
+                src="../../../../assets/cancel.svg"
+                class="me-3"
+                alt="Reject"
+                (click)="rejectReservation(item.id)"
+                style="cursor: pointer;"
+              />
               </td>
             </tr>
           </tbody>

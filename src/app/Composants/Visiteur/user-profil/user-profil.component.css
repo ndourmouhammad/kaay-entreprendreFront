@@ -1,215 +1,236 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-*{
-  
+
+* {
    box-sizing: border-box;
    margin: 0;
    padding: 0;
-   font-family:Poppins;
+   font-family: Poppins, sans-serif;
 }
-body{
+
+body {
    margin: 0;
-   font-family:Poppins;
+   font-family: Poppins, sans-serif;
 }
-.banner{
+
+.banner {
    margin-top: 20px;
    background-color: #00214A;
    height: 217px;
    border-radius: 10px;
    border: 1px solid white;
 }
-.banner h1{
+
+.banner h1 {
    color: #fff;
+   margin: auto 10px;
 }
-.profil{
-   width: 421px;
-   height: 411px;
+
+.profil {
+   width: 90%; /* Ajustement pour être plus flexible */
+   max-width: 421px;
+   height: auto; /* Hauteur automatique pour s'adapter au contenu */
    background-color: #fff;
    border-radius: 10px;
    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-   margin-top: -5%; 
+   margin-top: 5%; 
+   padding: 20px;
 }
-.profil2{
+
+.profil2 {
    display: flex;
    justify-content: center;
    align-items: center;
    margin: 10px auto;
-   gap: 30%;
+   gap: 80px; /* Réduction de l'écart pour les petits écrans */
 }
-.rese{
-   width: 591px;
-   height: 625px;
+
+.profil2 img {
+   width: 100px;
+   height: 100px;
+   border-radius: 50%;
+}
+
+.rese {
+   width: 90%;
+   max-width: 591px;
+   height: auto;
    background-color: #fff;
    border-radius: 10px;
    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
    position: relative;
-   margin-top:5%;
- 
+   padding: 20px;
 }
-.rese .titre{
-  margin-top: 10%;
-  margin-left: 10%;
-  font-size: 20px;
-  font-weight: bold;
-  width: 80%;
 
-
+.rese .titre {
+   margin-top: 10%;
+   margin-left: 10%;
+   font-size: 20px;
+   font-weight: bold;
+   width: 80%;
 }
-.rese .listep{
+
+.rese .listep {
    color: #F49B33;
    background-color: #F49B33;
    width: 80%;
    height: 2px;
    margin: auto;
 }
-.info_profil{
+
+.info_profil {
    display: flex;
    justify-content: center;
    align-items: center;
    margin: auto;
    gap: 15%;
 }
-.profil2 button{
+
+.profil2 button {
    width: 102px;
    height: 28px;
    background-color: #00214A;
    border-radius: 100px;
    color: white;
-   margin: 10px auto 10px;
-
-
+   margin: 10px auto;
 }
-.data{
+
+.data {
    border: 1px solid rgba(0, 0, 0, 0.452);
-   width: 333px;
-   height: 230px;
-   margin:10%;
+   width: 90%;
+   max-width: 333px;
+   height: auto;
+   margin: 10%;
    text-align: justify;
+   padding: 15px;
 }
-.data1{
-  margin-left: 10px;
+
+.data1 {
+   margin-left: 10px;
 }
-.info{
+
+.info {
    display: flex;
    flex-direction: row;
    justify-content: space-between;
    align-items: flex-start;
-   margin:10px auto;
+   margin: 10px auto;
 }
-.info button{
+
+.info button {
    width: 70px;
    height: 30px;
    background-color: #00214A;
    color: #fff;
    border-radius: 10px;
 }
-table                 {
+
+table {
    border-spacing: 1;
    border-collapse: collapse;
-   background:white;
-   border-radius:6px;
-   overflow:hidden;
-   max-width:800px;
-   width:80%;
-   margin:0% auto;
+   background: white;
+   border-radius: 6px;
+   overflow: hidden;
+   max-width: 800px;
+   width: 100%;
+   margin: 0 auto;
+   position: relative;
+}
 
+td, th {
+   padding-left: 8px;
+}
 
-   position:relative;
-  
-   *               { position:relative }
-  
-   td,th           { padding-left:8px}
-    thead tr        {
-     height:60px;
-     background:#fff;
-     font-size:16px;
+thead tr {
+   height: 60px;
+   background: #fff;
+   font-size: 16px;
+}
+
+tbody tr {
+   height: 48px;
+   border-bottom: 1px solid #F49B33;
+}
+
+td, th {
+   text-align: left;
+}
+
+td.l {
+   text-align: right;
+}
+
+td.c, th.c {
+   text-align: center;
+}
+
+blockquote {
+   color: white;
+   text-align: center;
+}
+footer{
+   margin-top:30%;
+
+}
+/* Media Queries pour le Responsive Design */
+
+@media (max-width: 768px) {
+   .profil, .rese {
+      width: 100%;
+      margin-top: 10%;
    }
-  
-   tbody tr        { height:48px; border-bottom:1px solid #F49B33 ;
-     &:last-child  { border:0; }
+
+   .profil2 {
+      flex-direction: column;
+      gap: 10px;
    }
-  
-      td,th                    { text-align:left;
-         &.l                   { text-align:right }
-         &.c                   { text-align:center }
-         &.r                   { text-align:center }
-     }
- }
-  blockquote {
-   color:white;
-   text-align:center;
- }
- footer{
-   margin-top: 35%;
- }
- @media screen and (max-width: 390px) {
-   .info_profil{
-      display: block;
-       flex-direction: column;
-       align-items: center;
-       margin: auto;
-       gap: 15%;
+
+   .info_profil {
+      flex-direction: column;
+      gap: 10px;
    }
-   .profil{
-       width: 370px;
-       height: 411px;
-       background-color: #fff;
-       border-radius: 10px;
-       box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-       position: relative;
-       margin: 8% auto;
-       font-size: 14px;
-     
-      
+
+   .info {
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
    }
-   .profil2{
-       display: flex;
-       justify-content: space-between;
-       align-items: center;
-       margin: 10px auto;
+
+   table {
+      width: 100%;
    }
-   .rese{
-       width: 370px;
-       height: 625px;
-       background-color: #fff;
-       border-radius: 10px;
-       box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-       position: relative;
-      margin: 5% auto;
-     
+
+   thead tr {
+      font-size: 14px;
    }
-   table                 {
-       border-spacing: 1;
-       border-collapse: collapse;
-       background:white;
-       border-radius:6px;
-       overflow:hidden;
-       max-width:370px;
-       width:100%;
-       margin:10% auto;
-  
-       position:relative;
-      
-       *               { position:relative }
-      
-       td,th           { padding-left:8px}
-    
-       thead tr        {
-         height:60px;
-         background:#f7f6f2;
-         font-size:16px;
-       }
-      
-       tbody tr        { height:48px; border-bottom:1px solid #F49B33 ;
-         &:last-child  { border:0; }
-       }
-      
-          td,th                    { text-align:left;
-             &.l                   { text-align:right }
-             &.c                   { text-align:center }
-             &.r                   { text-align:center }
-         }
-     }
-     footer{
-       margin-top: 250%;
-     }
- }
+
+   tbody tr {
+      font-size: 12px;
+   }
+}
+
+@media (max-width: 480px) {
+   .profil2 img {
+      width: 80px;
+      height: 80px;
+   }
+
+   .profil2 button {
+      width: 90px;
+      height: 25px;
+   }
+
+   .info button {
+      width: 60px;
+      height: 25px;
+   }
+
+   .rese .titre {
+      font-size: 18px;
+      margin-left: 5%;
+   }
+
+   blockquote {
+      font-size: 14px;
+   }
+}
+

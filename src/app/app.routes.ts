@@ -162,8 +162,11 @@ export const routes: Routes = [
   { path: 'ressources', component: RessourcesComponent },
   { path: 'detail-ressource/:id', component: DetailRessourceComponent },
   { path: 'profil-entrepreneur', component: UserProfilComponent },
-  { path: 'modifier-profil', component: ModifierProfilComponent },
-
+  { path: 'modifier-profil/:id', component: ModifierProfilComponent },
+  {
+    path: 'mes-reservations',
+    component: ReservationsComponent,
+  },
     { path:'demande-accompagnement', component:DemandeComponent},
     
     { path: 'demande-accompagnement-coach' , component: DemandecoachComponent},

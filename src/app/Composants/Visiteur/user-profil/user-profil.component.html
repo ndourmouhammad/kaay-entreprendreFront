@@ -1,73 +1,62 @@
 <app-header1></app-header1>
-<div *ngIf="userProfil">
-  <h1>Profil de l'utilisateur</h1>
-  <p><strong>Nom :</strong> {{ userProfil.name }}</p>
-  <p><strong>Email :</strong> {{ userProfil.email }}</p>
-  <!-- Ajoute d'autres champs selon les informations disponibles -->
+
+<div *ngIf="userProfil" class="banner">
+  <h1>Mon Profil</h1>
+  <div class="info_profil">
+    <div class="profil">
+      <div class="profil2">
+        <div>
+          <img [src]="userProfil.photo" alt="Photo de profil">
+        </div>
+        <div>
+          <button (click)="goToEdit()">Modifier</button>
+        </div>
+      </div>
+      <div class="data">
+        <div class="data1">
+          <h6>PRÉNOM ET NOM</h6>
+          <div class="info">
+            <p>{{ userProfil.name }}</p>
+          </div>
+          <h6>EMAIL</h6>
+          <div class="info">
+            <p>{{ userProfil.email }}</p>
+          </div>
+          <h6>TÉLÉPHONE</h6>
+          <div class="info">
+            <p>{{ userProfil.telephone }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="rese">
+      <div class="titre">Liste des Réservations</div>
+      <div class="table">
+        <table>
+          <thead>
+            <tr>
+              <th>Numéro</th>
+              <th>Date</th>
+              <th>Événement</th>
+              <th>Statut</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let reservation of resvation; let i = index">
+              <td>{{ i + 1 }}</td>
+              <td>{{ reservation.created_at }}</td>
+              <td>{{ reservation.theme }}</td>
+              <td>{{ reservation.status }}</td>
+            </tr>
+          </tbody>
+        </table>
+        <blockquote>Responsive Table</blockquote>
+      </div>
+    </div>
+  </div>
 </div>
 
-<div class="banner">
-  <h1>mon profil</h1>
-  <div class="info_profil">
-  <div class="profil">
-     <div class="profil2">
-         <div><img src="assets/profil/Ellipse 255.png" alt=""></div>
-         <div><button routerLink="/modifier-profil">modifier</button></div>
-     </div>
-     <div class="data">
-       <div class="data1">
-         <h6>PRENOM ET NOM</h6>
-         <div class="info">
-             <p>anna marone</p>
-            
-         </div>
-         <h6>EMAIL</h6>
-         <div class="info">
-             <p>annamarone14gmail</p> 
-         </div>
-         <h6>TÉLÉPHONE</h6>
-         <div class="info">
-             <p>77777777777</p>
-         </div>
-       </div>
-     </div>
-  </div>
-  <div class="rese">
-     <div class="titre">Liste reservation</div>
-     <div class="listep"></div>
-     <div class="table">
-         <table>
-             <thead>
-               <tr>
-                 <th>numero</th>
-                 <th>Date</th>
-                 <th>evénement</th>
-                 <th>action</th>
-               </tr>
-             </thead>
-             <tbody>
-               <tr>
-                 <td>7</td>
-                 <td>20/03/204</td>
-                 <td>Conférence </td>
-                 <td><img src="assets/détail/Vector (1).png" alt=""></td>
-               </tr>
-               <tr>
-                 <td>7</td>
-                 <td>20/03/204</td>
-                 <td>Conférence </td>
-                 <td><img src="assets/détail/Vector (1).png" alt=""></td>
-               </tr>
-              
-             </tbody>
-         </table>
-            
-           <blockquote> Responsive Table </blockquote>
-     </div>
-  </div>
-  </div>
-    </div>
-    <footer>
-     <app-footer></app-footer>
-    </footer>
-  
+<footer>
+  <app-footer></app-footer>
+</footer>

@@ -5,7 +5,8 @@ export interface RessourceModel {
     image?: string;
     contenu?: string;
     user_id?: number;
-    categorie_id?: number;
+    categorie_id?: number; // Identifiant de la catégorie
     createdAt?: Date;
     updatedAt?: Date;
-}
+  }
+  

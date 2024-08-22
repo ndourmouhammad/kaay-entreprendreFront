@@ -1,90 +1,98 @@
-.events-section {
-     /* Utilisez la fonction `url()` pour référencer l'image */
+body {
+    font-family: poppins, sans-serif;
+    background-color: #f8f9fa;
+  }
+  
+  .events-section {
+    margin-top: 20px;
+    margin-bottom: 40px;
     background-size: cover;
     background-position: center;
-}
-
-.header-section {
+  }
+  
+  .header-section {
     text-align: center;
     margin-bottom: 40px;
     background-color: #F9F5FF;
     padding: 20px;
     border-radius: 10px;
-}
-
-.header-section h1 {
+  }
+  
+  .header-section h1 {
     font-size: 2.5rem;
     font-weight: 700;
     color: #4a4a4a;
-}
-
-.header-section p {
+  }
+  
+  .header-section p {
     color: #6c757d;
     font-size: 1.1rem;
     margin-top: 10px;
-}
-
-.card-event {
+  }
+  
+  .card-event {
     border: none;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     margin-bottom: 20px;
-}
-
-.card-event img {
+  }
+  
+  .card-event img {
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
-}
-
-.card-event .card-body {
+  }
+  
+  .card-event .card-body {
     padding: 1.25rem;
-}
-
-.card-event .card-title {
+  }
+  
+  .card-event .card-title {
     font-weight: 700;
     margin-top: 10px;
     margin-bottom: 10px;
     font-size: 1.2rem;
-}
-
-.card-event .card-text {
+  }
+  
+  .card-event .card-text {
     color: #6c757d;
     font-size: 0.9rem;
-}
-
-.card-event .event-info {
+  }
+  
+  .card-event .event-info {
     display: flex;
     align-items: center;
     margin-top: 15px;
-}
-
-.card-event .event-info img {
+  }
+  
+  .card-event .event-info img {
     border-radius: 50%;
     width: 40px;
     height: 40px;
     margin-right: 10px;
-}
-
-.card-event .event-info .event-date {
+  }
+  
+  .card-event .event-info .event-date {
     color: #6c757d;
     font-size: 0.85rem;
-}
-
-.card-event .event-category {
+  }
+  
+  .card-event .event-category {
     font-size: 0.85rem;
     font-weight: 600;
     color: #8e44ad; /* Couleur violet */
-}
-
-.arrow-icon {
+  }
+  
+  .arrow-icon {
     font-size: 1rem;
     color: #000 !important; /* Couleur noire */
     margin-left: auto;
     background: none !important; /* Pas de fond */
     border: none; /* Pas de bordure */
     padding: 0; /* Pas de padding */
-}
-.search-container {
+  }
+  
+  .search-container {
     max-width: 400px; /* Largeur maximale du champ de recherche */
     margin: 0 auto; /* Centre le conteneur */
-}
+  }
+  

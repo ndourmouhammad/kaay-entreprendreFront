@@ -3,10 +3,10 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { apiUrl } from './apiUrl';
 import { Observable } from 'rxjs';
 import { SecteurActiviteModel } from '../Models/secteuractivite.model';
-
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
+
 export class AuthService {
 
   private http = inject(HttpClient);

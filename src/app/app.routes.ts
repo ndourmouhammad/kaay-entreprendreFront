@@ -149,7 +149,7 @@ export const routes: Routes = [
   // Routes pour l'acceuil
 
   { path: 'evenement', component: EvenementComponent },
-  { path: 'detail_evenement', component: DetailEvenementComponent },
+  { path: 'detail_evenement/:id', component: DetailEvenementComponent },
   { path: 'guide', component: GuideComponent },
   { path: 'forum', component: ForumComponent },
   { path: 'detail-forum', component: DetailForumComponent },

@@ -1,4 +1,7 @@
 body {
+    font-family: poppins;
+    font-weight: 300;
+    font-size: 32px;
     background-color: #f8f9fa; /* Couleur de fond */
 }
 .guide-card {
@@ -35,11 +38,11 @@ body {
     justify-content: space-between;
 }
 .content-text {
-    font-size: 1rem;
-    margin: 0;
+    font-family: poppins;
+    font-size: 32px;
 }
 .icon-right {
-    width: 80px;
+    width: 130px;
     height: 80px;
 }
 .bottom-left-image {

@@ -3,60 +3,16 @@
 </header>
 <div class="container my-3">
     <div class="row">
-        <div class="col-md-4">
-            <div class="card card-custom">
-                <img src="../../../../assets/dev.jpg" class="card-img-top" alt="EdTech">
-                <div class="card-body card-body-custom">
-                    <h5 class="card-title">EdTech</h5>
-                    <p class="card-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                </div>
-            </div>
+      <div class="col-md-4" *ngFor="let category of categories">
+        <div class="card card-custom">
+            <img [src]="getImagePath(category.titre ?? '')" class="card-img-top" [alt]="category.titre ?? 'Default Alt Text'">
+
+          <div class="card-body card-body-custom">
+            <h5 class="card-title">{{ category.titre }}</h5>
+            <p class="card-text">{{ category.description }}</p>
+          </div>
         </div>
-        <div class="col-md-4">
-            <div class="card card-custom">
-                <img src="../../../../assets/e-comm.jpg" class="card-img-top" alt="E-Commerce">
-                <div class="card-body card-body-custom">
-                    <h5 class="card-title">E-COMMERCE</h5>
-                    <p class="card-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="card card-custom">
-                <img src="../../../../assets/sass.jpg" class="card-img-top" alt="SaaS">
-                <div class="card-body card-body-custom">
-                    <h5 class="card-title">SaaS (Software as a Service)</h5>
-                    <p class="card-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="card card-custom">
-                <img src="../../../../assets/sass.jpg" class="card-img-top" alt="SaaS">
-                <div class="card-body card-body-custom">
-                    <h5 class="card-title">SaaS (Software as a Service)</h5>
-                    <p class="card-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="card card-custom">
-                <img src="../../../../assets/dev.jpg" class="card-img-top" alt="SaaS">
-                <div class="card-body card-body-custom">
-                    <h5 class="card-title">SaaS (Software as a Service)</h5>
-                    <p class="card-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="card card-custom">
-                <img src="../../../../assets/e-comm.jpg" class="card-img-top" alt="SaaS">
-                <div class="card-body card-body-custom">
-                    <h5 class="card-title">SaaS (Software as a Service)</h5>
-                    <p class="card-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                </div>
-            </div>
-        </div>
-        <!-- Repeat for the second row of cards -->
+      </div>
     </div>
-</div>
+  </div>
+  

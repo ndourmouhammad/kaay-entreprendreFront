@@ -16,7 +16,7 @@ export class AuthService {
 
   constructor() { }
 
-  private hasToken(): boolean {
+ public hasToken(): boolean {
     return !!localStorage.getItem('access_token');
   }
 
@@ -66,8 +66,13 @@ export class AuthService {
       // Mettre à jour l'état de connexion
       tap(() => this.loggedIn.next(false))
     );
+
+    
   }
   
-  
+  // Méthode pour vérifier si l'utilisateur est connecté
+  isAuthenticated(): boolean {
+    return !!localStorage.getItem('access_token');
+  }
   
 }

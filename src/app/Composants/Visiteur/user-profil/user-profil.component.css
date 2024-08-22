@@ -206,6 +206,10 @@ footer{
    tbody tr {
       font-size: 12px;
    }
+   footer{
+      margin-top:100%;
+   
+   }
 }
 
 @media (max-width: 480px) {
@@ -231,6 +235,10 @@ footer{
 
    blockquote {
       font-size: 14px;
+   }
+   footer{
+      margin-top:250%;
+   
    }
 }
 

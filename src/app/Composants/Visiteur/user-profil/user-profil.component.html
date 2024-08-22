@@ -45,8 +45,8 @@
           <tbody>
             <tr *ngFor="let reservation of resvation; let i = index">
               <td>{{ i + 1 }}</td>
-              <td>{{ reservation.created_at }}</td>
-              <td>{{ reservation.theme }}</td>
+              <td>{{ reservation.created_at}}</td>
+              <td>{{ reservation.evenement?.theme }}</td>
               <td>{{ reservation.status }}</td>
             </tr>
           </tbody>

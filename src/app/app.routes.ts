@@ -39,6 +39,7 @@ import { ModifierProfilComponent } from './Composants/Visiteur/modifier-profil/m
 import { DemandeComponent } from './Composants/Visiteur/demande/demande.component';
 import { DemandecoachComponent } from './Composants/Visiteur/demandecoach/demandecoach.component';
 import { RetourExperienceComponent } from './Composants/Visiteur/retour-experience/retour-experience.component';
+import { AuthGuard } from './Guards/auth.guard';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'Acceuil', pathMatch: 'full' },
@@ -161,7 +162,7 @@ export const routes: Routes = [
 
   { path: 'ressources', component: RessourcesComponent },
   { path: 'detail-ressource/:id', component: DetailRessourceComponent },
-  { path: 'profil-entrepreneur', component: UserProfilComponent },
+  { path: 'profil-entrepreneur', component: UserProfilComponent, canActivate: [AuthGuard] },
   { path: 'modifier-profil/:id', component: ModifierProfilComponent },
   {
     path: 'mes-reservations',

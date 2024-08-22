@@ -44,7 +44,7 @@ export class UserProfilComponent implements OnInit {
       this.userService.getmesreservation().subscribe(
         (data: any) => {
           console.log('Réservations:', data); // Vérifiez la structure ici
-          this.resvation = Array.isArray(data) ? data : data.reservations; // Ajustez si nécessaire
+          this.resvation = data.data; // Ajustez si nécessaire
         },
         (error: any) => {
           console.error('Erreur lors de la récupération des réservations:', error);

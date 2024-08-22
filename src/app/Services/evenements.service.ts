@@ -51,6 +51,20 @@ export class EvenementsService {
     return this.http.post<any>(`${apiUrl}evenements`, evenement, { headers });
   }
   
+  // Méthode pour modifier un evenement
+  updateEvenement(evenement: FormData, id: number): Observable<{ message: string, data: EvenementModel }> {
+    const token = localStorage.getItem('access_token');
+    
+    if (!token) {
+        console.error('No authentication token found');
+        return throwError(() => new Error('No authentication token found'));
+    }
 
+    const headers = new HttpHeaders({
+        'Authorization': `Bearer ${token}`
+    });
+
+    return this.http.post<any>(`${apiUrl}evenements/${id}`, evenement, { headers });
+  }
   
 }

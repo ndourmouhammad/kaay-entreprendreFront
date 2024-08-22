@@ -40,6 +40,7 @@ import { DemandeComponent } from './Composants/Visiteur/demande/demande.componen
 import { DemandecoachComponent } from './Composants/Visiteur/demandecoach/demandecoach.component';
 import { RetourExperienceComponent } from './Composants/Admin/retour-experience/retour-experience.component';
 import { RetourExperienceAccueilComponent } from './Composants/Visiteur/retour-experience-accueil/retour-experience-accueil.component';
+import { ModificationEvenementComponent } from './Composants/Admin/modification-evenement/modification-evenement.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'Acceuil', pathMatch: 'full' },
@@ -135,6 +136,11 @@ export const routes: Routes = [
   {
     path: 'ajouter-evenement',
     component: AjoutEvenementComponent,
+    canActivate: [administrationGuard],
+  },
+  {
+    path: 'modification-evenement/:id',
+    component: ModificationEvenementComponent,
     canActivate: [administrationGuard],
   },
   {

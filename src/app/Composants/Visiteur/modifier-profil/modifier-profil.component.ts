@@ -47,15 +47,24 @@ export class ModifierProfilComponent implements OnInit {
 
   loadSecteurs(): void {
     this.userService.getSecteurs().subscribe(
-      (data: secteurModel[]) => {
-        this.tabSecteur = data;
-        console.log('Secteurs récupérés:', this.tabSecteur); // Ajoutez ce log pour vérifier les données
+      (response: any) => {
+        console.log('Données reçues de l\'API:', response);
+        
+        if (Array.isArray(response.message)) {
+          this.tabSecteur = response.message;
+          console.log('Secteurs récupérés:', this.tabSecteur);
+        } else {
+          console.error('Les données reçues ne sont pas un tableau:', response.message);
+        }
       },
       (error: any) => {
         console.error('Erreur lors de la récupération des secteurs:', error);
       }
     );
   }
+  
+  
+  
   
   updateProfil(): void {
     this.userService.updateUserProfile(this.userProfil).subscribe(

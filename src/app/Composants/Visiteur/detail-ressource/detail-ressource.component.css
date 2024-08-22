@@ -79,10 +79,14 @@ body {
 
 .contenu img {
    float: right;
-   width: 158px;
+   width: 100px;
    height: auto;
 }
-
+button{
+   border: none;
+   background: none;
+   
+}
 
 footer {
    margin-top: 15%;

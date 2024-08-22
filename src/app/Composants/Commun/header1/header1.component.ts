@@ -42,18 +42,20 @@ export class Header1Component implements OnInit, OnDestroy {
     );
   }
 
-  logout() {
+  logout(): void {
     this.authService.logout().subscribe({
       next: () => {
+        // Rediriger l'utilisateur après une déconnexion réussie ou forcée
         this.router.navigate(['/Acceuil']);
-        this.authService.setLoggedIn(false); // Assurez-vous de mettre à jour l'état
-        window.location.reload()
       },
-      error: (err) => {
-        console.error('Logout failed', err);
+      error: (error) => {
+        console.error('Erreur lors de la déconnexion:', error);
+        // Redirection après l'échec de la déconnexion si nécessaire
+        this.router.navigate(['/login']);
       }
     });
   }
+  
 
   ngOnDestroy() {
     this.subscription.unsubscribe(); // Nettoyer les abonnements

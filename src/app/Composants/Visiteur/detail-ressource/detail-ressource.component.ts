@@ -6,7 +6,7 @@ import { RessourceService } from '../../../Services/ressource.service';
 import { ActivatedRoute } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { HttpErrorResponse } from '@angular/common/http';
-
+import { jsPDF } from 'jspdf';
 
 @Component({
   selector: 'app-detail-ressource',
@@ -20,13 +20,31 @@ import { HttpErrorResponse } from '@angular/common/http';
   styleUrls: ['./detail-ressource.component.css']
 })
 export class DetailRessourceComponent implements OnInit {
-  ressource: any;
 
+  ressource: any = {
+    titre: "Titre de la ressource",
+    description: "Description de la ressource",
+    contenu: "Contenu détaillé de la ressource"
+  };
   constructor(
     private ressourceService: RessourceService,
     private route: ActivatedRoute
   ) {}
+  generatePDF() {
+    const doc = new jsPDF();
 
+    doc.setFontSize(18);
+    doc.text(this.ressource.titre, 10, 10);
+
+    doc.setFontSize(12);
+    doc.text("Description:", 10, 20);
+    doc.text(this.ressource.description, 10, 30);
+
+    doc.text("Contenu:", 10, 40);
+    doc.text(this.ressource.contenu, 10, 50);
+
+    doc.save(`${this.ressource.titre}.pdf`);
+  }
   ngOnInit(): void {
     const idParam = this.route.snapshot.paramMap.get('id');
     const id = idParam ? +idParam : null;

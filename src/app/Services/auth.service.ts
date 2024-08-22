@@ -1,7 +1,7 @@
 import { Injectable, inject } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { apiUrl } from './apiUrl';
-import { Observable, tap } from 'rxjs';
+import { catchError, Observable, tap, throwError } from 'rxjs';
 import { SecteurActiviteModel } from '../Models/secteuractivite.model';
 import { BehaviorSubject} from 'rxjs';
 @Injectable({
@@ -55,20 +55,31 @@ export class AuthService {
 
   // Méthodes pour se déconnecter
   logout() {
-    // Envoyer la requête de déconnexion
     return this.http.post(`${apiUrl}logout`, {}, {
       headers: new HttpHeaders({
         'Authorization': `Bearer ${localStorage.getItem('access_token')}`
       })
     }).pipe(
-      // Supprimer le token du localStorage après la réponse
-      tap(() => localStorage.removeItem('access_token')),
-      // Mettre à jour l'état de connexion
-      tap(() => this.loggedIn.next(false))
+      // Supprimer le token du localStorage après la réponse réussie ou en cas d'erreur
+      tap(() => {
+        localStorage.removeItem('access_token');
+        localStorage.removeItem('user');
+        this.loggedIn.next(false);
+      }),
+      catchError((error) => {
+        // Si l'erreur est 401 Unauthorized, le token est probablement invalide ou expiré
+        if (error.status === 401) {
+          console.error('Token invalide ou expiré, déconnexion forcée.');
+          localStorage.removeItem('access_token');
+          localStorage.removeItem('user');
+          this.loggedIn.next(false);
+        }
+        // Propager l'erreur après avoir géré la déconnexion forcée
+        return throwError(error);
+      })
     );
-
-    
   }
+  
   
   // Méthode pour vérifier si l'utilisateur est connecté
   isAuthenticated(): boolean {

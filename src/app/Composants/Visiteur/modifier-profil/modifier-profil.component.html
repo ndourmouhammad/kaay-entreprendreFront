@@ -42,7 +42,7 @@
                 <label for="cv">cv</label>
                 <input type="file" id="cv" [(ngModel)]="userProfil.cv" name="cv">
             </div>
-            <div class="full">
+            <div class="full" *ngIf="tabSecteur && tabSecteur.length > 0">
                 <label for="secteur_activite_id">Secteur d'activité</label>
                 <select id="secteur_activite_id" [(ngModel)]="userProfil.secteur_activite_id" name="secteur_activite_id" class="form-control">
                   <option *ngFor="let secteur of tabSecteur" [value]="secteur.id">
@@ -50,6 +50,8 @@
                   </option>
                 </select>
               </div>
+              
+              
     
             <div class="submit">
                 <input class="send-btn" type="submit">

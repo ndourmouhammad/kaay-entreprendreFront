@@ -60,22 +60,22 @@ export class RessourceComponent implements OnInit {
   }
   
 
-  getCategoryTitle(categoryId: number | undefined): string {
-    if (categoryId === undefined) {
-      console.warn('Category ID is undefined');
-      return 'Catégorie inconnue';
-    }
-  
-    const category = this.categories.find(cat => cat.id === categoryId);
-  
-    if (!category) {
-      console.warn(`No category found for ID: ${categoryId}`);
-      return 'Catégorie inconnue';
-    }
-  
-    return category.titre ?? 'Catégorie inconnue';
+ getCategoryTitle(categoryId: number | undefined): string {
+  if (categoryId === undefined) {
+    console.warn('Category ID is undefined');
+    return 'Catégorie inconnue';
   }
-  
+
+  const category = this.categories.find(cat => cat.id === categoryId);
+
+  if (!category) {
+    console.warn(`No category found for ID: ${categoryId}`);
+    return 'Catégorie inconnue';
+  }
+
+  return category.titre ?? 'Catégorie inconnue';
+}
+
   
   
 

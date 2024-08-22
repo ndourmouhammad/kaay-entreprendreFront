@@ -15,4 +15,9 @@ export class RessourcesService {
     getRessources(): Observable<{ message: string, data: RessourceModel[] }> {
         return this.http.get<{ message: string, data: RessourceModel[] }>(`${apiUrl}ressources`);
     }
+
+    // Méthode pour afficher les details d'une ressource
+    getRessource(id: number): Observable<any> {
+        return this.http.get<any>(`${apiUrl}ressources/${id}`);
+    }
 }

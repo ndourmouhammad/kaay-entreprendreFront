@@ -6,7 +6,7 @@ export interface RessourceModel {
     contenu?: string;
     user_id?: number;
     categorie_id?: number; // Identifiant de la catégorie
-    createdAt?: Date;
+    created_at?: Date;
     updatedAt?: Date;
   }
   

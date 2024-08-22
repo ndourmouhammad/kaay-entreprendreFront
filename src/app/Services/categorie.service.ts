@@ -16,4 +16,9 @@ export class CategorieService {
     getCategories(): Observable<{ message: string, data: CategorieModel[] }> {
         return this.http.get<{ message: string, data: CategorieModel[] }>(`${apiUrl}categories`);
     }
+
+    // Methode pour afficher les details d'une categorie
+    getCategorie(id: number): Observable<any> {
+        return this.http.get(`${apiUrl}categories/${id}`);
+    }
 }

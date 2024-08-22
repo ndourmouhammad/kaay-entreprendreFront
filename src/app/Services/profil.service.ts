@@ -3,6 +3,7 @@ import { apiUrl } from './apiUrl';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { ModelProfil } from '../Models/profil.model';
+import { secteurModel } from '../Models/seteur.model';
 
 @Injectable({
   providedIn: 'root'
@@ -30,6 +31,9 @@ getmesreservation(): Observable<any> {
   const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
   console.log('Authorization Header:', headers.get('Authorization'));
   return this.http.get<any[]>(`${apiUrl}mes-reservations`, { headers });
+}
+getSecteurs(): Observable<secteurModel[]> {
+  return this.http.get<secteurModel[]>(`${apiUrl}secteurActivite`);
 }
 
 

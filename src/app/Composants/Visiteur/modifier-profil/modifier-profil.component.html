@@ -43,9 +43,13 @@
                 <input type="file" id="cv" [(ngModel)]="userProfil.cv" name="cv">
             </div>
             <div class="full">
-                <label for="secteur d'activité">secteur d'activité</label>
-                <input type="number" id="secteur_activite_id" [(ngModel)]="userProfil.secteur_activite_id" name="secteur_activite_id">
-            </div>
+                <label for="secteur_activite_id">Secteur d'activité</label>
+                <select id="secteur_activite_id" [(ngModel)]="userProfil.secteur_activite_id" name="secteur_activite_id" class="form-control">
+                  <option *ngFor="let secteur of tabSecteur" [value]="secteur.id">
+                    {{ secteur.libelle }}
+                  </option>
+                </select>
+              </div>
     
             <div class="submit">
                 <input class="send-btn" type="submit">

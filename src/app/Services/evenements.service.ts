@@ -1,8 +1,8 @@
 import { EvenementModel } from './../Models/evenements.model';
-import { Injectable, inject } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { Injectable, inject,  } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { apiUrl } from './apiUrl';
-import { Observable } from 'rxjs';
+import { Observable, throwError } from 'rxjs';
 
 
 @Injectable({
@@ -32,6 +32,25 @@ export class EvenementsService {
   getEvenement(id: number): Observable<any> {
     return this.http.get<any>(`${apiUrl}evenements/${id}`);
   }
+
+
+  
+  // Méthode pour ajouter un nouvel evenement
+  addEvenement(evenement: FormData): Observable<{ message: string, data: EvenementModel }> {
+    const token = localStorage.getItem('access_token');
+    
+    if (!token) {
+        console.error('No authentication token found');
+        return throwError(() => new Error('No authentication token found'));
+    }
+
+    const headers = new HttpHeaders({
+        'Authorization': `Bearer ${token}`
+    });
+
+    return this.http.post<any>(`${apiUrl}evenements`, evenement, { headers });
+  }
+  
 
   
 }

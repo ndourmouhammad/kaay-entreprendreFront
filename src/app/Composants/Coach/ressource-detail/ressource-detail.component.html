@@ -26,6 +26,12 @@
             <img [src]="getPhotoUrl(ressource.image)" alt="Banner Image">
             <div class="btn-reserver rounded-pill d-flex flex-column flex-md-row">
                 <!-- Boutons de réservation ou autres actions -->
+                <button 
+                class="btn btn-modifier center-btn" 
+                [routerLink]="['/ressource-form', ressource.id]"
+              >
+                Modifier
+              </button>
             </div>
         </div>
         <div>

@@ -62,6 +62,12 @@ export const routes: Routes = [
     canActivate: [coachGuard],
   },
   {
+    path: 'ressource-form/:id',
+    component: RessourceFormComponent,
+    canActivate: [coachGuard],
+
+  },
+  {
     path: 'ressource-details/:id',
     component: RessourceDetailComponent,
     canActivate: [coachGuard],

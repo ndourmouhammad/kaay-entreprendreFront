@@ -20,4 +20,38 @@ export class RessourcesService {
     getRessource(id: number): Observable<any> {
         return this.http.get<any>(`${apiUrl}ressources/${id}`);
     }
+
+    
+
+    // Méthode pour ajouter une ressource
+    addRessource(ressource: FormData): Observable<{ message: string, data: RessourceModel }> {
+        const token = localStorage.getItem('access_token');
+        
+        if (!token) {
+            console.error('No authentication token found');
+            return throwError(() => new Error('No authentication token found'));
+        }
+
+        const headers = new HttpHeaders({
+            'Authorization': `Bearer ${token}`
+        });
+
+        return this.http.post<any>(`${apiUrl}ressources`, ressource, { headers });
+    }
+
+    // Mehtode pour modifier une ressource
+    updateRessource(ressource: FormData, id: number): Observable<{ message: string, data: RessourceModel }> {
+        const token = localStorage.getItem('access_token');
+        
+        if (!token) {
+            console.error('No authentication token found');
+            return throwError(() => new Error('No authentication token found'));
+        }
+
+        const headers = new HttpHeaders({
+            'Authorization': `Bearer ${token}`
+        });
+
+        return this.http.post<any>(`${apiUrl}ressources/${id}`, ressource, { headers });
+    }
 }

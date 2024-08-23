@@ -1,7 +1,11 @@
+
+import { FooterComponent } from '../../Commun/footer/footer.component';
+import { Header1Component } from '../../Commun/header1/header1.component';
 import { AuthService } from './../../../Services/auth.service';
 import { Component, inject, OnInit } from '@angular/core';
-import { Header1Component } from '../../Commun/header1/header1.component';
-import { FooterComponent } from '../../Commun/footer/footer.component';
+
+
+FooterComponent
 
 @Component({
   selector: 'app-demandecoach',

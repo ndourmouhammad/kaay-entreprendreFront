@@ -1,0 +1,57 @@
+<header class="container">
+    <app-header-admin></app-header-admin>
+</header>
+
+<div class="container mt-4 users">
+    <div class="d-flex mb-3">
+        <img src="../../../../assets/retour.svg" alt="" routerLink="/access-admin">
+    <h2 >Gestion des rôles</h2>
+    </div>
+    <div class="search-bar">
+        
+        <form action="">
+            <input type="text" class="form-control d-inline-block" placeholder="Ajouter un rôle">
+        <button class="btn btn-ajout d-inline-block">Ajouter</button>
+        </form>
+    </div>
+    
+
+    <table class="table table-bordered mt-4">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+                <td >1</td>
+                <td >Admin</td>
+                <td class="action">
+                    <a routerLink="/access-users-details">
+                        <button class="btn btn-permission">
+                            <span class="btn-text"> Octroyer des permissions</span>
+                            <span class="btn-icon"><img src="../../../../assets/key.svg" alt="edit icon"></span>
+                        </button>
+                    </a>
+                    <a routerLink="/access-users-details">
+                        <button class="btn btn-custom btn-logout">
+                            <span class="btn-text">Modifier</span>
+                            <span class="btn-icon"><img src="../../../../assets/edit.svg" alt="edit icon"></span>
+                        </button>
+                    </a>
+
+                    <form action="#" method="POST" class="d-inline">
+                        <button type="submit" class="btn btn-custom btn-supprimer">
+                            <span class="btn-text">Supprimer</span>
+                            <span class="btn-icon"><img src="../../../../assets/delete.svg" alt="delete icon"></span>
+                        </button>
+                    </form>
+                </td>
+            </tr>
+            <!-- Repeat for more users -->
+        </tbody>
+    </table>
+</div>

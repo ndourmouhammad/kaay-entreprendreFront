@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Détails Forum</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        
+    </style>
+</head>
+<body>
+
+    <header>
+        <app-header1></app-header1>
+    </header>
+
+<div class="container-fluid">
+    <div class="row">
+        <!-- Menu -->
+        <div class="col-md-3 menu">
+            <h5>Menu</h5>
+            <ul class="nav flex-column">
+                <li class="nav-item">
+                    <a class="nav-link active" href="#">Forum</a>
+                </li>
+            </ul>
+            <button type="button" class="btn btn-lg mt-3">Ajouter</button>
+        </div>
+
+        <!-- Détails Forum et Commenter -->
+        <div class="col-md-9">
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="details-forum">
+                        <h3>Détails forum</h3>
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="user-info">
+                                    <img src="/assets/images/image25.png" alt="Photo de profil" class="profile-img">
+                                    <div>
+                                        <h5 class="card-title">Golanginya</h5>
+                                        <h6 class="card-subtitle mb-2 text-muted">5 min ago</h6>
+                                    </div>
+                                </div>
+                                <p class="card-text mt-3">How to patch KDE on FreeBSD?</p>
+                                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Consequat aliquet maecenas ut sit nulla.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="comment-form mt-4">
+                        <h3>Commenter</h3>
+                        <form>
+                            <div class="mb-3">
+                                <textarea class="form-control" id="commentContent" rows="3" placeholder="contenu"></textarea>
+                            </div>
+                            <button type="submit" class="btn">Publier</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Commentaires -->
+            <div class="commentaires mt-4">
+                <h3>Commentaires</h3>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <p class="card-text">Hey Olivia, can you please review the latest design when you can?</p>
+                                <h6 class="card-subtitle mb-2 text-muted">Phoenix Baker</h6>
+                                <h6 class="card-subtitle mb-2 text-muted">Friday 2:20pm</h6>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <p class="card-text">Hey Olivia, can you please review the latest design when you can?</p>
+                                <h6 class="card-subtitle mb-2 text-muted">Phoenix Baker</h6>
+                                <h6 class="card-subtitle mb-2 text-muted">Friday 2:20pm</h6>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <p class="card-text">Hey Olivia, can you please review the latest design when you can?</p>
+                                <h6 class="card-subtitle mb-2 text-muted">Phoenix Baker</h6>
+                                <h6 class="card-subtitle mb-2 text-muted">Friday 2:20pm</h6>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <p class="card-text">Hey Olivia, can you please review the latest design when you can?</p>
+                                <h6 class="card-subtitle mb-2 text-muted">Phoenix Baker</h6>
+                                <h6 class="card-subtitle mb-2 text-muted">Friday 2:20pm</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<footer>
+    <app-footer></app-footer>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

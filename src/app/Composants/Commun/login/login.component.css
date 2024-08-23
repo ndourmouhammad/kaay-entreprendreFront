@@ -1,0 +1,8 @@
+.custom-placeholder::placeholder {
+    color: white; /* Couleur du texte du placeholder */
+    opacity: 1; /* Assure que la couleur soit bien appliquée */
+  }
+
+  input{
+    border-radius: 15px;
+  }

@@ -1,0 +1,31 @@
+.menu {
+    background-color: #f8f9fa;
+    padding: 20px;
+}
+.menu h5 {
+    margin-bottom: 20px;
+}
+.menu button {
+    background-color: #ff7f0e;
+    color: white;
+}
+.details-forum, .commentaires {
+    margin-top: 20px;
+}
+.commentaires .card {
+    margin-bottom: 20px;
+}
+.comment-form button {
+    background-color: #ff7f0e;
+    color: white;
+}
+.profile-img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+.user-info {
+    display: flex;
+    align-items: center;
+}

@@ -1,11 +1,11 @@
 body {
-    background-color: #f8f9fa; /* Couleur de fond */
+    background-color: #f8f9fa; 
 }
 .guide-card {
     margin-top: 50px;
     border: 2px solid #FF9700;
     border-radius: 5px;
-    position: relative; /* Pour permettre un positionnement absolu de l'image */
+    position: relative; 
 }
 .steps-container {
     display: grid;
@@ -13,8 +13,8 @@ body {
     border-bottom: 2px solid #FF9700;
 }
 .step {
-    background-color: #FF9700; /* Couleur orange */
-    color: #FFFFFF; /* Texte en blanc */
+    background-color: #FF9700; 
+    color: #FFFFFF;
     font-weight: bold;
     padding: 10px;
     text-align: center;
@@ -22,17 +22,18 @@ body {
     transition: background-color 0.3s;
 }
 .step:hover {
-    background-color: #FF7F00; /* Couleur orange plus foncée au survol */
+    background-color: #FF7F00; 
 }
 .step.active {
     background-color: #FF7F00;
-    color: #00214A; /* Couleur bleue pour l'étape active */
+    color: #00214A; 
 }
 .content-section {
     padding: 20px;
-    display: flex;
+    display: block;
     align-items: center;
-    justify-content: space-between;
+    justify-content:center;
+    margin: auto;
 }
 .content-text {
     font-size: 1rem;
@@ -49,4 +50,14 @@ body {
     width: 100px;
     height: auto;
     z-index: -1; /* Placer l'image en arrière-plan */
+}
+button{
+    border: none;
+    background: none;
+}
+button img{
+   width: 80px;
+   height: 80px;
+    background: none;
+    border: none;
 }

@@ -1,87 +1,61 @@
-
 <header>
-    <app-header1></app-header1>
+  <app-header1></app-header1>
 </header>
-    <div class="sidebar">
-        <div class="search">
-            <input type="text" class="form-control" placeholder="Search">
-        </div>
-        <div class="menu-item d-none d-md-flex">
-            <i class="bi bi-list"></i>
-            <span class="ms-2">Forum</span>
-        </div>        
-        <button class="btn-ajouter" data-bs-toggle="modal" data-bs-target="#ajouterModal">
-            <i class="bi bi-plus-circle"></i> Ajouter
-        </button>
-    </div>
+<div class="sidebar">
+  <div class="search">
+    <input type="text" class="form-control" placeholder="Search" [(ngModel)]="searchTerm">
+  </div>
+  <div class="menu-item d-none d-md-flex">
+    <i class="bi bi-list"></i>
+    <span class="ms-2">Forum</span>
+  </div>        
+  <button class="btn-ajouter" data-bs-toggle="modal" data-bs-target="#ajouterModal">
+    <i class="bi bi-plus-circle"></i> Ajouter
+  </button>
+</div>
 
-    <div class="content">
-        <!-- Example forum cards -->
-        <a href="forum-detail.html" class="forum-card">
-            <div class="d-flex">
-                <img src="assets/images/log.png" alt="User Image">
-                <div>
-                    <h5>Golanginya</h5>
-                    <span class="time">5 min ago</span>
-                </div>
-            </div>
-            <p>How to patch KDE on FreeBSD? Lorem ipsum dolor sit amet, consectetur adipiscing elit. Consequat aliquet maecenas ut sit nulla.</p>
-        </a>
-        <a href="forum-detail.html" class="forum-card">
-            <div class="d-flex">
-                <img src="assets/images/log.png" alt="User Image">
-                <div>
-                    <h5>Golanginya</h5>
-                    <span class="time">5 min ago</span>
-                </div>
-            </div>
-            <p>How to patch KDE on FreeBSD? Lorem ipsum dolor sit amet, consectetur adipiscing elit. Consequat aliquet maecenas ut sit nulla.</p>
-        </a>
-        <a href="forum-detail.html" class="forum-card">
-            <div class="d-flex">
-                <img src="assets/images/log.png" alt="User Image">
-                <div>
-                    <h5>Golanginya</h5>
-                    <span class="time">5 min ago</span>
-                </div>
-            </div>
-            <p>How to patch KDE on FreeBSD? Lorem ipsum dolor sit amet, consectetur adipiscing elit. Consequat aliquet maecenas ut sit nulla.</p>
-        </a>
-        <!-- Additional forum cards can be added here -->
+<div class="content">
+  <a *ngFor="let forum of filteredForums" [routerLink]="['/forum-detail', forum.id]" class="forum-card">
+    <div class="d-flex">
+      <img src="assets/images/log.png" alt="User Image">
+      <div>
+        <h5>{{ forum.libelle }}</h5>
+        <span class="time">{{ forum.created_at | date: 'short' }}</span>
+      </div>
     </div>
+    <p>{{ forum.contenu }}</p>
+  </a>
+</div>
 
-    <!-- Modal -->
-    <div class="modal fade" id="ajouterModal" tabindex="-1" aria-labelledby="ajouterModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="ajouterModalLabel">Ajouter un forum</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <form>
-                        <div class="mb-3 text-start">
-                            <label for="libelle" class="form-label">Libellé</label>
-                            <input type="text" class="form-control" id="libelle" required>
-                        </div>
-                        <div class="mb-3 text-start">
-                            <label for="message" class="form-label">Message</label>
-                            <textarea class="form-control" id="message" rows="3" required></textarea>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="submit" class="btn btn-publier">
-                                <i class="bi bi-send"></i> Publier
-                            </button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
+<!-- Modal -->
+<div class="modal fade" id="ajouterModal" tabindex="-1" aria-labelledby="ajouterModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="ajouterModalLabel">Ajouter un forum</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form (ngSubmit)="addForum()">
+          <div class="mb-3 text-start">
+            <label for="libelle" class="form-label">Libellé</label>
+            <input type="text" class="form-control" id="libelle" [(ngModel)]="newForum.libelle" name="libelle" required>
+          </div>
+          <div class="mb-3 text-start">
+            <label for="message" class="form-label">Message</label>
+            <textarea class="form-control" id="message" [(ngModel)]="newForum.contenu" name="contenu" rows="3" required></textarea>
+          </div>
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-publier">
+              <i class="bi bi-send"></i> Publier
+            </button>
+          </div>
+        </form>
+      </div>
     </div>
-    <footer>
-        <app-footer></app-footer>
-    </footer>
+  </div>
+</div>
 
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.js"></script>
+<footer>
+  <app-footer></app-footer>
+</footer>

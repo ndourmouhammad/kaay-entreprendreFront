@@ -152,7 +152,7 @@ export const routes: Routes = [
   { path: 'detail_evenement/:id', component: DetailEvenementComponent },
   { path: 'guide', component: GuideComponent },
   { path: 'forum', component: ForumComponent },
-  { path: 'detail-forum', component: DetailForumComponent },
+  { path: 'detail-forum/:id', component: DetailForumComponent },
 
   { path: 'header1', component: Header1Component },
   { path: 'header2', component: Header2Component },

@@ -1,7 +1,7 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { HeaderAdminComponent } from '../header-admin/header-admin.component';
 import { AuthService } from '../../../Services/auth.service';
-import { Router } from '@angular/router';
+import { Router, RouterLink, RouterModule } from '@angular/router';
 import { Observable, map } from 'rxjs';
 import { EvenementsService } from '../../../Services/evenements.service';
 import { EvenementModel } from '../../../Models/evenements.model';
@@ -13,7 +13,9 @@ import { DatePipe, NgFor } from '@angular/common';
   imports: [
     HeaderAdminComponent,
     NgFor,
-    DatePipe
+    DatePipe,
+    RouterModule,
+    RouterLink
   ],
   templateUrl: './dashboard-admin.component.html',
   styleUrl: './dashboard-admin.component.css'

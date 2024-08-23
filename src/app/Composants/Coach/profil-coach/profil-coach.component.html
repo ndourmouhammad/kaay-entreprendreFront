@@ -11,27 +11,24 @@
     <!-- Profile Details -->
     <div class="profile-details row align-items-center mt-4">
         <div class="col-md-8">
-            <h2>Fatima Dansoko</h2>
+            <h2>{{ user.name || 'Nom de l\'utilisateur' }}</h2>
             <p>
                 <img src="../../../../assets/phone.svg" alt="" class="me-3">
-                <span>78 103 35 01</span>
+                <span>{{ user.telephone || 'Téléphone non spécifié' }}</span>
             </p>
             <p>
                 <img src="../../../../assets/mail.svg" alt="" class="me-3">
-                <span>ndourmouhamad15gmail.com</span>
+                <span>{{ user.email || 'Email non spécifié' }}</span>
             </p>
             <p>
                 <img src="../../../../assets/location.svg" alt="" class="me-3">
-                    <span>Dakar plateau</span>
+                <span>{{ user.adresse || 'Localisation non spécifiée' }}</span>
             </p>
-            <p>
-                <i class="bi bi-briefcase"></i> Informatiques &nbsp;&nbsp;
-                <i class="bi bi-check-circle"></i> compte activé
-            </p>
+            
             <button class="btn btn-primary mt-5 mb-5">Modifier mes informations</button>
         </div>
-        <div class="col-md-4 text-center ">
-            <img src="../../../../assets/profil.png" alt="Fatima Dansoko" class="rounded-circle img-fluid profile-pic">
+        <div class="col-md-4 text-center">
+            <img *ngIf="user.photo" [src]="getPhotoUrl(user.photo)" alt="Profile Picture" class="rounded-circle img-fluid profile-pic">
         </div>
     </div>
 </div>

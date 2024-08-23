@@ -17,22 +17,25 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item ">
-          <a class="nav-link active" routerLink="/dashboard-coach" >Accueil</a>
+          <a class="nav-link active" routerLink="/dashboard-coach" routerLinkActive="active" >Accueil</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/ressources-coach" >Ressource</a>
+          <a class="nav-link" routerLink="/ressources-coach" routerLinkActive="active">Ressource</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/ressources-categorie">Catégories</a>
+          <a class="nav-link" routerLink="/ressources-categorie" routerLinkActive="active">Catégories</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/events-coach">Événements</a>
+          <a class="nav-link" routerLink="/events-coach" routerLinkActive="active">Événements</a>
         </li>
       </ul>
       <div class="d-flex">
         <button class="btn btn-custom btn-logout me-3" (click)="logout()">Déconnexion</button>
-        <button class="btn btn-custom btn-profile " routerLink="/profil-coach">Fatima</button>
+        <button class="btn btn-custom btn-profile" routerLink="/profil-coach">{{ userName }}</button>
       </div>
     </div>
   
 </nav>
+
+
+    

@@ -32,7 +32,7 @@ export class ReservationsComponent implements OnInit {
 
   event: EvenementModel = {}; // Provide a default value if needed
   reservation: ReservationModel[] = []; // Initialize as an empty array
-
+  
   ngOnInit(): void {
     const id = Number(this.route.snapshot.paramMap.get('id'));
     if (isNaN(id)) {
@@ -55,6 +55,38 @@ export class ReservationsComponent implements OnInit {
     );
   }
 
+   // Méthode pour approuver une reservation
+   approveReservation(reservationId: number): void {
+    const id = Number(this.route.snapshot.paramMap.get('id'));
+    this.reservationsService.acceptReservation(reservationId).subscribe(
+      (response: any) => {
+        console.log('Reservation Accepted:', response);
+        // this.getReservation(reservationId);
+        this.getReservation(id);
+        
+      },
+      (error: any) => {
+        console.error('Reservation Error:', error);
+      }
+    );
+
+  }
+
+  // Méthode pour désapprouver une reservation
+  rejectReservation(reservationId: number): void {
+    const id = Number(this.route.snapshot.paramMap.get('id'));
+    this.reservationsService.refuserReservation(reservationId).subscribe(
+      (response: any) => {
+        console.log('Reservation Rejected:', response);
+        // this.getReservation(reservationId);
+        this.getReservation(id);
+      },
+      (error: any) => {
+        console.error('Reservation Error:', error);
+      }
+    )
+  }
+
   getReservation(id: number): void {
     this.reservationsService.getReservations(id).subscribe(
       (response: any) => {
@@ -68,32 +100,7 @@ export class ReservationsComponent implements OnInit {
       }
     );
   }
+  
 
-   // Méthode pour approuver une reservation
-  approveReservation(reservationId: number): void {
-    this.reservationsService.acceptReservation(reservationId).subscribe(
-      (response: any) => {
-        console.log('Reservation Accepted:', response);
-        this.getReservation(reservationId);
-        
-      },
-      (error: any) => {
-        console.error('Reservation Error:', error);
-      }
-    );
-
-  }
-
-  // Méthode pour désapprouver une reservation
-  rejectReservation(reservationId: number): void {
-    this.reservationsService.refuserReservation(reservationId).subscribe(
-      (response: any) => {
-        console.log('Reservation Rejected:', response);
-        this.getReservation(reservationId);
-      },
-      (error: any) => {
-        console.error('Reservation Error:', error);
-      }
-    )
-  }
+  
 }

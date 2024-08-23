@@ -77,10 +77,11 @@ export class EvenementsDetailsAdminComponent implements OnInit {
 
   // Méthode pour approuver une reservation
   approveReservation(reservationId: number): void {
+    const id = Number(this.route.snapshot.paramMap.get('id'));
     this.reservationsService.acceptReservation(reservationId).subscribe(
       (response: any) => {
         console.log('Reservation Accepted:', response);
-        this.getReservation(reservationId);
+        this.getReservation(id);
         
       },
       (error: any) => {
@@ -92,10 +93,11 @@ export class EvenementsDetailsAdminComponent implements OnInit {
 
   // Méthode pour désapprouver une reservation
   rejectReservation(reservationId: number): void {
+    const id = Number(this.route.snapshot.paramMap.get('id'));
     this.reservationsService.refuserReservation(reservationId).subscribe(
       (response: any) => {
         console.log('Reservation Rejected:', response);
-        this.getReservation(reservationId);
+        this.getReservation(id);
       },
       (error: any) => {
         console.error('Reservation Error:', error);

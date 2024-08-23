@@ -4,8 +4,8 @@
 <div class="container mt-2">
     
     <div class="d-flex mb-3">
-        <img src="../../../../assets/retour.svg" class="me-3" alt="" routerLink="/events-details-admin">
-    <h2>La liste des réservations pour l'événement "Nom de l'événement"</h2>
+        <img src="../../../../assets/retour.svg" class="me-3" alt="" routerLink="/events-details-admin/ {{event.id}}">
+    <h2>La liste des réservations pour l'événement {{event.theme}}</h2>
     </div>
     <table class="custom-table mt-2">
         <thead>
@@ -17,27 +17,34 @@
                 <th>Action</th>
             </tr>
         </thead>
-        <tbody>
-            <!-- Example reservation data -->
-            <tr>
-                <td>1</td>
-                <td>Aida Ndiaye</td>
-                <td>aidagmail.com</td>
-                <td>77 123 45 67</td>
+        <tbody *ngIf="reservation.length > 0">
+            <tr *ngFor="let item of reservation">
+                <td>{{item.user.id}}</td>
+                <td>{{item.user.name}}</td>
+                <td>{{item.user.email}}</td>
+                <td>{{item.user.telephone}}</td>
+                <td class="table-actions">
+                    <ng-container *ngIf="item.status !== 'accepte'; else acceptedTemplate">
+                      <img
+                        src="../../../../assets/check.svg"
+                        class="me-3"
+                        alt="Approve"
+                        (click)="approveReservation(item.id)"
+                        style="cursor: pointer;"
+                      />
+                      <img
+                        src="../../../../assets/cancel.svg"
+                        class="me-3"
+                        alt="Reject"
+                        (click)="rejectReservation(item.id)"
+                        style="cursor: pointer;"
+                      />
+                    </ng-container>
+                    <ng-template #acceptedTemplate>
+                      <span>Accepté</span>
+                    </ng-template>
+                  </td>
             </tr>
-            <tr>
-                <td>2</td>
-                <td>Celine Mendy</td>
-                <td>celinegmail.com</td>
-                <td>77 234 56 78</td>
-            </tr>
-            <tr>
-                <td>3</td>
-                <td>Mouhammand Ndour</td>
-                <td>mouhammandgmail.com</td>
-                <td>77 345 67 89</td>
-            </tr>
-            <!-- Add more rows as needed -->
         </tbody>
     </table>
 </div>

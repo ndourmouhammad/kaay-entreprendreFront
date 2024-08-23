@@ -8,6 +8,8 @@ export interface ReservationModel {
     user: {
       id: number;
       name: string;
+      email: string;
+      telephone: string;
     };
   }
   

@@ -135,7 +135,7 @@ export const routes: Routes = [
     canActivate: [administrationGuard],
   },
   {
-    path: 'reservations',
+    path: 'reservations/:id',
     component: ReservationsComponent,
     canActivate: [administrationGuard],
   },

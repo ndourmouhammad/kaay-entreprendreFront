@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { apiUrl } from './apiUrl';
 import { Observable } from 'rxjs';
 import { SecteurActiviteModel } from '../Models/secteuractivite.model';
+import { UserModel } from '../Models/users.model';
 
 @Injectable({
   providedIn: 'root'
@@ -22,7 +23,12 @@ export class AuthService {
   getSecteurActivites(): Observable<SecteurActiviteModel[]> {
     return this.http.get<SecteurActiviteModel[]>(`${apiUrl}secteurs`);
   }
-  
+
+   // Méthode pour afficher le profil  coach
+   getProfilCoach(): Observable<UserModel[]> {
+    return this.http.get<UserModel[]>(`${apiUrl}coachs/{id}`);
+  }
+
 
   // Méthode pour l'inscription
   register(identifiant: any){

@@ -55,3 +55,13 @@ label{
     font-size: 14px;
 
 }
+.existing-image-info {
+    margin-top: 10px;
+  }
+  
+  .existing-image-info img {
+    max-width: 30%; /* Adjust as needed */
+    height: auto;
+    border: 1px solid #ddd; /* Optional border */
+  }
+  

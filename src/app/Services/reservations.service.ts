@@ -57,5 +57,20 @@ export class ReservationsService {
 
         return this.http.post<any>(`${apiUrl}reservations/${id}/refuser`, { headers });
       }
+
+      // Méthode pour faire une réservation : http://127.0.0.1:8000/api/evenements/{id}/reservation
+      addReservation(reservation: FormData, id: number): Observable<{ message: string, data: ReservationModel }> {
+        const token = localStorage.getItem('access_token');
+        if (!token) {
+          console.error('No authentication token found');
+          return throwError('No authentication token found');
+        }
+      
+        const headers = new HttpHeaders({
+          'Authorization': `Bearer ${token}`
+        });
+      
+        return this.http.post<any>(`${apiUrl}evenements/${id}/reservation`, reservation, { headers });
+      }
     
 }

@@ -83,7 +83,7 @@ export const routes: Routes = [
     canActivate: [coachGuard],
   },
   {
-    path: 'events-details-coach',
+    path: 'events-details-coach/:id',
     component: DetailEvenementCoachComponent,
     canActivate: [coachGuard],
   },

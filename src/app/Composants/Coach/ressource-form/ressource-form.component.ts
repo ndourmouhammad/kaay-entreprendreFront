@@ -9,6 +9,7 @@ import { CategorieService } from '../../../Services/categorie.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
+import { environment } from '../../../../environnements/environments';
 
 @Component({
   selector: 'app-ressource-form',
@@ -35,6 +36,10 @@ export class RessourceFormComponent implements OnInit {
   categories: CategorieModel[] = [];
   isEditMode: boolean = false; 
   currentResourceId: string | null = null; 
+  existingContenu: string | null = null;
+  existingImage: string | null = null;
+  baseUrl: string = environment.apiUrl;
+  photoUrl: string = '';
 
   constructor() {
     this.ressourceForm = this.fb.group({
@@ -77,17 +82,30 @@ export class RessourceFormComponent implements OnInit {
   loadResource(id: number): void {
     this.ressourcesService.getRessource(id).subscribe({
       next: (response) => {
-        console.log('Full Response:', response);
-        if (response) {  // Assuming the response itself is the resource
+        if (response) { 
           console.log('Ressource:', response);
-          this.ressourceForm.patchValue(response);
+          const ressource = response; // Directly access the response object
+  
+          // Store the current files
+          this.existingContenu = ressource.contenu;
+          this.existingImage = ressource.image;
+  
+          // Patch the form with the existing resource data
+          this.ressourceForm.patchValue({
+            titre: ressource.titre,
+            description: ressource.description,
+            categorie_id: ressource.categorie_id,
+            contenu: '', // Keep this empty, as the file input is handled separately
+            image: '' // Same for the image
+          });
         } else {
-          console.error('Ressource data is undefined');
+          console.error('Response is undefined or null', response);
         }
       },
       error: (err) => console.error('Erreur lors de la récupération de la ressource:', err)
     });
   }
+  
   
 
 
@@ -96,33 +114,44 @@ export class RessourceFormComponent implements OnInit {
 onSubmit(): void {
   if (this.ressourceForm.valid) {
     const formData = new FormData();
+
+    // If a new file for 'contenu' is selected, add it to FormData
+    const contenuControl = this.ressourceForm.get('contenu');
+    if (contenuControl?.value && typeof contenuControl.value !== 'string') {
+      formData.append('contenu', contenuControl.value);
+    }
+
+    // If a new image is selected, add it to FormData
+    const imageControl = this.ressourceForm.get('image');
+    if (imageControl?.value && typeof imageControl.value !== 'string') {
+      formData.append('image', imageControl.value);
+    }
+
+    // Add other form fields
     Object.keys(this.ressourceForm.controls).forEach(key => {
-      formData.append(key, this.ressourceForm.get(key)?.value || '');
+      if (key !== 'contenu' && key !== 'image') { // Avoid duplicating file fields
+        const value = this.ressourceForm.get(key)?.value;
+        if (value !== null && value !== undefined) {
+          formData.append(key, value);
+        }
+      }
     });
 
     if (this.isEditMode && this.currentResourceId) {
-      // Convert the resource ID to a number if it's a string
+      // Update resource
       const resourceId = Number(this.currentResourceId);
-
-      // Ensure resourceId is a valid number before calling the update method
-      if (!isNaN(resourceId)) {
-        // Adjust the parameter order to match your service method
-        // If your service expects formData first, change the order accordingly
-        this.ressourcesService.updateRessource(formData, resourceId).subscribe({
-          next: (response) => {
-            console.log('Ressource modifiée:', response);
-            this.router.navigate(['/ressources-coach']);
-          },
-          error: (err) => console.error('Erreur lors de la modification de la ressource:', err)
-        });
-      } else {
-        console.error('Invalid resource ID');
-      }
+      this.ressourcesService.updateRessource(formData, resourceId).subscribe({
+        next: (response) => {
+          console.log('Ressource modifiée avec succès', response);
+          this.router.navigate(['/ressources-coach']);
+        },
+        error: (err) => console.error('Erreur lors de la modification de la ressource:', err)
+      });
     } else {
-      // Ajouter une nouvelle ressource
+      // Add new resource
       this.ressourcesService.addRessource(formData).subscribe({
         next: (response) => {
-          console.log('Ressource ajoutée:', response);
+          console.log('Ressource ajoutée avec succès', response);
           this.router.navigate(['/ressources-coach']);
         },
         error: (err) => console.error('Erreur lors de l\'ajout de la ressource:', err)
@@ -142,4 +171,13 @@ onSubmit(): void {
       this.ressourceForm.patchValue({ [controlName]: file });
     }
   }
+
+  getPhotoUrl(photoPath: string): string {
+    return `${this.baseUrl}${photoPath}`;
+  }
+
+  isImage(filePath: string): boolean {
+    return filePath.match(/\.(jpg|jpeg|png|gif)$/i) !== null;
+  }
+  
 }

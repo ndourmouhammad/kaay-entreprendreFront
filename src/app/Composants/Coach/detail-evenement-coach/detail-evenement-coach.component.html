@@ -2,44 +2,56 @@
     <app-header-coach></app-header-coach>
 </header>
 
-<div class="container mt-4">
+<div class="container mt-4" *ngIf="event"> <!-- Corrected div tag here -->
     <div class="mb-4">
-        <a routerLink="/events-coach" class="btn btn-dark">Retour</a>
+      <a routerLink="/events-coach" class="btn btn-dark">Retour</a>
     </div>
+    
     <div class="banniere mb-4">
-        <img src="../../../../assets/events1.png" alt="Banner Image">
-        <!-- Add decorative leaves if necessary -->
-        <div class="leaf"></div>
-        <div class="leaf"></div>
+      <!-- Event Banner Image -->
+      <img *ngIf="event.image" [src]="getPhotoUrl(event.image)" alt="Event Image" class="img-fluid">
+      
+      <!-- Decorative leaves can be added here if needed -->
+      <div class="leaf"></div>
+      <div class="leaf"></div>
     </div>
-
+  
     <div class="row content">
-        <div class="col-md-8">
-            <h3>Thème</h3>
-            <p>Lorem ipsum is simply dummy text of the printing and typesetting industry. Lorem ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a gallery of type and scrambled it to make a type specimen book.</p>
-            <button class="btn btn-custom btn-profile mb-3">Réserver</button>
+      <div class="col-md-8">
+        <!-- Event Theme -->
+        <h3>{{ event.theme || 'Thème de l\'événement' }}</h3>
+        
+        <!-- Event Description -->
+        <p>{{ event.description || 'Description de l\'événement à venir.' }}</p>
+        
+        <!-- Reservation Button -->
+        <button class="btn btn-custom btn-profile mb-3" (click)="reserveEvent()">Réserver</button>
+      </div>
+      
+      <div class="col-md-4">
+        <!-- Event Location -->
+        <div class="info-item">
+          <i class="fas fa-map-marker-alt"></i>
+          <span>{{ event.lieu || 'Lieu non spécifié' }}</span>
         </div>
-        <div class="col-md-4">
-            <div class="info-item">
-                <i class="fas fa-map-marker-alt"></i>
-                <span>Sacré Cœur 3</span>
-            </div>
-            <div class="info-item">
-                <i class="fas fa-phone"></i>
-                <span>78 103 35 01</span>
-            </div>
-            <div class="info-item">
-                <i class="fas fa-calendar-alt"></i>
-                <span>18/03/2024</span>
-            </div>
-            <div class="info-item">
-                <i class="fas fa-tag"></i>
-                <span>gratuit</span>
-            </div>
-            <div class="info-item">
-                <i class="fas fa-users"></i>
-                <span>25 places</span>
-            </div>
+        
+        <!-- Event Date -->
+        <div class="info-item">
+          <i class="fas fa-calendar-alt"></i>
+          <span>{{ event.date_debut | date: 'dd/MM/yyyy' || 'Date non spécifiée' }}</span>
         </div>
+        
+        <!-- Event Price -->
+        <div class="info-item">
+          <i class="fas fa-tag"></i>
+          <span>{{ event.prix || 'Gratuit' }} FCFA</span>
+        </div>
+        
+        <!-- Number of Places Available -->
+        <div class="info-item">
+          <i class="fas fa-users"></i>
+          <span>{{ event.nombre_places || 'Nombre de places non spécifié' }}</span>
+        </div>
+      </div>
     </div>
-</div>
+</div> <!-- Closing div tag -->

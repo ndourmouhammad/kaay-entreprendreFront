@@ -8,8 +8,8 @@
       </div>
       <div class="col-lg-6 col-md-12">
         <div class="container form-container">
-          <h1>Ajouter une ressource</h1>
-          <form [formGroup]="ressourceForm" (ngSubmit)="onSubmit()">
+            <h1>{{ isEditMode ? 'Modifier la ressource' : 'Ajouter une ressource' }}</h1>
+            <form [formGroup]="ressourceForm" (ngSubmit)="onSubmit()">
             <div class="form-row">
               <div class="form-group col-md-12">
                 <label for="titre">Titre</label>
@@ -58,9 +58,9 @@
             </div>
   
             <div class="d-flex justify-content-between">
-              <button type="submit" class="btn evenement">Ajouter</button>
-              <a routerLink="/ressources-coach" class="btn btn-annuler">Annuler</a>
-            </div>
+                <button type="submit" class="btn evenement">{{ isEditMode ? 'Modifier' : 'Ajouter' }}</button>
+                <a routerLink="/ressources-coach" class="btn btn-annuler">Annuler</a>
+              </div>
           </form>
         </div>
       </div>

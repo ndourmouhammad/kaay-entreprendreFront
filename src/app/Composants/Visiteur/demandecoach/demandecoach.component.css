@@ -7,6 +7,9 @@ body{
   text-align: justify;
 }
 
+p{
+  width: 230%;
+}
 
 .profil{
   border: solid rgb(159, 154, 154) 2px;
@@ -15,6 +18,7 @@ body{
   margin: 20px;
   border-radius: 30px;
   margin-top: 50px;
+
 
 
 }
@@ -34,21 +38,26 @@ body{
 #envoyer{
   border-radius: 10px;
   background-color: #FF9700;
-  margin-left: 50px;
+  margin-left: 80px;
   color: white;
   font-weight: bold;
   border: solid rgb(195, 193, 193) 1px;
-  font-size: 1em;
+  font-size: 1.2em;
+  margin-bottom: 70px;
+  padding: 10px;
 
 }
 
 
-
+.user{
+  display: flex;
+  gap: 50px;
+}
 
 #image_pro{
 
   width: 400px;
-  border-radius: 150px;
+  border-radius: 100px;
 }
 
 @media screen and (max-width: 480px) {
@@ -61,15 +70,21 @@ body{
 #image_pro{
 
   width: 300px;
+
 }
 
 .profil{
-  width: 100%;
-  margin-left: 5px;
+  width: 80%;
+  margin-left: 40px;
 }
 
 #h2{
   margin-top: 30px;
+  margin-left: 27px;
+}
+p{
+width: 300px;
+margin-left: 30px;
 }
 
 }

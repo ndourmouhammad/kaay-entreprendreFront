@@ -26,7 +26,7 @@
         </div>
       </div>
 
-     
+
 
       <div class="mb-3">
         <label for="cv" class="form-label">CV (optionnel)</label>
@@ -54,7 +54,7 @@
       <div class="mb-3">
         <label for="secteur_activite_id" class="form-label">Secteur d'activité</label>
         <select id="secteur_activite_id" formControlName="secteur_activite_id" class="form-control">
-          <option *ngFor="let secteur of secteurActivites" [value]="secteur.id">{{ secteur.titre }}</option>
+          <option *ngFor="let secteur of secteurActivites" [value]="secteur.id">{{ secteur.libelle }}</option>
           <option *ngIf="secteurActivites.length === 0">Aucun secteur d'activité disponible</option>
         </select>
         <div *ngIf="registerForm.get('secteur_activite_id')?.invalid && registerForm.get('secteur_activite_id')?.touched" class="text-danger">
@@ -88,7 +88,7 @@
         </div>
       </div>
     </div>
-    
+
   </div>
 
   <div class="text-left mt-4">

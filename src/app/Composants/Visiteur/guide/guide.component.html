@@ -1,44 +1,31 @@
 <header>
     <app-header1></app-header1>
 </header>
-    <div class="container mb-5">
-        <h1 class="h4 mt-4"*ngIf="guide"><h2> {{ guide.titre }}</h2></h1>
-        <div class="guide-card p-4 shadow-sm">
-            <div class="steps-container">
-                <div
-                  class="step"
-                  *ngFor="let etape of guide.etapes"
-                  (click)="showEtape(etape.id)" 
-                  [class.active]="selectedEtape?.id === etape.id"
-                >
-                  ETAPE {{ etape.id }}
-                </div>
-              </div>
-              
-            <div id="contentToConvert" class="content-section" *ngIf="selectedEtape">
-                <h4>{{ selectedEtape.libelle }}</h4>
-                <p class="content-text text-muted">{{ selectedEtape.description }}</p>
-              
+<div class="container mb-5">
+    <h1 class="h4 mt-4" *ngIf="guide"><h2>{{ guide.titre }}</h2></h1>
+    <div class="guide-card p-4 shadow-sm" *ngIf="guide">
+        <div class="steps-container">
+            <div
+              class="step"
+              *ngFor="let etape of guide.etapes"
+              (click)="showEtape(etape)"
+              [class.active]="selectedEtape?.id === etape.id"
+            >
+              ETAPE {{ etape.id }}
             </div>
-            <button  (click)="downloadPDF()"><img src="assets/détail/Rectangle 6.png" alt=""></button>
-        </div>
-        <!-- <img src="assets/images/image25.png" alt="Image en bas à gauche" class="bottom-left-image"> Image ajoutée en bas à gauche -->
-    </div>
-
-    <script>
-        function setActiveStep(stepElement) {
-            // Supprimer la classe 'active' de toutes les étapes
-            document.querySelectorAll('.step').forEach(function(step) {
-                step.classList.remove('active');
-            });
-
-            // Ajouter la classe 'active' à l'étape cliquée
-            stepElement.classList.add('active');
-        }
-    </script>
-   <footer>
-    <app-footer></app-footer>
-   </footer>
+          </div>
           
-      
+          <div id="contentToConvert" class="content-section" *ngIf="selectedEtape">
+            <div class="content-text">
+              <h4>{{ selectedEtape.libelle }}</h4>
+              <p class="text-muted">{{ selectedEtape.description }}</p>
+            </div>
+            <a href="http://" target="_blank" rel="noopener noreferrer" class="content-icon">
+                <!-- <img class="content-icon" src="../../../../assets/pdflogo.png" alt="Icon"> -->
+                <p><a [href]="getFileUrl(selectedEtape.pieces_jointes)" target="_blank"><img src="../../../../assets/pdflogo.png" alt=""></a></p>
+            </a>
+          </div>
+    </div> 
+</div>
 
+<app-footer></app-footer>

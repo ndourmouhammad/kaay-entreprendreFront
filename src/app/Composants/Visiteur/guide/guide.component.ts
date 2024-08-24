@@ -4,9 +4,10 @@ import { Header1Component } from '../../Commun/header1/header1.component';
 import { FooterComponent } from '../../Commun/footer/footer.component';
 import { GuideService } from '../../../Services/guide.service';
 import { EtapeService } from '../../../Services/etape.service';
-import { CommonModule, NgFor, NgIf } from '@angular/common';
+import { CommonModule } from '@angular/common';
 import jsPDF from 'jspdf';
 import html2canvas from 'html2canvas';
+import { environment } from '../../../../environnements/environments';
 
 @Component({
   selector: 'app-guide',
@@ -16,10 +17,7 @@ import html2canvas from 'html2canvas';
       Header1Component,
       FooterComponent,
       RouterLink,
-      RouterModule,
-      NgIf,
-      NgFor
-    
+      RouterModule,CommonModule
   ],
   templateUrl: './guide.component.html',
   styleUrl: './guide.component.css'
@@ -27,6 +25,7 @@ import html2canvas from 'html2canvas';
 export class GuideComponent implements OnInit{
   guide: any;
   selectedEtape: any;
+  baseUrl: string = environment.apiUrl;
 
   constructor(
     private guideService: GuideService,
@@ -38,27 +37,27 @@ export class GuideComponent implements OnInit{
   }
 
   loadGuide(id: number): void {
-    this.guideService.getGuide(id).subscribe(data => {
-      this.guide = data;
-      this.showEtape(this.guide.etapes[0].id); // Appel de l'étape 1 par défaut
-    });
-  }
-
-  showEtape(id: number) {
-    this.guideService.getEtapeDetails(id).subscribe({
-      next: (response) => {
-        if (response.status) {
-          this.selectedEtape = response.data;
-          console.log('Détails de l\'étape reçus:', this.selectedEtape);
-        } else {
-          console.error('Erreur lors de la récupération des détails de l\'étape:', response.message);
-        }
-      },
-      error: (err) => {
-        console.error('Erreur lors de la récupération des détails de l\'étape', err);
+    this.guideService.getGuide(id).subscribe(response => {
+      console.log('Guide data:', response);
+      this.guide = response.data;  // Assigner les données du guide correctement
+      if (this.guide.etapes && this.guide.etapes.length > 0) {
+        this.selectedEtape = this.guide.etapes[0];
       }
+    }, error => {
+      console.error('Erreur lors de la récupération du guide:', error);
     });
   }
+  
+
+  
+
+  showEtape(etape: any): void {
+    this.selectedEtape = etape;
+    console.log('Étape sélectionnée:', this.selectedEtape);  // Ajouter ceci pour déboguer
+  }
+  
+
+  
 
   setActiveStep(id: number): void {
    
@@ -89,5 +88,9 @@ export class GuideComponent implements OnInit{
     } else {
       console.error('Élément HTML non trouvé pour la conversion.');
     }
+  }
+
+  getFileUrl(filePath: string | undefined): string {
+    return filePath ? `${this.baseUrl}${filePath}` : '';
   }
 }

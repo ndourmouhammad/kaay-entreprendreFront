@@ -7,6 +7,7 @@ import { ActivatedRoute } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { HttpErrorResponse } from '@angular/common/http';
 import { jsPDF } from 'jspdf';
+import { environment } from '../../../../environnements/environments';
 
 @Component({
   selector: 'app-detail-ressource',
@@ -20,6 +21,8 @@ import { jsPDF } from 'jspdf';
   styleUrls: ['./detail-ressource.component.css']
 })
 export class DetailRessourceComponent implements OnInit {
+  baseUrl: string = environment.apiUrl;
+    photoUrl: string = '';
 
   ressource: any = {
     titre: "Titre de la ressource",
@@ -68,6 +71,8 @@ export class DetailRessourceComponent implements OnInit {
     }
   }
   
-  
+  getPhotoUrl(photoPath: string): string {
+    return `${this.baseUrl}${photoPath}`;
+  }
   
 }

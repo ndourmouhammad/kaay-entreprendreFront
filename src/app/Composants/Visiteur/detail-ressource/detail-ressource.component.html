@@ -3,20 +3,26 @@
 
     <div  *ngIf="ressource" class="banner">
         <div>
-          <img [src]="ressource.image" alt="{{ ressource.titre }}" />
+          <!-- <img [src]="ressource.image" alt="{{ ressource.titre }}" /> -->
+          <img *ngIf="ressource.image" [src]="getPhotoUrl(ressource.image)" alt="{{ ressource.titre }}">
         </div>
         <div>
-            <h2>{{  ressource.description  }}</h2>
+            <h2>{{  ressource.titre  }}</h2>
         </div>
        
           
     </div>
     <section class="contenu">
-<p>{{ ressource.titre }}</p>
+<p>
+    Description de la ressource : <br>
+    {{ ressource.description }}</p>
 <hr>
-<p><p>{{ ressource.contenu }}</p>
-    <hr>
+<p>
+    Contenu de la ressource : <br>
     <button (click)="generatePDF()"><img src="assets/détail/Rectangle 6.png" alt=""></button>
+</p>
+    <hr>
+    
 
     
     </section>

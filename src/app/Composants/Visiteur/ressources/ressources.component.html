@@ -25,7 +25,9 @@
   <div *ngFor="let ressource of tabRessources" class="row">
     <div class="container">
       <div class="card-image">
-        <img [src]="ressource.image" alt="{{ ressource.titre }}" />
+        <!-- <img [src]="ressource.image" alt="{{ ressource.titre }}" /> -->
+        <img *ngIf="ressource.image" [src]="getPhotoUrl(ressource.image)" alt="{{ ressource.titre }}">
+        <!-- <img *ngIf="user.photo" [src]="getPhotoUrl(user.photo)" alt="Profile Picture" class="rounded-circle img-fluid profile-pic"> -->
       </div>
       <div class="card-text">
         {{ ressource.titre }}

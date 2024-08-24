@@ -5,9 +5,10 @@ import { FooterComponent } from '../../Commun/footer/footer.component';
 import { Header2Component } from '../../Commun/header2/header2.component';
 import { RessourceService } from '../../../Services/ressource.service';
 import { ModelRessource } from '../../../Models/ressource.model';
-import { CommonModule, NgFor, NgIf } from '@angular/common';
+import { NgFor, NgIf } from '@angular/common';
 import { ModelCategorie } from '../../../Models/catégorie.model';
 import { CategorieService } from '../../../Services/categorie.service';
+import { environment } from '../../../../environnements/environments';
 
 @Component({
   selector: 'app-ressources',
@@ -34,6 +35,9 @@ private categorieService=inject(CategorieService);
  tabCategorie:ModelCategorie[] = [];
  categorieObject:ModelCategorie={}
  selectedCategorieId:number | null=null;
+ 
+    baseUrl: string = environment.apiUrl;
+    photoUrl: string = '';
  ngOnInit(): void {
    this.fetchRessoureces();
    this.fetchCategorie();
@@ -97,6 +101,10 @@ onCategorieClick(categorieId: number | undefined) {
   } else {
     console.error('ID de catégorie non défini');
   }
+}
+
+getPhotoUrl(photoPath: string): string {
+  return `${this.baseUrl}${photoPath}`;
 }
 
 }

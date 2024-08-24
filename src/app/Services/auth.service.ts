@@ -20,7 +20,7 @@ export class AuthService {
 
   // Méthode pour récuperer les secteurs d'activités
   getSecteurActivites(): Observable<SecteurActiviteModel[]> {
-    return this.http.get<SecteurActiviteModel[]>(`${apiUrl}secteurs`);
+    return this.http.get<SecteurActiviteModel[]>(`${apiUrl}secteurActivite`);
   }
   
 

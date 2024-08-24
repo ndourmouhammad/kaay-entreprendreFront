@@ -10,7 +10,7 @@
         <li><a routerLink="/guide">Guide</a></li>
         <li><a routerLink="/forum">Forum</a></li>
       </ul>
-      <button *ngIf="!isLoggedIn" class="connexion-btn" routerLink="/login"><img src="https://assets.codepen.io/9277864/login.svg" alt="Login Icon" width="24" height="24" style="color: #00214A;"/>Connexion</button>
+      <button *ngIf="!isLoggedIn" class="connexion-btn" routerLink="/login">Connexion</button>
       <div *ngIf="isLoggedIn" class="user-menu">
         <div class="button logout">
             <a (click)="logout()">

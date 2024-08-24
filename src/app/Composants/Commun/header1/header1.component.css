@@ -56,6 +56,9 @@ header {
     text-decoration: underline;
     font-size: 18px;
 }
+.nav-links a.active {
+    color: #FF9700;
+}
 
 .connexion-btn {
     padding: 8px 15px;
@@ -205,11 +208,7 @@ header {
         font-weight: bold;
     }
 
-    .navbar.active {
-        display: flex; 
-        max-height: 300px; 
-        opacity: 1;
-    }
+    
 
     .nav-links {
         display: flex; 
@@ -281,10 +280,8 @@ header {
         font-weight: bold;
     }
 
-    .navbar.active {
-        display: flex; 
-        max-height: 300px; 
-        opacity: 1;
+    #navbarNav ul li a.active {
+        color: #ff9700;
     }
 
 

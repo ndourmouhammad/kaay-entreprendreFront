@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Router, RouterLink, RouterModule, RouterOutlet } from '@angular/router';
+import { Router, RouterLink, RouterLinkActive, RouterModule } from '@angular/router';
 import { AuthService } from '../../../Services/auth.service';
 import { CommonModule } from '@angular/common';
 import { Subscription } from 'rxjs';
@@ -7,7 +7,7 @@ import { Subscription } from 'rxjs';
 @Component({
   selector: 'app-header1',
   standalone: true,
-  imports: [Header1Component, RouterLink, RouterModule, CommonModule],
+  imports: [Header1Component, RouterLink, RouterModule, CommonModule, RouterLinkActive],
   templateUrl: './header1.component.html',
   styleUrls: ['./header1.component.css']
 })

@@ -46,6 +46,7 @@ import { GuideAdminComponent } from './Composants/Admin/guide-admin/guide-admin.
 
 export const routes: Routes = [
   { path: '', redirectTo: 'Acceuil', pathMatch: 'full' },
+  
 
   // Routes pour Coach
   {

@@ -2,27 +2,27 @@
     <div class="logo-container">
       <img src="assets/Group.png" alt="Logo" class="logo">
     </div>
-    <nav class="navbar">
+    <nav class="navbar" id="navbarNav">
       <ul class="nav-links">
-        <li><a routerLink="">Accueil</a></li>
-        <li><a routerLink="/ressources">Ressource</a></li>
-        <li><a routerLink="/evenement">Événement</a></li>
-        <li><a routerLink="/guide">Guide</a></li>
-        <li><a routerLink="/forum">Forum</a></li>
+        <li><a class="nav-link" routerLink="/Acceuil" routerLinkActive="active">Accueil</a></li>
+        <li><a class="nav-link" routerLink="/ressources" routerLinkActive="active">Ressource</a></li>
+        <li><a routerLink="/evenement" routerLinkActive="active">Événement</a></li>
+        <li><a routerLink="/guide" routerLinkActive="active">Guide</a></li>
+        <li><a routerLink="/forum" routerLinkActive="active">Forum</a></li>
       </ul>
-      <button *ngIf="!isLoggedIn" class="connexion-btn" routerLink="/login">Connexion</button>
-      <div *ngIf="isLoggedIn" class="user-menu">
-        <div class="button logout">
+      <button *ngIf="isLoggedIn" class="connexion-btn" routerLink="/login">Connexion</button>
+      <div *ngIf="!isLoggedIn" class="user-menu">
+        <div class="button profile">
             <a (click)="logout()">
               <span>Déconnexion</span>
-              <img src="https://assets.codepen.io/9277864/logout.svg" alt="Logout Icon" width="24" height="24" style="color: #00214A;"/>
+              <!-- <img src="https alt="Logout Icon" width="24" height="24" style="color: #00214A;"/> -->
              
             </a>
           </div>
-        <div class="button profile">
+        <div class="button logout">
             <a routerLink="/profil-entrepreneur">
               <img src="https://assets.codepen.io/9277864/account.svg" alt="Profile Icon" width="24" height="24" style="color: #00214A;" />
-              <span>Profile</span>
+              <span>Profil</span>
             </a>
           </div>
       </div>

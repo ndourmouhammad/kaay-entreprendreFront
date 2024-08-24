@@ -1,26 +1,39 @@
-
-    <header>
-        <div class="logo-container">
-<img src="assets/Group.png" alt="Logo" class="logo">
-
-        </div>
-        <nav class="navbar">
-            <ul class="nav-links">
-                <li><a routerLink="">Accueil</a></li>
-                <li><a routerLink="/ressources">Ressource</a></li>
-                <li><a routerLink="/evenement">Événement</a></li>
-                <li><a routerLink="/guide">Guide</a></li>
-                <li><a routerLink="/forum">Forum</a></li>
-            </ul>
-            <button class="connexion-btn" routerLink="/login">Connexion</button>
-        </nav>
-        <div class="hamburger-menu">
-            <span class="bar"></span>
-            <span class="bar"></span>
-            <span class="bar"></span>
-        </div>
-    </header>
-
-
-
-
+<header>
+    <div class="logo-container">
+      <img src="assets/Group.png" alt="Logo" class="logo">
+    </div>
+    <nav class="navbar">
+      <ul class="nav-links">
+        <li><a routerLink="">Accueil</a></li>
+        <li><a routerLink="/ressources">Ressource</a></li>
+        <li><a routerLink="/evenement">Événement</a></li>
+        <li><a routerLink="/guide">Guide</a></li>
+        <li><a routerLink="/forum">Forum</a></li>
+      </ul>
+      <button *ngIf="!isLoggedIn" class="connexion-btn" routerLink="/login">Connexion</button>
+      <div *ngIf="isLoggedIn" class="user-menu">
+        <div class="button logout">
+            <a (click)="logout()">
+              <span>Déconnexion</span>
+              <img src="https://assets.codepen.io/9277864/logout.svg" alt="Logout Icon" width="24" height="24" style="color: #00214A;"/>
+             
+            </a>
+          </div>
+        <div class="button profile">
+            <a routerLink="/profil-entrepreneur">
+              <img src="https://assets.codepen.io/9277864/account.svg" alt="Profile Icon" width="24" height="24" style="color: #00214A;" />
+              <span>Profile</span>
+            </a>
+          </div>
+      </div>
+    </nav>
+    <div class="hamburger-menu">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </div>
+  </header>
+ 
+  
+  
+  

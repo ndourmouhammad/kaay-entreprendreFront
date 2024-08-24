@@ -11,33 +11,47 @@
 <h1>Mon profil</h1>
     </div>
     <div class="formulaire">
-        <form method="" action="">
+        <form (ngSubmit)="updateProfil()" #profileFrom="ngForm">
             <div class="nom-prenom">
                 <div class="mid">
                     <label for="Nom">Nom</label>
-                    <input type="text" placeholder="Nom">
+                    <input type="text" id="name" [(ngModel)]="userProfil.name" name="name" required>
                 </div>
-    
                 <div class="mid">
-                    <label for="Prenom">Prenom</label>
-                    <input type="text" placeholder="Prénom">
+                    <label for="Email">Email</label>
+                    <input type="email" id="email" [(ngModel)]="userProfil.email" name="email" required>
                 </div>
-            </div>
+                </div>
+          
     
             <div class="full">
-                <label for="Email">Email</label>
-                <input type="text" placeholder="E-mail">
+                <label for="Profil">Profil</label>
+                <input type="file" id="photo" [(ngModel)]="userProfil.photo" name="photo">
             </div>
-    
+
+            <div class="full">
+                <label for="adresse">Adresse</label>
+                <input type="text" id="adresse" [(ngModel)]="userProfil.adresse" name="adresse">
+            </div>
+
             <div class="full">
                 <label for="Télephone">Télephone</label>
-                <input type="text" placeholder="Téléphone">
+                <input type="text" id="telephone" [(ngModel)]="userProfil.telephone" name="telephone">
             </div>
-    
             <div class="full">
-                <label for="secteur d'activité">secteur d'activité</label>
-                <input type="text" placeholder="secteur d’activité">
+                <label for="cv">cv</label>
+                <input type="file" id="cv" [(ngModel)]="userProfil.cv" name="cv">
             </div>
+            <div class="full" *ngIf="tabSecteur && tabSecteur.length > 0">
+                <label for="secteur_activite_id">Secteur d'activité</label>
+                <select id="secteur_activite_id" [(ngModel)]="userProfil.secteur_activite_id" name="secteur_activite_id" class="form-control">
+                  <option *ngFor="let secteur of tabSecteur" [value]="secteur.id">
+                    {{ secteur.libelle }}
+                  </option>
+                </select>
+              </div>
+              
+              
     
             <div class="submit">
                 <input class="send-btn" type="submit">

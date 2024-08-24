@@ -41,6 +41,7 @@ import { DemandecoachComponent } from './Composants/Visiteur/demandecoach/demand
 import { RetourExperienceComponent } from './Composants/Admin/retour-experience/retour-experience.component';
 import { RetourExperienceAccueilComponent } from './Composants/Visiteur/retour-experience-accueil/retour-experience-accueil.component';
 import { ModificationEvenementComponent } from './Composants/Admin/modification-evenement/modification-evenement.component';
+import { AuthGuard } from './Guards/auth.guard';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'Acceuil', pathMatch: 'full' },
@@ -56,11 +57,11 @@ export const routes: Routes = [
     component: RessourceComponent,
     canActivate: [coachGuard],
   },
-  {
-    path: 'ressource-form',
-    component: RessourceFormComponent,
-    canActivate: [coachGuard],
-  },
+  // {
+  //   path: 'ressource-form',
+  //   component: RessourceFormComponent,
+  //   canActivate: [coachGuard],
+  // },
   {
     path: 'ressource-form/:id',
     component: RessourceFormComponent,
@@ -69,6 +70,7 @@ export const routes: Routes = [
   },
   {
     path: 'ressource-details/:id',
+    // path: 'ressource-details',
     component: RessourceDetailComponent,
     canActivate: [coachGuard],
   },
@@ -84,6 +86,7 @@ export const routes: Routes = [
   },
   {
     path: 'events-details-coach/:id',
+    // path: 'events-details-coach',
     component: DetailEvenementCoachComponent,
     canActivate: [coachGuard],
   },
@@ -111,6 +114,7 @@ export const routes: Routes = [
   },
   {
     path: 'access-users-details/:id',
+    // path: 'access-users-details',
     component: AccessUsersDetailComponent,
     canActivate: [administrationGuard],
   },
@@ -131,11 +135,13 @@ export const routes: Routes = [
   },
   {
     path: 'events-details-admin/:id',
+    // path: 'events-details-admin',
     component: EvenementsDetailsAdminComponent,
     canActivate: [administrationGuard],
   },
   {
     path: 'reservations/:id',
+    // path: 'reservations',
     component: ReservationsComponent,
     canActivate: [administrationGuard],
   },
@@ -191,5 +197,17 @@ export const routes: Routes = [
     
     { path: 'demande-accompagnement-coach' , component: DemandecoachComponent},
 
-    { path: 'retourexperience', component: RetourExperienceAccueilComponent}
+    { path: 'retourexperience', component: RetourExperienceAccueilComponent},
+  { path: 'detail-ressource/:id', component: DetailRessourceComponent },
+  { path: 'profil-entrepreneur', component: UserProfilComponent, canActivate: [AuthGuard] },
+  { path: 'modifier-profil/:id', component: ModifierProfilComponent },
+  {
+    path: 'mes-reservations',
+    component: ReservationsComponent,
+  },
+    { path:'demande-accompagnement', component:DemandeComponent},
+    
+    { path: 'demande-accompagnement-coach' , component: DemandecoachComponent},
+
+    { path: 'retourexperience', component: RetourExperienceComponent}
 ];

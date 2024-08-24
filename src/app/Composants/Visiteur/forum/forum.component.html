@@ -1,65 +1,58 @@
 <header>
-    <app-header1></app-header1>
-  </header>
-  <div class="sidebar">
-    <div class="search">
-      <input type="text" class="form-control" placeholder="Search" [(ngModel)]="searchTerm">
-    </div>
-    <div class="menu-item d-none d-md-flex">
-      <i class="bi bi-list"></i>
-      <span class="ms-2">Forum</span>
-    </div>        
-    <button class="btn-ajouter" data-bs-toggle="modal" data-bs-target="#ajouterModal">
-      <i class="bi bi-plus-circle"></i> Ajouter
-    </button>
+  <app-header1></app-header1>
+</header>
+<div class="sidebar">
+  <div class="search">
+    <input type="text" class="form-control" placeholder="Search" [(ngModel)]="searchTerm">
   </div>
-  
-  <div class="content">
-    <a *ngFor="let forum of filteredForums" [routerLink]="['/forum-detail', forum.id]" class="forum-card">
-      <div class="d-flex">
-        <!-- <img src="assets/images/log.png" alt="User Image"> -->
-        <img *ngIf="forum.user?.name" [src]="getPhotoUrl(forum.user?.photo ?? '')" alt="User Image">
+  <div class="menu-item d-none d-md-flex">
+    <i class="bi bi-list"></i>
+    <span class="ms-2">Forum</span>
+  </div>        
+  <button class="btn-ajouter" (click)="openModal()">
+    <i class="bi bi-plus-circle"></i> Ajouter
+  </button>
+</div>
 
-         
-        <div>
-            <h6>{{ forum.user?.name }}</h6>
-          <h6>{{ forum.libelle }}</h6>
-          <span class="time">{{ forum.created_at | date: 'short' }}</span>
-        </div>
-      </div>
-      <p>{{ forum.contenu }}</p>
-    </a>
-  </div>
-  
-  <!-- Modal -->
-  <div class="modal fade" id="ajouterModal" tabindex="-1" aria-labelledby="ajouterModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="ajouterModalLabel">Ajouter un forum</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <form (ngSubmit)="addForum()">
-            <div class="mb-3 text-start">
-              <label for="libelle" class="form-label">Libellé</label>
-              <input type="text" class="form-control" id="libelle" [(ngModel)]="newForum.libelle" name="libelle" required>
-            </div>
-            <div class="mb-3 text-start">
-              <label for="message" class="form-label">Message</label>
-              <textarea class="form-control" id="message" [(ngModel)]="newForum.contenu" name="contenu" rows="3" required></textarea>
-            </div>
-            <div class="modal-footer">
-              <button type="submit" class="btn btn-publier">
-                <i class="bi bi-send"></i> Publier
-              </button>
-            </div>
-          </form>
-        </div>
+<div class="content">
+  <a *ngFor="let forum of forums" [routerLink]="['/forum-detail', forum.id]" class="forum-card">
+    <div class="d-flex">
+      <img *ngIf="forum.user?.name" [src]="getPhotoUrl(forum.user?.photo ?? '')" alt="User Image">
+      <div>
+        <h6>{{ forum.user?.name }}</h6>
+        <h6>{{ forum.libelle }}</h6>
+        <span class="time">{{ forum.created_at | date: 'short' }}</span>
       </div>
     </div>
+    <p>{{ forum.contenu }}</p>
+  </a>
+</div>
+
+<!-- Modal -->
+<ng-template #ajouterModal let-modal>
+  <div class="modal-header">
+    <h5 class="modal-title">Ajouter un forum</h5>
+    <button type="button" class="btn-close" (click)="modal.dismiss()"></button>
   </div>
-  
-  <footer>
-    <app-footer></app-footer>
-  </footer>
+  <div class="modal-body">
+    <form (ngSubmit)="addForum()">
+      <div class="mb-3 text-start">
+        <label for="libelle" class="form-label">Libellé</label>
+        <input type="text" class="form-control" id="libelle" [(ngModel)]="newForum.libelle" name="libelle" required>
+      </div>
+      <div class="mb-3 text-start">
+        <label for="message" class="form-label">Message</label>
+        <textarea class="form-control" id="message" [(ngModel)]="newForum.contenu" name="contenu" rows="3" required></textarea>
+      </div>
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-publier">
+          <i class="bi bi-send"></i> Publier
+        </button>
+      </div>
+    </form>
+  </div>
+</ng-template>
+
+<footer>
+  <app-footer></app-footer>
+</footer>

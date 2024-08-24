@@ -34,6 +34,7 @@ export class EvenementsDetailsAdminComponent implements OnInit {
   baseUrl: string = environment.apiUrl;
   event: EvenementModel = {}; // Provide a default value if needed
   reservation: ReservationModel[] = []; // Initialize as an empty array
+  
 
 
   ngOnInit(): void {

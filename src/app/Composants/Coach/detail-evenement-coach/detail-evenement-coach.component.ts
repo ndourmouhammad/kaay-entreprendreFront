@@ -83,5 +83,6 @@ export class DetailEvenementCoachComponent implements OnInit {
       console.error('Event ID is not available');
     }
   }
+  
 
 }

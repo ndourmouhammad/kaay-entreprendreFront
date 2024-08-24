@@ -30,6 +30,7 @@ export class EvenementsDetailsAdminComponent implements OnInit {
   private reservationsService = inject(ReservationsService);
   private route: ActivatedRoute = inject(ActivatedRoute);
 
+  
   baseUrl: string = environment.apiUrl;
   event: EvenementModel = {}; // Provide a default value if needed
   reservation: ReservationModel[] = []; // Initialize as an empty array

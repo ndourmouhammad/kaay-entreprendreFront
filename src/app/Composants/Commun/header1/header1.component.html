@@ -10,8 +10,8 @@
         <li><a routerLink="/guide" routerLinkActive="active">Guide</a></li>
         <li><a routerLink="/forum" routerLinkActive="active">Forum</a></li>
       </ul>
-      <button *ngIf="isLoggedIn" class="connexion-btn" routerLink="/login">Connexion</button>
-      <div *ngIf="!isLoggedIn" class="user-menu">
+      <button *ngIf="!isLoggedIn" class="connexion-btn" routerLink="/login">Connexion</button>
+      <div *ngIf="isLoggedIn" class="user-menu">
         <div class="button profile">
             <a (click)="logout()">
               <span>Déconnexion</span>

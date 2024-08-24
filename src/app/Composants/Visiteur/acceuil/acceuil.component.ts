@@ -1,10 +1,11 @@
+import { RetourExperienceService } from './../../../Services/retourExperience.service';
 import { Component, AfterViewInit, OnInit, inject } from '@angular/core';
 import { RouterLink, RouterModule, RouterOutlet } from '@angular/router';
 import { Header1Component } from '../../Commun/header1/header1.component';
 import { FooterComponent } from '../../Commun/footer/footer.component';
-import { RetourExperienceService } from '../../../Services/retour-experience.service';
 import { retourExperienceModel } from '../../../Models/retourExperience.model';
 import { CommonModule } from '@angular/common';
+
 
 @Component({
   selector: 'app-acceuil',
@@ -69,7 +70,7 @@ export class AcceuilComponent implements AfterViewInit, OnInit {
     this.fetchRetourExperience();
   }
   fetchRetourExperience() {
-    this.retourExperienceService.getAllRetourEXperience().subscribe(
+    this.retourExperienceService.getRetourExperiences().subscribe(
       (response: any) => {
         if (Array.isArray(response.data)) {
           console.log('retour_experiences:', response.data);

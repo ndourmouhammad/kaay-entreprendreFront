@@ -18,8 +18,8 @@
             </tr>
         </thead>
         <tbody *ngIf="reservation.length > 0">
-            <tr *ngFor="let item of reservation">
-                <td>{{item.user.id}}</td>
+            <tr *ngFor="let item of reservation; let i = index">
+                <td> {{ i + 1 }}</td>
                 <td>{{item.user.name}}</td>
                 <td>{{item.user.email}}</td>
                 <td>{{item.user.telephone}}</td>

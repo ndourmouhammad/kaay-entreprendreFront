@@ -1,0 +1,34 @@
+<header class="container">
+    <app-header-admin></app-header-admin>
+</header>
+
+<div class="container mb-5">
+    <h1 class="h4 mt-4" *ngIf="guide"><h2>{{ guide.titre }}</h2></h1>
+    
+    <div class="guide-card p-4 shadow-sm" *ngIf="guide">
+        <div class="dropdown">
+            <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" aria-haspopup="true" aria-expanded="false" (click)="toggleDropdown()" style="background-color: #ff8500; border-color: #ff8500">
+                ETAPE {{ selectedEtape?.id }}
+            </button>
+            <div class="dropdown-menu" [class.show]="dropdownOpen" aria-labelledby="dropdownMenuButton" >
+                <a 
+                    class="dropdown-item" 
+                    *ngFor="let etape of guide.etapes" 
+                    (click)="selectEtape(etape)"
+                    [class.active]="selectedEtape?.id === etape.id" >
+                    ETAPE {{ etape.id }}
+                </a>
+            </div>
+        </div>
+
+        <div id="contentToConvert" class="content-section" *ngIf="selectedEtape">
+            <div class="content-text">
+              <h4>{{ selectedEtape.libelle }}</h4>
+              <p class="text-muted">{{ selectedEtape.description }}</p>
+            </div>
+            <a href="http://" target="_blank" rel="noopener noreferrer" class="content-icon">
+                <p><a [href]="getFileUrl(selectedEtape.pieces_jointes)" target="_blank"><img src="../../../../assets/pdflogo.png" alt=""></a></p>
+            </a>
+        </div>
+    </div>
+</div>

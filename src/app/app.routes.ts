@@ -42,6 +42,7 @@ import { RetourExperienceComponent } from './Composants/Admin/retour-experience/
 import { RetourExperienceAccueilComponent } from './Composants/Visiteur/retour-experience-accueil/retour-experience-accueil.component';
 import { ModificationEvenementComponent } from './Composants/Admin/modification-evenement/modification-evenement.component';
 import { AuthGuard } from './Guards/auth.guard';
+import { GuideAdminComponent } from './Composants/Admin/guide-admin/guide-admin.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'Acceuil', pathMatch: 'full' },
@@ -163,6 +164,11 @@ export const routes: Routes = [
   {
     path: 'retour-experience-admin',
     component: RetourExperienceComponent,
+    canActivate: [administrationGuard],
+  },
+  {
+    path: 'guide-admin',
+    component: GuideAdminComponent,
     canActivate: [administrationGuard],
   },
 

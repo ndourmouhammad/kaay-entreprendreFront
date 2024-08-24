@@ -16,6 +16,7 @@
                 <div class="mid">
                     <label for="Nom">Nom</label>
                     <input type="text" id="name" [(ngModel)]="userProfil.name" name="name" required>
+                    
                 </div>
                 <div class="mid">
                     <label for="Email">Email</label>
@@ -26,7 +27,7 @@
     
             <div class="full">
                 <label for="Profil">Profil</label>
-                <input type="file" id="photo" [(ngModel)]="userProfil.photo" name="photo">
+                <input type="file" id="photo" (change)="onFileSelected($event, 'photo')" name="photo">
             </div>
 
             <div class="full">
@@ -40,7 +41,7 @@
             </div>
             <div class="full">
                 <label for="cv">cv</label>
-                <input type="file" id="cv" [(ngModel)]="userProfil.cv" name="cv">
+                <input type="file" id="cv" (change)="onFileSelected($event, 'cv')" name="cv">
             </div>
             <div class="full" *ngIf="tabSecteur && tabSecteur.length > 0">
                 <label for="secteur_activite_id">Secteur d'activité</label>

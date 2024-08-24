@@ -68,19 +68,5 @@ export class DemandeComponent implements OnInit {
       console.error('Secteur ID est indéfini');
     }
   }
-  onCoachSelect(coachId: number | undefined): void {
-    if (coachId !== undefined) {
-    this.coacheServices.getCoachById(coachId).subscribe({
-      next: (coach) => {
-        this.selectedCoach = coach;
-        console.log('detal',coach)
-      },
-      error: (err) => {
-        console.error('Erreur lors de la récupération des détails du coach', err);
-      }
-    });
-  }else{
-    console.error('Secteur ID est indéfini');
-  }
-}
+ 
 }

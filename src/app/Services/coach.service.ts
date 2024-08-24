@@ -22,5 +22,13 @@ private http=inject(HttpClient);
   }
   getCoachById(id: number): Observable<UserModel> {
     return this.http.get<UserModel>(`${apiUrl}coach/${id}`);
+    
+  }
+  sendRequest(senderId: number, receiverId: number, message: string): Observable<any> {
+    return this.http.post<any>(`${apiUrl}accompagnement-personnalise`, {
+      sender_id: senderId,
+      receiver_id: receiverId,
+      message: message
+    });
   }
 }

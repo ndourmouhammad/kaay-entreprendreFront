@@ -171,7 +171,7 @@ export const routes: Routes = [
 
 
     
-    { path: 'demande-accompagnement-coach' , component: DemandecoachComponent},
+    { path: 'demande-accompagnement-coach/:id' , component: DemandecoachComponent},
 
     { path: 'retourexperience', component: RetourExperienceComponent}
 ];

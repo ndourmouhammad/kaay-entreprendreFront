@@ -1,3 +1,5 @@
+import { SecteurActiviteModel } from "./secteuractivite.model"
+
 export interface UserModel {
     id?: number
     secteuractivite_id?: number
@@ -11,4 +13,6 @@ export interface UserModel {
     cv?: string
     createdAt?: Date
     updatedAt?: Date
+    secteur_activite_id?: number;
+  secteur_activite?: SecteurActiviteModel;
 }

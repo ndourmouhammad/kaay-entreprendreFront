@@ -1,55 +1,58 @@
-
 <header>
   <app-header1></app-header1>
 </header>
-  <div class="profil1">
-    <div>
-    <div>
-      <img src="../assets/images/homme-affaires-afro-americain-serieux_74855-1215.jpg" alt="Homme d'affaire" id="image_pro">
-      <h5 id="h5">Coach en BTP</h5>
-    </div>
-
-    <div class="profil">
-      <div>
-        <i class="fa-regular fa-user" style="color: #FF9700;"></i>
-        <p>Makalou</p>
+<div class="page-content page-container" id="page-content">
+  <div class="padding">
+    <div class="row container d-flex justify-content-center">
+      <div class="col-xl-30 col-md-12" *ngIf="coach">
+        <div class="card user-card-full">
+          <div class="row m-l-0 m-r-0">
+            <div class="col-sm-4 bg-c-lite-green user-profile">
+              <div class="card-block text-center text-white">
+                <div class="m-b-25">
+                  <img *ngIf="coach.photo" [src]="coach.photo" alt="{{ coach.name }}" id="image_pro" class="img-radius">
+                </div>
+                <h6 class="f-w-600">{{ coach.name }}</h6>
+                <p *ngIf="coach.secteur_activite" class="card-text">Coach en {{ coach.secteur_activite.libelle }}</p>
+                <i class="mdi mdi-square-edit-outline feather icon-edit m-t-10 f-16"></i>
+              </div>
+            </div>
+            <div class="col-sm-8">
+              <div class="card-block">
+                <h6 class="m-b-80 p-b-5 b-b-default f-w-600">Information</h6>
+                <div class="row">
+                  <div class="col-sm-6">
+                    <p class="m-b-20 f-w-600">Email</p>
+                    <p class="text-muted f-w-400">{{ coach.email }}</p>
+                  </div>
+                  <div class="col-sm-6">
+                    <p class="m-b-10 f-w-600">Téléphone</p>
+                    <p class="text-muted f-w-400">{{ coach.telephone }}</p>
+                  </div>
+                </div>
+                <h6 class="m-b-20 m-t-40 p-b-5 b-b-default f-w-600">Projects</h6>
+                <div class="row">
+                  <div class="col-sm-6">
+                    <p class="m-b-10 f-w-600">Adresse</p>
+                    <p class="text-muted f-w-400">{{ coach.adresse }}</p>
+                  </div>
+                  <div class="col-sm-6">
+                    <p class="m-b-10 f-w-600">Secteur d'activité</p>
+                    <p *ngIf="coach.secteur_activite && coach.secteur_activite.libelle" class="card-text">
+                      {{ coach.secteur_activite.libelle }}
+                    </p>
+                  </div>
+                </div>
+                <!-- Bouton pour envoyer la demande -->
+                <button class="btn btn-primary" (click)="sendRequest()">Demander</button>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-      <div>
-        <i class="fa-regular fa-user" style="color: #FF9700;"></i>
-        <p>Jean pierre</p>
-
-      </div>
-      <div>
-        <i class="fa-solid fa-phone" style="color: #FF9700;"></i>
-        <p>+221 77 000 00 00</p>
-      </div>
-      <div>
-        <i class="fa-regular fa-envelope" style="color: #FF9700;"></i>
-        <p>makaloupierregmail.com</p>
-      </div>
-      <div>
-        <i class="fa-solid fa-location-dot" style="color: #FF9700;"></i>
-        <p>Sacré coeur 3 villa n°35, Dakar</p>
-      </div>
-      <i class="fa-brands fa-linkedin" ></i>
-      <i class="fa-brands fa-x-twitter"></i>
-      <i class="fa-brands fa-facebook"></i>
-    </div>
-    <button id="envoyer">Envoyer demande</button>
-    </div>
-    <div>
-    <div>
-      <h2 id="h2">PRESENTATION</h2>
-      <P>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercice ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident""Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercice ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident"</P>
-    </div>
-
-    <div>
-      <h2>EXPERIENCES</h2>
-      <P>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercice ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident""Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercice ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident"</P>
-    </div>
     </div>
   </div>
+</div>
 <footer>
   <app-footer></app-footer>
 </footer>
-

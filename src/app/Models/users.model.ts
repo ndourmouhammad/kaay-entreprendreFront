@@ -1,3 +1,5 @@
+import { SecteurActiviteModel } from "./secteuractivite.model"
+
 export interface Role {
     id: number;
     name: string;
@@ -19,4 +21,5 @@ export interface UserModel {
     createdAt?: Date
     updatedAt?: Date
     roles?: Role[]
+    secteur_activite?: SecteurActiviteModel;
 }

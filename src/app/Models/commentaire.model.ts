@@ -10,6 +10,7 @@ export interface Commentaire {
         name: string;
         email: string;
         telephone: string;
+        photo: string;
       };
   }
   ///

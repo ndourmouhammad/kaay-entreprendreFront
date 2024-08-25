@@ -1,3 +1,5 @@
+import { Commentaire } from "./commentaire.model";
+
 export interface Comments {
     id?: number;
     contenu: string;
@@ -34,7 +36,7 @@ export interface Discussion {
   created_at: string;
   updated_at: string;
   date: string; // or Date, according to your data type
-  commentaires?: Comments[]; // Use 'commentaires' to match the API response
+  commentaires?: Commentaire[]; // Use 'commentaires' to match the API response
   user?: {
     id?: number;
     name?: string;

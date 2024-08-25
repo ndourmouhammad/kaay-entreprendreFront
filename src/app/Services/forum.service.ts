@@ -71,6 +71,6 @@ export class ForumService {
             'Authorization': `Bearer ${token}`
         });
 
-        return this.http.post<any>(`${apiUrl}discussions/${discussionId}/comments`, comment, { headers });
+        return this.http.post<any>(`${apiUrl}discussions/${discussionId}/commentaire`, comment, { headers });
     }
 }

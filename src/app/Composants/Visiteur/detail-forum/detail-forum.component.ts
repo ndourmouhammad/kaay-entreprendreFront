@@ -75,6 +75,27 @@ export class DetailForumComponent implements OnInit {
   }
   
   
+ 
+  
+  
+  
+
+  addComment(): void {
+    if (this.discussion && this.newComment.contenu.trim()) {
+      const formData = new FormData();
+      formData.append('contenu', this.newComment.contenu);
+
+      this.forumService.addComment(this.discussion.id, formData).subscribe(
+        (response) => {
+          this.newComment.contenu = ''; // Réinitialiser le formulaire
+          
+          this.loadComments(this.discussion.id); 
+        },
+        (error: any) => console.error('Erreur lors de l\'ajout du commentaire:', error)
+      );
+    }
+  }
+
   loadComments(discussionId: number): void {
     this.commentaireService.getComments(discussionId).subscribe(
       
@@ -91,24 +112,6 @@ export class DetailForumComponent implements OnInit {
       },
       (error) => console.error('Erreur lors du chargement des commentaires:', error)
     );
-  }
-  
-  
-  
-
-  addComment(): void {
-    if (this.discussion && this.newComment.contenu.trim()) {
-      const formData = new FormData();
-      formData.append('contenu', this.newComment.contenu);
-
-      this.forumService.addComment(this.discussion.id, formData).subscribe(
-        () => {
-          this.newComment.contenu = ''; // Réinitialiser le formulaire
-          this.loadComments(this.discussion.id); // Rafraîchir la liste des commentaires
-        },
-        (error: any) => console.error('Erreur lors de l\'ajout du commentaire:', error)
-      );
-    }
   }
 
   getPhotoUrl(photoPath: string): string {

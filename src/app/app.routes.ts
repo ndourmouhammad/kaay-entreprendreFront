@@ -59,11 +59,11 @@ export const routes: Routes = [
     component: RessourceComponent,
     canActivate: [coachGuard],
   },
-  // {
-  //   path: 'ressource-form',
-  //   component: RessourceFormComponent,
-  //   canActivate: [coachGuard],
-  // },
+  {
+    path: 'ressource-form',
+    component: RessourceFormComponent,
+    canActivate: [coachGuard],
+  },
   {
     path: 'ressource-form/:id',
     component: RessourceFormComponent,

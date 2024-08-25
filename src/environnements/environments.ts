@@ -1,6 +1,9 @@
 // src/environments/environment.ts
 export const environment = {
     production: false,
-    apiUrl: 'http://localhost:8000/storage/' // Base URL pour les images
+    // apiUrl: 'http://localhost:8000/storage/' 
+    apiUrl: 'https://kaayentreprendre.ndourmouhammad15.simplonfabriques.com/storage/'
+    // 'https://kaayentreprendre.ndourmouhammad15.simplonfabriques.com/api/storage/photos/'
+    
   };
   

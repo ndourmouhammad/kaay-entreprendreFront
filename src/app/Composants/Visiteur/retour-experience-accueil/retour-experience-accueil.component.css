@@ -5,7 +5,19 @@ body {
 .card {
   border-radius: 10px;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
 }
+
+.avatar {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
 
 .card-body {
   position: relative;
@@ -34,6 +46,26 @@ body {
   margin-top: 25px;
 }
 
+.btn-warning {
+  background-color: #ff9700;
+  border-color: #ff9700;
+  color: white;
+  font-weight: 500px;
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
+  width: 140px;
+  height: 55px;
+}
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}
 
+.col-md-6, .col-lg-4 {
+  display: flex;
+  align-items: stretch;
+}
 
-
+.card {
+  flex: 1;
+}

@@ -1,25 +1,31 @@
 <header >
   <app-header1></app-header1>
 </header>
-  <div class="container event-section mt-5">
-    <div class="event-image-container">
-      <img src="assets/images/log.png" alt="Event Image" class="event-image">
-      <div class="event-category">Digitale</div>
-    </div>
-    
-    <div class="event-details">
-      <h3>Détails sur l'événement</h3>
-      <p><strong>Thème :</strong> Les outils digitaux</p>
-      <p><strong>Description :</strong> With Landingfolio, the design team can now build design which identifies employees' career aspirations and goals and from which we approach managers and check to see what is happening.</p>
-      <p><strong>Nombre de places :</strong> 200</p>
-      <p><strong>Gratuit</strong></p>
-    </div>
-
-    <div class="reserve-section">
-      <button class="reserve-btn">Réserver</button>
-      <img src="assets/images/Group.png" alt="Small Image" class="small-image">
-    </div>
+<div class="container event-section mt-5">
+  <div class="mb-4">
+    <a routerLink="/evenement" class="btn btn-dark">Retour</a>
   </div>
+  <div class="event-image-container">
+    <!-- Utilisation de la méthode pour obtenir le chemin dynamique -->
+    <img *ngIf="event.image" [src]="getPhotoUrl(event.image)" alt="Event Image" class="event-image">
+    
+  </div>
+  
+  <div class="event-details">
+    <h3>Détails sur l'événement</h3>
+    <p><strong>Thème :</strong> {{ event.theme }}</p>
+    <p><strong>Description :</strong> {{ event.description }}</p>
+    <p><strong>Nombre de places :</strong> {{ event.nombre_places }}</p>
+    <p><strong>prix : </strong>{{event.prix}} FCFA</p>
+    <p><strong>Date début :</strong> {{ event.date_debut | date:'dd MMM yyyy' }}</p>
+    <p><strong>Date fin : </strong>{{event.date_fin | date:'dd MMM yyyy'}} </p>
+  </div>
+
+  <div class="reserve-section">
+    <button class="reserve-btn" (click)="reserveEvent()">Réserver</button>
+    <img src="assets/images/Group.png" alt="Small Image" class="small-image">
+  </div>
+</div>
   <footer>
     <app-footer></app-footer>
   </footer>

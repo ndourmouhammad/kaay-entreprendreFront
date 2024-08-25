@@ -1,17 +1,22 @@
-import { Component, AfterViewInit } from '@angular/core';
+import { RetourExperienceService } from './../../../Services/retourExperience.service';
+import { Component, AfterViewInit, OnInit, inject } from '@angular/core';
 import { RouterLink, RouterModule, RouterOutlet } from '@angular/router';
 import { Header1Component } from '../../Commun/header1/header1.component';
 import { FooterComponent } from '../../Commun/footer/footer.component';
+import { retourExperienceModel } from '../../../Models/retourExperience.model';
+import { CommonModule } from '@angular/common';
+
 
 @Component({
   selector: 'app-acceuil',
   standalone: true,
-  imports: [RouterOutlet,Header1Component,FooterComponent, RouterLink, RouterModule],
+  imports: [RouterOutlet,Header1Component,FooterComponent, RouterLink, RouterModule,CommonModule
+  ],
   templateUrl: './acceuil.component.html',
   styleUrl: './acceuil.component.css'
 })
 
-export class AcceuilComponent implements AfterViewInit {
+export class AcceuilComponent implements AfterViewInit, OnInit {
   cards = [
     { title: 'Comment Card 1', content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit...' },
     { title: 'Comment Card 2', content: 'Vestibulum nunc massa, gravida quis porta nec, feugiat id metus...' },
@@ -19,6 +24,8 @@ export class AcceuilComponent implements AfterViewInit {
     { title: 'Comment Card 4', content: 'Donec nunc ligula, vulputate quis mollis eu, interdum quis libero...' }
   ];
   
+  private retourExperienceService=inject(RetourExperienceService);
+  tabRetourExperience:retourExperienceModel[]=[];
   private currentIndex = 0;
 
   ngAfterViewInit(): void {
@@ -59,4 +66,23 @@ export class AcceuilComponent implements AfterViewInit {
       return 'card card--out';
     }
   }
+  ngOnInit(): void {
+    this.fetchRetourExperience();
+  }
+  fetchRetourExperience() {
+    this.retourExperienceService.getRetourExperiences().subscribe(
+      (response: any) => {
+        if (Array.isArray(response.data)) {
+          console.log('retour_experiences:', response.data);
+          this.tabRetourExperience = response.data.reverse();
+        } else {
+          console.error('API response does not contain an array in the "data" field:', response);
+        }
+      },
+      (error) => {
+        console.error('Error fetching retourExperience:', error);
+      }
+    );
+  }
+  
 }

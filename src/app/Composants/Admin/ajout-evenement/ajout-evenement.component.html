@@ -13,6 +13,82 @@
                 <!-- Remplacez par des messages d'erreur statiques si nécessaire -->
                 <div class="alert alert-danger mt-4 d-none">Votre compte est désactivé. Veuillez contacter l'administrateur.</div>
                 
+<<<<<<< HEAD
+                <form [formGroup]="evenementForm" (ngSubmit)="onSubmit()" enctype="multipart/form-data" class="mt-5">
+                    <div class="form-row">
+                      <div class="form-group col-md-6">
+                        <label for="theme">Thème</label>
+                        <input type="text" class="form-control" id="theme" formControlName="theme">
+                        <div *ngIf="evenementForm.get('theme')?.invalid && evenementForm.get('theme')?.touched" class="invalid-feedback">
+                          <strong>Erreur pour le thème</strong>
+                        </div>
+                      </div>
+                      <div class="form-group col-md-6">
+                        <label for="nombre_places">Nombre de places</label>
+                        <input type="text" class="form-control" id="nombre_places" formControlName="nombre_places">
+                        <div *ngIf="evenementForm.get('nombre_places')?.invalid && evenementForm.get('nombre_places')?.touched" class="invalid-feedback">
+                          <strong>Erreur pour le nombre de places</strong>
+                        </div>
+                      </div>
+                    </div>
+                  
+                    <div class="form-row">
+                      <div class="form-group col-md-6">
+                        <label for="date_debut">Date de début</label>
+                        <input type="date" class="form-control" id="date_debut" formControlName="date_debut">
+                        <div *ngIf="evenementForm.get('date_debut')?.invalid && evenementForm.get('date_debut')?.touched" class="invalid-feedback">
+                          <strong>Erreur pour la date de début</strong>
+                        </div>
+                      </div>
+                      <div class="form-group col-md-6">
+                        <label for="date_fin">Date de fin</label>
+                        <input type="date" class="form-control" id="date_fin" formControlName="date_fin">
+                        <div *ngIf="evenementForm.get('date_fin')?.invalid && evenementForm.get('date_fin')?.touched" class="invalid-feedback">
+                          <strong>Erreur pour la date de fin</strong>
+                        </div>
+                      </div>
+                    </div>
+                  
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="lieu">Lieu de l'événement</label>
+                            <input type="text" class="form-control" id="lieu" formControlName="lieu">
+                            <div *ngIf="evenementForm.get('lieu')?.invalid && evenementForm.get('lieu')?.touched" class="invalid-feedback">
+                              <strong>Erreur pour le lieu</strong>
+                            </div>
+                          </div>
+                          <div class="form-group col-md-6">
+                            <label for="prix">Le prix</label>
+                            <input type="text" class="form-control" id="prix" formControlName="prix">
+                            <div *ngIf="evenementForm.get('prix')?.invalid && evenementForm.get('prix')?.touched" class="invalid-feedback">
+                              <strong>Erreur pour le prix</strong>
+                            </div>
+                          </div>
+                    </div>
+                  
+                    <div class="form-group">
+                      <label for="description">Description</label>
+                      <textarea class="form-control" id="description" formControlName="description" rows="5"></textarea>
+                      <div *ngIf="evenementForm.get('description')?.invalid && evenementForm.get('description')?.touched" class="invalid-feedback">
+                        <strong>Erreur pour la description</strong>
+                      </div>
+                    </div>
+                  
+                    <div class="form-group">
+                      <label for="image">Image</label>
+                      <input type="file" class="form-control-file" id="image" (change)="onFileSelect($event)">
+                      <div *ngIf="evenementForm.get('image')?.invalid && evenementForm.get('image')?.touched" class="invalid-feedback">
+                        <strong>Erreur pour l'image</strong>
+                      </div>
+                    </div>
+                  
+                    <div class="d-flex justify-content-between">
+                      <button type="submit" class="btn evenement" [disabled]="evenementForm.invalid">Ajouter</button>
+                      <a routerLink="/evenement-admin" class="btn btn-annuler">Annuler</a>
+                    </div>
+                  </form>
+                  
+=======
                 <form enctype="multipart/form-data" class="mt-5">
                     <div class="form-row">
                         <div class="form-group col-md-6">
@@ -89,6 +165,7 @@
                         <a routerLink="/evenement-admin" class="btn btn-annuler ">Annuler</a>
                     </div>
                 </form>
+>>>>>>> AmilioratioPage
             </div>
         </div>
     </div>

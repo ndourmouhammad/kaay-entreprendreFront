@@ -1,6 +1,6 @@
 export interface SecteurActiviteModel {
     id?: number;
-    titre?: string;
+    libelle?: string;
     description?: string;
     createdAt?: Date;
     updatedAt?: Date;

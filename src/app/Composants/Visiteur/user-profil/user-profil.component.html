@@ -1,76 +1,62 @@
-
 <app-header1></app-header1>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <title>Document</title>
-</head>
-<body>
-   <div class="banner">
-<h1>mon profil</h1>
-<div class="info_profil">
-<div class="profil">
-    <div class="profil2">
-        <div><img src="assets/profil/Ellipse 255.png" alt=""></div>
-        <div><button routerLink="/modifier-profil">modifier</button></div>
+
+<div *ngIf="userProfil" class="banner">
+  <h1>Mon Profil</h1>
+  <div class="info_profil">
+    <div class="profil">
+      <div class="profil2">
+        <div>
+         <img *ngIf="userProfil.photo" [src]="getPhotoUrl(userProfil.photo)" alt="{{ userProfil.name }}">
+        </div>
+        <div>
+          <button (click)="goToEdit()">Modifier</button>
+        </div>
+      </div>
+      <div class="data">
+        <div class="data1">
+          <h6>PRÉNOM ET NOM</h6>
+          <div class="info">
+            <p>{{ userProfil.name }}</p>
+          </div>
+          <h6>EMAIL</h6>
+          <div class="info">
+            <p>{{ userProfil.email }}</p>
+          </div>
+          <h6>TÉLÉPHONE</h6>
+          <div class="info">
+            <p>{{ userProfil.telephone }}</p>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="data">
-        <p>prenom et nom</p>
-        <div class="info">
-            <p>anna marone</p>
-            <button>edit</button>
-        </div>
-        <p>Email</p>
-        <div class="info">
-            <p>annamarone14gmail</p>
-            <button>edit</button>
-        </div>
-        <p>téléphone</p>
-        <div class="info">
-            <p>77777777777</p>
-            <button>edit</button>
-        </div>
-    </div>
-</div>
-<div class="rese">
-    <div class="titre">Liste reservation</div>
-    <div class="table">
+    
+    <div class="rese">
+      <div class="titre">Liste des Réservations</div>
+      <div class="table">
         <table>
-            <thead>
-              <tr>
-                <th>numero</th>
-                <th>Date</th>
-                <th>evénement</th>
-                <th>action</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>7</td>
-                <td>20/03/204</td>
-                <td>Conférence </td>
-                <td><i class="fa-solid fa-trash" style="color: #a12c0e;"></i></td>
-              </tr>
-              <tr>
-                <td>7</td>
-                <td>20/03/204</td>
-                <td>Conférence </td>
-                <td><i class="fa-solid fa-trash" style="color: #a12c0e;"></i></td>
-              </tr>
-              
-            </tbody>
+          <thead>
+            <tr>
+              <th>Numéro</th>
+              <th>Date</th>
+              <th>Événement</th>
+              <th>Statut</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let reservation of resvation; let i = index">
+              <td>{{ i + 1 }}</td>
+              <td>{{ reservation.created_at | date:'dd/MM/yyyy' }}</td>
+              <td>{{ reservation.evenement?.theme }}</td>
+              <td>{{ reservation.status }}</td>
+            </tr>
+          </tbody>
         </table>
-            
-          <blockquote> Responsive Table </blockquote>
+        <blockquote>Responsive Table</blockquote>
+      </div>
     </div>
+  </div>
 </div>
-</div>
-   </div>
-   <footer>
-    <app-footer></app-footer>
-   </footer>
-</body>
-</html>
+
+<footer>
+  <app-footer></app-footer>
+</footer>

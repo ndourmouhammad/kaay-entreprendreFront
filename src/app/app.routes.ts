@@ -38,10 +38,15 @@ import { UserProfilComponent } from './Composants/Visiteur/user-profil/user-prof
 import { ModifierProfilComponent } from './Composants/Visiteur/modifier-profil/modifier-profil.component';
 import { DemandeComponent } from './Composants/Visiteur/demande/demande.component';
 import { DemandecoachComponent } from './Composants/Visiteur/demandecoach/demandecoach.component';
-import { RetourExperienceComponent } from './Composants/Visiteur/retour-experience/retour-experience.component';
+import { RetourExperienceComponent } from './Composants/Admin/retour-experience/retour-experience.component';
+import { RetourExperienceAccueilComponent } from './Composants/Visiteur/retour-experience-accueil/retour-experience-accueil.component';
+import { ModificationEvenementComponent } from './Composants/Admin/modification-evenement/modification-evenement.component';
+import { AuthGuard } from './Guards/auth.guard';
+import { GuideAdminComponent } from './Composants/Admin/guide-admin/guide-admin.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'Acceuil', pathMatch: 'full' },
+  
 
   // Routes pour Coach
   {
@@ -54,13 +59,20 @@ export const routes: Routes = [
     component: RessourceComponent,
     canActivate: [coachGuard],
   },
+  // {
+  //   path: 'ressource-form',
+  //   component: RessourceFormComponent,
+  //   canActivate: [coachGuard],
+  // },
   {
-    path: 'ressource-form',
+    path: 'ressource-form/:id',
     component: RessourceFormComponent,
     canActivate: [coachGuard],
+
   },
   {
-    path: 'ressource-details',
+    path: 'ressource-details/:id',
+    // path: 'ressource-details',
     component: RessourceDetailComponent,
     canActivate: [coachGuard],
   },
@@ -75,7 +87,8 @@ export const routes: Routes = [
     canActivate: [coachGuard],
   },
   {
-    path: 'events-details-coach',
+    path: 'events-details-coach/:id',
+    // path: 'events-details-coach',
     component: DetailEvenementCoachComponent,
     canActivate: [coachGuard],
   },
@@ -102,7 +115,8 @@ export const routes: Routes = [
     canActivate: [administrationGuard],
   },
   {
-    path: 'access-users-details',
+    path: 'access-users-details/:id',
+    // path: 'access-users-details',
     component: AccessUsersDetailComponent,
     canActivate: [administrationGuard],
   },
@@ -122,14 +136,16 @@ export const routes: Routes = [
     canActivate: [administrationGuard],
   },
   {
-    path: 'events-details-admin',
+    path: 'events-details-admin/:id',
+    // path: 'events-details-admin',
     component: EvenementsDetailsAdminComponent,
     canActivate: [administrationGuard],
   },
   {
-    path: 'reservations',
+    path: 'reservations/:id',
+    // path: 'reservations',
     component: ReservationsComponent,
-    canActivate: [administrationGuard],
+    canActivate: [administrationGuard, AuthGuard],
   },
   {
     path: 'ajouter-evenement',
@@ -137,8 +153,23 @@ export const routes: Routes = [
     canActivate: [administrationGuard],
   },
   {
+    path: 'modification-evenement/:id',
+    component: ModificationEvenementComponent,
+    canActivate: [administrationGuard],
+  },
+  {
     path: 'profil-admin',
     component: ProfilAdminComponent,
+    canActivate: [administrationGuard],
+  },
+  {
+    path: 'retour-experience-admin',
+    component: RetourExperienceComponent,
+    canActivate: [administrationGuard],
+  },
+  {
+    path: 'guide-admin',
+    component: GuideAdminComponent,
     canActivate: [administrationGuard],
   },
 
@@ -149,29 +180,41 @@ export const routes: Routes = [
   // Routes pour l'acceuil
 
   { path: 'evenement', component: EvenementComponent },
-  { path: 'detail_evenement', component: DetailEvenementComponent },
+  { path: 'detail_evenement/:id', component: DetailEvenementComponent },
   { path: 'guide', component: GuideComponent },
-  { path: 'forum', component: ForumComponent },
-  { path: 'detail-forum', component: DetailForumComponent },
+  { path: 'forum', component: ForumComponent , canActivate: [AuthGuard]},
+  { path: 'forum-detail/:id', component: DetailForumComponent, canActivate: [AuthGuard] },
 
   { path: 'header1', component: Header1Component },
   { path: 'header2', component: Header2Component },
-  { path: 'Acceuil', component: AcceuilComponent },
+  { path: 'Acceuil', component: AcceuilComponent, },
   { path: 'footer', component: FooterComponent },
 
-  { path: 'ressources', component: RessourcesComponent },
-  { path: 'detail-ressource', component: DetailRessourceComponent },
-  { path: 'profil-entrepreneur', component: UserProfilComponent },
-  { path: 'modifier-profil', component: ModifierProfilComponent },
+  { path: 'ressources', component: RessourcesComponent, canActivate: [AuthGuard] },
+  { path: 'detail-ressource', component: DetailRessourceComponent , canActivate: [AuthGuard]},
+  { path: 'profil-entrepreneur', component: UserProfilComponent , canActivate: [AuthGuard]},
+  { path: 'modifier-profil', component: ModifierProfilComponent , canActivate: [AuthGuard]},
 
-    { path:'demande-accompagnement', component:DemandeComponent},
+ { path:'demande-accompagnement', component:DemandeComponent, canActivate: [AuthGuard]},
 
 
 
 
 
     
-    { path: 'demande-accompagnement-coach' , component: DemandecoachComponent},
+    { path: 'demande-accompagnement-coach' , component: DemandecoachComponent, canActivate: [AuthGuard]},
+
+    { path: 'retourexperience', component: RetourExperienceAccueilComponent},
+  { path: 'detail-ressource/:id', component: DetailRessourceComponent },
+  { path: 'profil-entrepreneur', component: UserProfilComponent, canActivate: [AuthGuard] },
+  { path: 'modifier-profil/:id', component: ModifierProfilComponent },
+  {
+    path: 'mes-reservations',
+    component: ReservationsComponent,
+  },
+    { path:'demande-accompagnement', component:DemandeComponent, canActivate: [AuthGuard]},
+    
+    { path: 'demande-accompagnement-coach/:id' , component: DemandecoachComponent, canActivate: [AuthGuard]},
 
     { path: 'retourexperience', component: RetourExperienceComponent}
 ];

@@ -204,3 +204,246 @@ table 			      {
         margin-top: 250%;
       }
   }
+
+* {
+   box-sizing: border-box;
+   margin: 0;
+   padding: 0;
+   font-family: Poppins, sans-serif;
+}
+
+body {
+   margin: 0;
+   font-family: Poppins, sans-serif;
+}
+
+.banner {
+   margin-top: 20px;
+   background-color: #00214A;
+   height: 217px;
+   border-radius: 10px;
+   border: 1px solid white;
+}
+
+.banner h1 {
+   color: #fff;
+   margin: auto 10px;
+}
+
+.profil {
+   width: 90%; /* Ajustement pour être plus flexible */
+   max-width: 421px;
+   height: auto; /* Hauteur automatique pour s'adapter au contenu */
+   background-color: #fff;
+   border-radius: 10px;
+   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+   margin-top: 5%; 
+   padding: 20px;
+}
+
+.profil2 {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   margin: 10px auto;
+   gap: 80px; /* Réduction de l'écart pour les petits écrans */
+}
+
+.profil2 img {
+   width: 100px;
+   height: 100px;
+   border-radius: 50%;
+}
+
+.rese {
+   width: 90%;
+   max-width: 591px;
+   height: auto;
+   background-color: #fff;
+   border-radius: 10px;
+   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+   position: relative;
+   padding: 20px;
+}
+
+.rese .titre {
+   margin-top: 10%;
+   margin-left: 10%;
+   font-size: 20px;
+   font-weight: bold;
+   width: 80%;
+}
+
+.rese .listep {
+   color: #F49B33;
+   background-color: #F49B33;
+   width: 80%;
+   height: 2px;
+   margin: auto;
+}
+
+.info_profil {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   margin: auto;
+   gap: 15%;
+}
+
+.profil2 button {
+   width: 102px;
+   height: 28px;
+   background-color: #00214A;
+   border-radius: 100px;
+   color: white;
+   margin: 10px auto;
+}
+
+.data {
+   border: 1px solid rgba(0, 0, 0, 0.452);
+   width: 90%;
+   max-width: 333px;
+   height: auto;
+   margin: 10%;
+   text-align: justify;
+   padding: 15px;
+}
+
+.data1 {
+   margin-left: 10px;
+}
+
+.info {
+   display: flex;
+   flex-direction: row;
+   justify-content: space-between;
+   align-items: flex-start;
+   margin: 10px auto;
+}
+
+.info button {
+   width: 70px;
+   height: 30px;
+   background-color: #00214A;
+   color: #fff;
+   border-radius: 10px;
+}
+
+table {
+   border-spacing: 1;
+   border-collapse: collapse;
+   background: white;
+   border-radius: 6px;
+   overflow: hidden;
+   max-width: 800px;
+   width: 100%;
+   margin: 0 auto;
+   position: relative;
+}
+
+td, th {
+   padding-left: 8px;
+}
+
+thead tr {
+   height: 60px;
+   background: #fff;
+   font-size: 16px;
+}
+
+tbody tr {
+   height: 48px;
+   border-bottom: 1px solid #F49B33;
+}
+
+td, th {
+   text-align: left;
+}
+
+td.l {
+   text-align: right;
+}
+
+td.c, th.c {
+   text-align: center;
+}
+
+blockquote {
+   color: white;
+   text-align: center;
+}
+footer{
+   margin-top:30%;
+
+}
+/* Media Queries pour le Responsive Design */
+
+@media (max-width: 768px) {
+   .profil, .rese {
+      width: 100%;
+      margin-top: 10%;
+   }
+
+   .profil2 {
+      flex-direction: column;
+      gap: 10px;
+   }
+
+   .info_profil {
+      flex-direction: column;
+      gap: 10px;
+   }
+
+   .info {
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+   }
+
+   table {
+      width: 100%;
+   }
+
+   thead tr {
+      font-size: 14px;
+   }
+
+   tbody tr {
+      font-size: 12px;
+   }
+   footer{
+      margin-top:100%;
+   
+   }
+}
+
+@media (max-width: 480px) {
+   .profil2 img {
+      width: 80px;
+      height: 80px;
+   }
+
+   .profil2 button {
+      width: 90px;
+      height: 25px;
+   }
+
+   .info button {
+      width: 60px;
+      height: 25px;
+   }
+
+   .rese .titre {
+      font-size: 18px;
+      margin-left: 5%;
+   }
+
+   blockquote {
+      font-size: 14px;
+   }
+   footer{
+      margin-top:250%;
+   
+   }
+}
+

@@ -1,5 +1,14 @@
+import { SecteurActiviteModel } from "./secteuractivite.model"
+
+export interface Role {
+    id: number;
+    name: string;
+    // other role properties
+  }
+
+
 export interface UserModel {
-    id?: number
+    id?: number 
     secteuractivite_id?: number
     name?: string
     email?: string
@@ -11,4 +20,6 @@ export interface UserModel {
     cv?: string
     createdAt?: Date
     updatedAt?: Date
+    roles?: Role[]
+    secteur_activite?: SecteurActiviteModel;
 }

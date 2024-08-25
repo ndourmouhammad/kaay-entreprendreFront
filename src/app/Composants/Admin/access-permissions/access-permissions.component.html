@@ -4,49 +4,93 @@
 
 <div class="container mt-4 users">
     <div class="d-flex mb-3">
-        <img src="../../../../assets/retour.svg" alt="" routerLink="/access-admin">
-    <h2 >Gestion des permissions</h2>
+      <img src="../../../../assets/retour.svg" alt="" routerLink="/access-admin">
+      <h2>Gestion des permissions</h2>
     </div>
     <div class="search-bar">
-        
-        <form action="">
-            <input type="text" class="form-control d-inline-block" placeholder="Ajouter une permission">
-        <button class="btn btn-ajout d-inline-block">Ajouter</button>
+        <form (ngSubmit)="onSubmit()" #permissionForm="ngForm">
+          <input type="text" class="form-control d-inline-block" placeholder="Ajouter une permission"
+                 [(ngModel)]="newPermission.name" name="name" required>
+          <button type="submit" class="btn btn-ajout d-inline-block" [disabled]="!permissionForm.valid">Ajouter</button>
         </form>
-    </div>
+      </div>
+      
     
-
     <table class="table table-bordered mt-4">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Nom</th>
-                <th>Action</th>
-            </tr>
-        </thead>
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th>Nom</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let permission of permissions | paginate: { itemsPerPage: itemsPerPage, currentPage: currentPage }">
+          <td>{{ permission.id }}</td>
+          <td>{{ permission.name }}</td>
+          <td class="action">
 
-        <tbody>
-            <tr>
-                <td >1</td>
-                <td >Ajouter un rôle</td>
-                <td class="action">
-                   
-                    <a routerLink="/access-users-details">
-                        <button class="btn btn-custom btn-logout">
-                            <span class="btn-text">Modifier</span>
-                            <span class="btn-icon"><img src="../../../../assets/edit.svg" alt="edit icon"></span>
-                        </button>
-                    </a>
+            <!-- <a routerLink="/access-users-details">
+              <button class="btn btn-custom btn-logout">
+                <span class="btn-text">Modifier</span>
+                <span class="btn-icon"><img src="../../../../assets/edit.svg" alt="edit icon"></span>
+              </button>
+            </a> -->
 
-                    <form action="#" method="POST" class="d-inline">
-                        <button type="submit" class="btn btn-custom btn-supprimer">
-                            <span class="btn-text">Supprimer</span>
-                            <span class="btn-icon"><img src="../../../../assets/delete.svg" alt="delete icon"></span>
-                        </button>
-                    </form>
-                </td>
-            </tr>
-            <!-- Repeat for more users -->
-        </tbody>
+            <button class="btn btn-custom btn-logout" (click)="openModal(permission)">
+                <span class="btn-text">Modifier</span>
+                <span class="btn-icon"
+                  ><img src="../../../../assets/edit.svg" alt="edit icon"
+                /></span>
+              </button>
+
+            <!-- Bouton pour supprimer la permission -->
+       
+        <button *ngIf="permission.id" (click)="deletePermission(permission.id)" class="btn btn-custom btn-supprimer">
+        <span class="btn-text">Supprimer</span>
+        <span class="btn-icon"><img src="../../../../assets/delete.svg" alt="delete icon"></span>
+        </button>
+
+          </td>
+        </tr>
+      </tbody>
     </table>
-</div>
+  
+    <!-- Pagination controls -->
+    <pagination-controls (pageChange)="pageChanged($event)"></pagination-controls>
+  </div>
+  
+  <!-- Modale de modification -->
+<ng-template #editPermissionModal let-modal>
+    <div class="modal-header">
+      <h5 class="modal-title" id="editPermissionModalLabel">Modifier la permission</h5>
+      <button
+        type="button"
+        class="btn-close"
+        aria-label="Close"
+        (click)="modal.dismiss('Cross click')"
+      ></button>
+    </div>
+    <div class="modal-body">
+      <form (ngSubmit)="onUpdatePermission()" #editPermissionForm="ngForm">
+        <div class="form-group">
+          <label for="permissionName">Nom de la permission</label>
+          <input
+            type="text"
+            class="form-control"
+            id="permissionName"
+            [(ngModel)]="selectedPermission.name"
+            name="name"
+            required
+          />
+        </div>
+        <button
+          type="submit"
+          class="btn btn-primary btn-primary-custom"
+          [disabled]="!editPermissionForm.valid"
+        >
+          Sauvegarder les modifications
+        </button>
+      </form>
+    </div>
+  </ng-template>

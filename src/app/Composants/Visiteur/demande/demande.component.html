@@ -1,137 +1,64 @@
+<header >
+  <app-header1></app-header1>
+</header>
 
-  <header >
-    <app-header1></app-header1>
-  </header>
-  <h1 id="h1">Demande d'accompagnement</h1>
+<nav>
+  <ul class="primary-menu">
+    
+    <li  *ngFor="let secteur of secteurs" (click)="onSecteurClick(secteur.id)"><a>{{ secteur.libelle }}</a><div class="flyout__tab"></div></li> 
+  </ul>
 
-<h3 id="h3">Liste des Secteurs d'Activités</h3>
+</nav>
 
+        <!--Deuxième Section de Cartes-->
+        <body>
+          <div class="container mt-5 mb-5">
+            <div class="d-flex justify-content-between mb-3">
+          
+                
+            </div>
+            <div class="row g-2">
+          
+                <div class="col-md-3"  *ngFor="let coach of coaches" >
+          
+                    <div class="card p-2 py-3 text-center">
+          
+                        <div class="img mb-2">
+          
+                            <img *ngIf="coach.photo"  [src]="getPhotoUrl(coach.photo)" alt="{{ coach.name }}"  class="rounded-circle">
+                            
+                        </div>
+          
+                        <h5 class="mb-0">{{ coach.name }}</h5>
+                        <small *ngIf="coach.secteur_activite">Coach en {{ coach.secteur_activite.libelle }}</small>
+          
+                        <div class="ratings mt-2">
+          
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            
+                        </div>
+          
+                        <div class="mt-4 apointment">
+          
+                            <button [routerLink]="['/demande-accompagnement-coach', coach.id]" style="cursor: pointer;" class="btn btn-success text-uppercase">Voir Profil</button>
+                            
+                        </div>
+          
+                    </div>
+                    
+                </div>
+        
+                
+            </div>
+               
+          
+           </div>
+        </body>
 
-<!--Première Section de Cartes-->
-<div class="row">
-  <div class="card" id="btp" style="width: 18rem;">
-    <div class="card-body">
-      <i class="fa-solid fa-house fa-3x"></i>
-      <h2 class="card-title">BTP</h2>
-    </div>
-  </div>
-
-  <div class="card" id="peche" style="width: 18rem;"  >
-    <div class="card-body">
-      <i class="fa-solid fa-fish fa-3x"></i>
-      <h2 class="card-title">PECHE</h2>
-
-
-    </div>
-  </div>
-
-  <div class="card" id="agriculture" style="width: 18rem;"  >
-    <div class="card-body">
-      <i class="fa-solid fa-wheat-awn fa-3x"></i>
-      <h2 class="card-title">AGRICULTURE</h2>
-
-
-    </div>
-  </div>
-
-</div>
-
-          <!--Deuxième Section de Cartes-->
-<div class="row" id="row4">
-  <div class="card" id="petrole" style="width: 18rem;">
-    <div class="card-body">
-      <i class="fa-solid fa-oil-can fa-3x"></i>
-      <h2 class="card-title">PETROLE</h2>
-
-
-    </div>
-  </div>
-
-  <div class="card" id="tourisme" style="width: 18rem;">
-    <div class="card-body">
-      <i class="fa-solid fa-plane fa-3x"></i>
-      <h2 class="card-title">TOURISME</h2>
-
-
-    </div>
-  </div>
-
-  <div class="card" id="sante" style="width: 18rem;"  >
-    <div class="card-body">
-      <i class="fa-solid fa-hand-holding-heart fa-3x "></i>
-      <h2 class="card-title">SANTE</h2>
-
-
-    </div>
-  </div>
-
-</div>
-
-<h2 id="h2">Liste des Coachs</h2>
-<!--Première Section de Cartes-->
-<div class="row" >
-  <div class="card" style="width: 18rem;">
-    <img src="../assets/images/homme-affaires-afro-americain-serieux_74855-1215.jpg" class="card-img-top" id="img" alt="...">
-    <div class="card-body">
-      <h5 class="card-title">Mamadou Soumaré</h5>
-      <p class="card-text">Coach en BTP</p>
-      <a routerLink="/demande-accompagnement-coach" class="btn btn-primary">Voir Profil</a>
-    </div>
-  </div>
-
-  <div class="card" style="width: 18rem;">
-    <img src="../assets/images/homme-affaires-afro-americain-serieux_74855-1215.jpg" class="card-img-top" id="img" alt="...">
-    <div class="card-body">
-      <h5 class="card-title">Mamadou Soumaré</h5>
-      <p class="card-text">Coach en BTP</p>
-      <a href="#" class="btn btn-primary">Voir Profil</a>
-    </div>
-  </div>
-
-  <div class="card" style="width: 18rem;">
-    <img src="../assets/images/homme-affaires-afro-americain-serieux_74855-1215.jpg" class="card-img-top" id="img" alt="...">
-    <div class="card-body">
-      <h5 class="card-title">Mamadou Soumaré</h5>
-      <p class="card-text">Coach en BTP</p>
-      <a href="#" class="btn btn-primary">Voir Profil</a>
-    </div>
-  </div>
-
-</div>
-
- <!--Deuxième Section de Cartes-->
-<div class="row" id="row2">
-  <div class="card" style="width: 18rem;">
-    <img src="../assets/images/homme-affaires-afro-americain-serieux_74855-1215.jpg" class="card-img-top" id="img" alt="...">
-    <div class="card-body">
-      <h5 class="card-title">Mamadou Soumaré</h5>
-      <p class="card-text">Coach en BTP</p>
-      <a href="#" class="btn btn-primary">Voir Profil</a>
-    </div>
-  </div>
-
-  <div class="card" style="width: 18rem;">
-    <img src="../assets/images/homme-affaires-afro-americain-serieux_74855-1215.jpg" class="card-img-top" id="img" alt="...">
-    <div class="card-body">
-      <h5 class="card-title">Mamadou Soumaré</h5>
-      <p class="card-text">Coach en BTP</p>
-      <a href="#" class="btn btn-primary">Voir Profil</a>
-    </div>
-  </div>
-
-  <div class="card" style="width: 18rem;">
-    <img src="../assets/images/homme-affaires-afro-americain-serieux_74855-1215.jpg" class="card-img-top" id="img" alt="...">
-    <div class="card-body">
-      <h5 class="card-title">Mamadou Soumaré</h5>
-      <p class="card-text">Coach en BTP</p>
-      <a href="#" class="btn btn-primary">Voir Profil</a>
-    </div>
-  </div>
-</div>
 
 <footer>
-  <app-footer></app-footer>
+<app-footer></app-footer>
 </footer>
-
-
-

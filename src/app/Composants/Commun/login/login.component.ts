@@ -47,7 +47,7 @@ export class LoginComponent {
                 this.router.navigateByUrl('dashboard-coach');
               }
               else if (response.user.roles.some((role: Role) => role.name === 'entrepreneur')) {
-                this.router.navigateByUrl('visiteur');
+                this.router.navigateByUrl('Acceuil');
               }
             }
             else {

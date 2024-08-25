@@ -1,40 +1,31 @@
 <header>
     <app-header1></app-header1>
 </header>
-    <div class="container mb-5">
-        <h1 class="h4 mt-4">Guide de démarrage</h1>
-        <div class="guide-card p-4 shadow-sm">
-            <div class="steps-container">
-                <div class="step active" onclick="setActiveStep(this)">ETAPE 1</div>
-                <div class="step" onclick="setActiveStep(this)">ETAPE 2</div>
-                <div class="step" onclick="setActiveStep(this)">ETAPE 3</div>
-                <div class="step" onclick="setActiveStep(this)">ETAPE 4</div>
-                <div class="step" onclick="setActiveStep(this)">ETAPE 5</div>
+<div class="container mb-5">
+    <h1 class="h4 mt-4" *ngIf="guide"><h2>{{ guide.titre }}</h2></h1>
+    <div class="guide-card p-4 shadow-sm" *ngIf="guide">
+        <div class="steps-container">
+            <div
+              class="step"
+              *ngFor="let etape of guide.etapes"
+              (click)="showEtape(etape)"
+              [class.active]="selectedEtape?.id === etape.id"
+            >
+              ETAPE {{ etape.id }}
             </div>
-            <div class="content-section">
-                <p class="content-text text-muted">
-                    Lorem Ipsum is simply dummy text of the printing and <br>
-                    typesetting industry. Lorem Ipsum has been the industry's <br>
-                    standard dummy text ever since the 1500s, when an unknown printer took.
-                </p>
-                <img src="https://via.placeholder.com/80" alt="Icone de document" class="icon-right">
+          </div>
+          
+          <div id="contentToConvert" class="content-section" *ngIf="selectedEtape">
+            <div class="content-text">
+              <h4>{{ selectedEtape.libelle }}</h4>
+              <p class="text-muted">{{ selectedEtape.description }}</p>
             </div>
-        </div>
-        <!-- <img src="assets/images/image25.png" alt="Image en bas à gauche" class="bottom-left-image"> Image ajoutée en bas à gauche -->
-    </div>
+            <a href="http://" target="_blank" rel="noopener noreferrer" class="content-icon">
+                <!-- <img class="content-icon" src="../../../../assets/pdflogo.png" alt="Icon"> -->
+                <p><a [href]="getFileUrl(selectedEtape.pieces_jointes)" target="_blank"><img src="../../../../assets/pdflogo.png" alt=""></a></p>
+            </a>
+          </div>
+    </div> 
+</div>
 
-    <script>
-        function setActiveStep(stepElement) {
-            // Supprimer la classe 'active' de toutes les étapes
-            document.querySelectorAll('.step').forEach(function(step) {
-                step.classList.remove('active');
-            });
-
-            // Ajouter la classe 'active' à l'étape cliquée
-            stepElement.classList.add('active');
-        }
-    </script>
-
-<footer>
-    <app-footer></app-footer>
-</footer>
+<app-footer></app-footer>

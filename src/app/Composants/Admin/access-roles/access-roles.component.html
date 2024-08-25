@@ -1,57 +1,132 @@
 <header class="container">
-    <app-header-admin></app-header-admin>
+  <app-header-admin></app-header-admin>
 </header>
 
 <div class="container mt-4 users">
-    <div class="d-flex mb-3">
-        <img src="../../../../assets/retour.svg" alt="" routerLink="/access-admin">
-    <h2 >Gestion des rôles</h2>
-    </div>
-    <div class="search-bar">
-        
-        <form action="">
-            <input type="text" class="form-control d-inline-block" placeholder="Ajouter un rôle">
-        <button class="btn btn-ajout d-inline-block">Ajouter</button>
-        </form>
-    </div>
-    
+  <div class="d-flex mb-3">
+    <img
+      src="../../../../assets/retour.svg"
+      alt=""
+      routerLink="/access-admin"
+    />
+    <h2>Gestion des rôles</h2>
+  </div>
 
-    <table class="table table-bordered mt-4">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Nom</th>
-                <th>Action</th>
-            </tr>
-        </thead>
+  <div class="search-bar">
+    <form (ngSubmit)="onRoleSubmit()" #roleForm="ngForm">
+      <input
+        type="text"
+        class="form-control d-inline-block"
+        placeholder="Ajouter un rôle"
+        [(ngModel)]="newRole.name"
+        name="name"
+        required
+      />
+      <button
+        type="submit"
+        class="btn btn-ajout d-inline-block"
+        [disabled]="!roleForm.valid"
+      >
+        Ajouter
+      </button>
+    </form>
+  </div>
 
-        <tbody>
-            <tr>
-                <td >1</td>
-                <td >Admin</td>
-                <td class="action">
-                    <a routerLink="/access-users-details">
-                        <button class="btn btn-permission">
-                            <span class="btn-text"> Octroyer des permissions</span>
-                            <span class="btn-icon"><img src="../../../../assets/key.svg" alt="edit icon"></span>
-                        </button>
-                    </a>
-                    <a routerLink="/access-users-details">
-                        <button class="btn btn-custom btn-logout">
-                            <span class="btn-text">Modifier</span>
-                            <span class="btn-icon"><img src="../../../../assets/edit.svg" alt="edit icon"></span>
-                        </button>
-                    </a>
+  <table class="table table-bordered mt-4">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Nom</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let role of roles">
+        <td>{{ role.id }}</td>
+        <td>{{ role.name }}</td>
+        <td class="action">
 
-                    <form action="#" method="POST" class="d-inline">
-                        <button type="submit" class="btn btn-custom btn-supprimer">
-                            <span class="btn-text">Supprimer</span>
-                            <span class="btn-icon"><img src="../../../../assets/delete.svg" alt="delete icon"></span>
-                        </button>
-                    </form>
-                </td>
-            </tr>
-            <!-- Repeat for more users -->
-        </tbody>
-    </table>
+          <!-- Bouton pour ouvrir le modal -->
+<button class="btn btn-permission" (click)="openPermissionModal(role)">
+  <span class="btn-text">Octroyer des permissions</span>
+  <span class="btn-icon"><img src="../../../../assets/key.svg" alt="edit icon"></span>
+</button>
+          <!-- Button to trigger the modal -->
+          <button class="btn btn-custom btn-logout" (click)="openModal(role)">
+            <span class="btn-text">Modifier</span>
+            <span class="btn-icon"
+              ><img src="../../../../assets/edit.svg" alt="edit icon"
+            /></span>
+          </button>
+
+          <button
+            *ngIf="role.id"
+            (click)="deleteRole(role.id)"
+            class="btn btn-custom btn-supprimer"
+          >
+            <span class="btn-text">Supprimer</span>
+            <span class="btn-icon"
+              ><img src="../../../../assets/delete.svg" alt="delete icon"
+            /></span>
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
 </div>
+
+<!-- Modale de modification -->
+<ng-template #editRoleModal let-modal>
+  <div class="modal-header">
+    <h5 class="modal-title" id="editRoleModalLabel">Modifier le rôle</h5>
+    <button
+      type="button"
+      class="btn-close"
+      aria-label="Close"
+      (click)="modal.dismiss('Cross click')"
+    ></button>
+  </div>
+  <div class="modal-body">
+    <form (ngSubmit)="onUpdateRole()" #editRoleForm="ngForm">
+      <div class="form-group">
+        <label for="roleName">Nom du rôle</label>
+        <input
+          type="text"
+          class="form-control"
+          id="roleName"
+          [(ngModel)]="selectedRole.name"
+          name="name"
+          required
+        />
+      </div>
+      <button
+        type="submit"
+        class="btn btn-primary btn-primary-custom"
+        [disabled]="!editRoleForm.valid"
+      >
+        Sauvegarder les modifications
+      </button>
+    </form>
+  </div>
+</ng-template>
+
+
+<!-- Modal pour octroyer des permissions -->
+<ng-template #permissionModal let-modal>
+    <div class="modal-header">
+      <h5 class="modal-title">Octroyer des Permissions</h5>
+      <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+    </div>
+    <div class="modal-body">
+      <form (ngSubmit)="onAssignPermission()" #permissionForm="ngForm">
+        <div class="form-group">
+          <label for="permissionSelect">Sélectionner la permission</label>
+          <select class="form-control" id="permissionSelect" [(ngModel)]="selectedPermissionId" name="permissionId" required>
+            <option *ngFor="let permission of permissions" [value]="permission.id">{{ permission.name }}</option>
+          </select>
+        </div>
+        <button type="submit" class="btn btn-primary btn-primary-custom" [disabled]="!permissionForm.valid">Octroyer</button>
+
+      </form>
+    </div>
+  </ng-template>

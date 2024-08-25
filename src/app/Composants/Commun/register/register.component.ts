@@ -52,7 +52,7 @@ export class RegisterComponent implements OnInit {
     this.authService.getSecteurActivites().subscribe(
       (response: any) => {
         console.log('Data:', response); // Vérifiez ici ce que vous recevez
-        this.secteurActivites = response.data; // Assurez-vous de prendre le tableau 'data'
+        this.secteurActivites = response; // Assurez-vous de prendre le tableau 'data'
       },
       (error: any) => {
         console.error('Error:', error); // En cas d'erreur, affichez-la

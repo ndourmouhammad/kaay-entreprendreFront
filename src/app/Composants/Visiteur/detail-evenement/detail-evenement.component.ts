@@ -10,7 +10,7 @@ import { ReservationsService } from '../../../Services/reservations.service';
 import { Header1Component } from '../../Commun/header1/header1.component';
 import { FooterComponent } from '../../Commun/footer/footer.component';
 import { HttpErrorResponse } from '@angular/common/http';
-
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-detail-evenement',
@@ -75,11 +75,24 @@ export class DetailEvenementComponent implements OnInit {
         this.ReservationsService.addReservation(formData, this.event.id).subscribe(
           (response: any) => {
             console.log('Reservation successful:', response);
+            Swal.fire({
+              position: "top-end",
+              icon: "success",
+              title: "Réservation réussie",
+              showConfirmButton: false,
+              timer: 1500
+            });
             // Handle successful reservation, e.g., show a success message
           },
           (error: HttpErrorResponse) => {
             console.error('Reservation failed:', error);
             // Handle error, e.g., show an error message
+            Swal.fire({
+              icon: "error",
+              title: "Oops...",
+              text: "La réservation a échoué",
+              footer: '<a href="#">Pourquoi ai-je ce problème ?</a>'
+            });
           }
         );
       } else {

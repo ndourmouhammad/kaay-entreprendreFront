@@ -4,7 +4,7 @@ import { RouterLink, RouterModule } from '@angular/router';
 import { UsersService } from '../../../Services/users.service';
 import { UserModel } from '../../../Models/users.model';
 import { NgFor, NgIf } from '@angular/common';
-
+import Swal from 'sweetalert2'
 
 @Component({
   selector: 'app-access-users',
@@ -50,9 +50,17 @@ export class AccessUsersComponent implements OnInit {
           (response: any) => {
             console.log('User deleted successfully:', response);
             this.users = this.users.filter(user => user.id !== id);
+            Swal.fire({
+              position: "top-end",
+              icon: "success",
+              title: "User deleted successfully:",
+              showConfirmButton: false,
+              timer: 1500
+            });
           },
           (error: any) => {
             console.error('Error deleting user:', error);
+            
           }
         );
       }

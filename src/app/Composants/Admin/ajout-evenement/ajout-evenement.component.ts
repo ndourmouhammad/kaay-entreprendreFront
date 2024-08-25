@@ -7,7 +7,7 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { EvenementModel } from '../../../Models/evenements.model';
 import { EvenementsService } from '../../../Services/evenements.service';
 import { Router } from '@angular/router';
-
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-ajout-evenement',
@@ -62,6 +62,13 @@ export class AjoutEvenementComponent implements OnInit {
       this.evenementsService.addEvenement(formData).subscribe(
         response => {
           console.log('Événement ajouté avec succès', response);
+          Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: "Événement ajouté avec succès",
+            showConfirmButton: false,
+            timer: 1500
+          });
           this.router.navigate(['/evenement-admin']);
         },
         error => {

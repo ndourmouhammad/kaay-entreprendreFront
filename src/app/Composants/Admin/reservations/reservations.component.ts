@@ -8,7 +8,7 @@ import { DatePipe, NgFor, NgIf } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ReservationModel } from '../../../Models/reservation.model';
 import { ReservationsService } from '../../../Services/reservations.service';
-
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-reservations',
   standalone: true,
@@ -62,11 +62,24 @@ export class ReservationsComponent implements OnInit {
       (response: any) => {
         console.log('Reservation Accepted:', response);
         // this.getReservation(reservationId);
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: "Réservation acceptée",
+          showConfirmButton: false,
+          timer: 1500
+        });
         this.getReservation(id);
         
       },
       (error: any) => {
         console.error('Reservation Error:', error);
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: "Erreur de réservation",
+          footer: '<a href="#">Why do I have this issue?</a>'
+        });
       }
     );
 
@@ -79,6 +92,13 @@ export class ReservationsComponent implements OnInit {
       (response: any) => {
         console.log('Reservation Rejected:', response);
         // this.getReservation(reservationId);
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: "Réservation rejetée",
+          showConfirmButton: false,
+          timer: 1500
+        });
         this.getReservation(id);
       },
       (error: any) => {

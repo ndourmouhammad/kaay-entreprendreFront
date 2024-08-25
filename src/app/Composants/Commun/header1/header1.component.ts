@@ -46,7 +46,7 @@ export class Header1Component implements OnInit, OnDestroy {
     this.authService.logout().subscribe({
       next: () => {
         // Rediriger l'utilisateur après une déconnexion réussie ou forcée
-        this.router.navigate(['/login']);
+        this.router.navigate(['/Acceuil']);
       },
       error: (error) => {
         console.error('Erreur lors de la déconnexion:', error);

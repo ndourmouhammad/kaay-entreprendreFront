@@ -8,7 +8,7 @@ import { FormsModule } from '@angular/forms';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { Permission } from '../../../Models/permissions.models';
 import { PermissionsService } from '../../../Services/permissions.service';
-
+import Swal from 'sweetalert2'
 @Component({
   selector: 'app-access-roles',
   standalone: true,
@@ -72,6 +72,13 @@ export class AccessRolesComponent implements OnInit {
           next: (response) => {
             console.log('Role deleted successfully:', response);
             this.roles = this.roles.filter(role => role.id !== id);
+            Swal.fire({
+              position: "top-end",
+              icon: "success",
+              title: "Role deleted successfully:",
+              showConfirmButton: false,
+              timer: 1500
+            });
           },
           error: (error) => {
             console.error('Error deleting role:', error);
@@ -90,6 +97,13 @@ export class AccessRolesComponent implements OnInit {
         console.log('Role added successfully:', response);
         this.roles.push(response.data); // Ajoute le nouveau rôle à la liste
         this.newRole = {  id: 0, name: '' }; // Réinitialise le formulaire
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: "Role added successfully:",
+          showConfirmButton: false,
+          timer: 1500
+        });
       },
       error: (error) => {
         console.error('Error adding role:', error);

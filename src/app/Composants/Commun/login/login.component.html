@@ -6,6 +6,9 @@
       <div class="col-md-6 d-flex flex-column justify-content-center text-white p-4">
         <h1 class="text-3xl font-bold mb-4">Bienvenue <span role="img" aria-label="wave">👋</span></h1>
         <p class="mb-6">L'entrepreneuriat est l'art de transformer une vision audacieuse en réalité, en forgeant un chemin là où il n'en existait pas, avec la passion comme boussole et l'innovation comme moteur</p>
+        <div *ngIf="errorMessage" class="error-message">
+          {{ errorMessage }}
+        </div>
         <form>
           <div class="mb-3">
             <label for="email" class="form-label">Email</label>

@@ -4,6 +4,8 @@ import { Router, RouterLink, RouterModule } from '@angular/router';
 import { AuthService } from '../../../Services/auth.service';
 import { UserModel } from '../../../Models/users.model';
 import { Role } from '../../../Models/roles.model';
+import { CommonModule } from '@angular/common';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-login',
@@ -11,7 +13,7 @@ import { Role } from '../../../Models/roles.model';
   imports: [
     RouterLink,
     RouterModule,
-    FormsModule
+    FormsModule,CommonModule
   ],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
@@ -24,9 +26,12 @@ export class LoginComponent {
 
   // Declaration des variables
   userObject: UserModel = {};
+  errorMessage: string = '';  // Variable pour stocker les messages d'erreur
 
   // Declaration des méthodes
   login() {
+    this.errorMessage = '';  // Réinitialise le message d'erreur à chaque tentative de connexion
+
     if (this.userObject.email && this.userObject.password) {
       this.authService.login(this.userObject).subscribe(
         (response: any) => {
@@ -57,8 +62,23 @@ export class LoginComponent {
         },
         (error) => {
           console.error(error);
+          this.errorMessage ="";
+          Swal.fire({
+            icon: "error",
+            title: "Erreur",
+            text: "Échec de la connexion. Vérifiez vos informations d\'identification.",
+            footer: '<a href="#">Pourquoi ai-je ce problème ?</a>'
+          });  // Message d'erreur
         }
       );
+    } else {
+      this.errorMessage = '';  // Message d'erreur si les champs sont vides
+      Swal.fire({
+        icon: "error",
+        title: "Erreur",
+        text: "Veuillez entrer un email et un mot de passe.",
+        footer: '<a href="#">Pourquoi ai-je ce problème ?</a>'
+      });  // Message d'erreur
     }
   }
   

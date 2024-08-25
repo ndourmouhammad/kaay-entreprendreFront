@@ -7,7 +7,7 @@ import { UserModel } from '../../../Models/users.model';
 import { NgIf } from '@angular/common';
 import { environment } from '../../../../environnements/environments';
 import { throwError } from 'rxjs';
-
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-access-users-detail',
@@ -70,6 +70,13 @@ export class AccessUsersDetailComponent implements OnInit {
         response => {
           this.user.statut = newStatus; // Met à jour l'interface après succès
           console.log('Utilisateur activé:', response);
+          Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: "Utilisateur activé",
+            showConfirmButton: false,
+            timer: 1500
+          });
         },
         error => {
           console.error('Erreur lors de l\'activation:', error);
@@ -85,6 +92,13 @@ export class AccessUsersDetailComponent implements OnInit {
         response => {
           this.user.statut = newStatus; // Met à jour l'interface après succès
           console.log('Utilisateur désactivé:', response);
+          Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: "Utilisateur désactivé:",
+            showConfirmButton: false,
+            timer: 1500
+          });
         },
         error => {
           console.error('Erreur lors de la désactivation:', error);

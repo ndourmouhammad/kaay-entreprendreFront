@@ -5,7 +5,7 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { Router } from '@angular/router';
 import { NgFor, NgIf } from '@angular/common';
 import { SecteurActiviteModel } from '../../../Models/secteuractivite.model';
-
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-register',
@@ -124,11 +124,29 @@ onCVSelected(event: Event) {
     this.authService.register(formData).subscribe(
       response => {
         console.log('Registration successful', response);
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: "Inscription réussie",
+          showConfirmButton: false,
+          timer: 1500
+        });
         this.router.navigate(['/login']); // Redirect after successful registration
       },
       error => {
         console.error('Registration failed', error);
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: "L'inscription a échoué!",
+          footer: '<a href="#">Why do I have this issue?</a>'
+        });
       }
     );
+  }
+  showPassword: boolean = false;
+
+  togglePasswordVisibility(): void {
+    this.showPassword = !this.showPassword;
   }
 }

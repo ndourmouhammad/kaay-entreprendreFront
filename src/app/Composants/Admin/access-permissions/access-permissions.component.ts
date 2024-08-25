@@ -7,7 +7,7 @@ import { NgFor, NgIf } from '@angular/common';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { FormsModule, NgForm } from '@angular/forms';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
-
+import Swal from 'sweetalert2'
 
 
 @Component({
@@ -86,6 +86,13 @@ export class AccessPermissionsComponent implements OnInit {
     this.permissionService.addPermission(permission).subscribe({
       next: (response) => {
         console.log('Permission added successfully:', response);
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: "Permission added successfully:",
+          showConfirmButton: false,
+          timer: 1500
+        });
         this.permissions.push(response.data); // Ajoute la nouvelle permission à la liste
         this.newPermission = { name: '' }; // Réinitialise le formulaire
       },
@@ -120,6 +127,13 @@ onUpdatePermission(): void {
   this.permissionService.updatePermission(this.selectedPermission).subscribe({
     next: (response) => {
       console.log('Permission updated successfully:', response);
+      Swal.fire({
+        position: "top-end",
+        icon: "success",
+        title: "Permission updated successfully",
+        showConfirmButton: false,
+        timer: 1500
+      });
       this.getPermissions(); // Rafraîchit la liste des rôles après modification
       this.modalService.dismissAll(); // Ferme la modale après succès
     },

@@ -3,6 +3,24 @@ html, body {
   height: 100%;
   margin: 0;
 }
+.password-container {
+  position: relative;
+  width: 100%;
+}
+
+.password-container input {
+  padding-right: 40px; /* Espace pour l'icône */
+}
+
+.toggle-password {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  user-select: none;
+}
+
 .container-fluid {
   background-color: #00214A; /* Bleu */
   color: #fbf8f5; /* Couleur du texte (orange modifiée pour la lisibilité) */

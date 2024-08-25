@@ -21,7 +21,7 @@ body{
   box-shadow: 0 1px 20px 0 rgba(69,90,100,0.08);
   border: none;
   margin-bottom: 30px;
-  margin: auto;
+ 
 }
 
 .m-r-0 {
@@ -146,8 +146,8 @@ p {
 
   cursor:pointer;
     position:relative;
-    padding:10px 10px;
-    background:white;
+    padding:8px 8px;
+    background:#00214A;
     font-size:28px;
     border-top-right-radius:10px;
     border-bottom-left-radius:10px;
@@ -175,8 +175,8 @@ p {
     &:hover{
       border-top-right-radius:0px;
     border-bottom-left-radius:0px;
-       background:rgba(0,0,0,.5);
-      color:white;
+       background:#FF9700;
+      color: #000;;
       &:before,&:after{
         
         width:100%;
@@ -187,10 +187,11 @@ p {
   }
   
   .data-container{
-    background:#ffebee;
+    background:#FF9700;
     height:100vh;
     scale:2;
     display:flex;
     justify-content:center;
     align-items:center;
   }
+  

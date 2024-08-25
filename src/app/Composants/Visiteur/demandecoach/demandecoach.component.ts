@@ -9,7 +9,7 @@ import { CommonModule } from '@angular/common';
 import { SecteurActiviteModel } from '../../../Models/secteuractivite.model';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../../../environnements/environments';
-
+import Swal from 'sweetalert2'
 @Component({
   selector: 'app-demandecoach',
   standalone: true,
@@ -56,11 +56,22 @@ export class DemandecoachComponent implements OnInit {
     if (this.coach) {
       this.coachService.demanderAccompagnement(this.coach.id).subscribe(
         response => {
-          alert('Demande d\'accompagnement envoyée avec succès!');
+          Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: "Demande d\'accompagnement envoyée avec succès!",
+            showConfirmButton: false,
+            timer: 1500
+          });
         },
         error => {
           console.error('Erreur lors de l\'envoi de la demande', error);
           alert('Erreur lors de l\'envoi de la demande.');
+          Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "Erreur lors de l\'envoi de la demande.!",
+          });
         }
       );
     } else {

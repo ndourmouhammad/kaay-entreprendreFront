@@ -76,12 +76,13 @@
 
             <!-- Commentaires -->
             <!-- Commentaires -->
-<div class="commentaires mt-4">
+<div class="commentaires mt-4 mb-4">
     <h3>Commentaires</h3>
     <div class="row">
       <div class="col-md-12" *ngFor="let comment of discussion.commentaires || []">
         <div class="card mb-2">
           <div class="card-body">
+            <h5 class="card-title">{{ comment.user?.name }}</h5>
             <p class="card-text">{{ comment.contenu }}</p>
             <h6 class="card-subtitle mb-2 text-muted">{{ comment.created_at | date: 'short' }}</h6>
           </div>

@@ -8,6 +8,7 @@ import { ActivatedRoute } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { SecteurActiviteModel } from '../../../Models/secteuractivite.model';
 import { HttpClient } from '@angular/common/http';
+import { environment } from '../../../../environnements/environments';
 
 @Component({
   selector: 'app-demandecoach',
@@ -24,6 +25,7 @@ export class DemandecoachComponent implements OnInit {
   coach: any;
   message: string = ''; // Message à envoyer
   selectedCoachId?: number; // ID du coach sélectionné
+  baseUrl: string = environment.apiUrl;
 
   constructor(
     private route: ActivatedRoute,
@@ -64,6 +66,10 @@ export class DemandecoachComponent implements OnInit {
     } else {
       alert('Aucun coach sélectionné.');
     }
+  }
+
+  getPhotoUrl(photoPath: string): string {
+    return `${this.baseUrl}${photoPath}`;
   }
   
 }

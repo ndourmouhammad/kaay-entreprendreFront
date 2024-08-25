@@ -145,7 +145,7 @@ export const routes: Routes = [
     path: 'reservations/:id',
     // path: 'reservations',
     component: ReservationsComponent,
-    canActivate: [administrationGuard],
+    canActivate: [administrationGuard, AuthGuard],
   },
   {
     path: 'ajouter-evenement',
@@ -182,27 +182,27 @@ export const routes: Routes = [
   { path: 'evenement', component: EvenementComponent },
   { path: 'detail_evenement/:id', component: DetailEvenementComponent },
   { path: 'guide', component: GuideComponent },
-  { path: 'forum', component: ForumComponent },
-  { path: 'forum-detail/:id', component: DetailForumComponent },
+  { path: 'forum', component: ForumComponent , canActivate: [AuthGuard]},
+  { path: 'forum-detail/:id', component: DetailForumComponent, canActivate: [AuthGuard] },
 
   { path: 'header1', component: Header1Component },
   { path: 'header2', component: Header2Component },
-  { path: 'Acceuil', component: AcceuilComponent },
+  { path: 'Acceuil', component: AcceuilComponent, },
   { path: 'footer', component: FooterComponent },
 
-  { path: 'ressources', component: RessourcesComponent },
-  { path: 'detail-ressource', component: DetailRessourceComponent },
-  { path: 'profil-entrepreneur', component: UserProfilComponent },
-  { path: 'modifier-profil', component: ModifierProfilComponent },
+  { path: 'ressources', component: RessourcesComponent, canActivate: [AuthGuard] },
+  { path: 'detail-ressource', component: DetailRessourceComponent , canActivate: [AuthGuard]},
+  { path: 'profil-entrepreneur', component: UserProfilComponent , canActivate: [AuthGuard]},
+  { path: 'modifier-profil', component: ModifierProfilComponent , canActivate: [AuthGuard]},
 
- { path:'demande-accompagnement', component:DemandeComponent},
+ { path:'demande-accompagnement', component:DemandeComponent, canActivate: [AuthGuard]},
 
 
 
 
 
     
-    { path: 'demande-accompagnement-coach' , component: DemandecoachComponent},
+    { path: 'demande-accompagnement-coach' , component: DemandecoachComponent, canActivate: [AuthGuard]},
 
     { path: 'retourexperience', component: RetourExperienceAccueilComponent},
   { path: 'detail-ressource/:id', component: DetailRessourceComponent },
@@ -212,9 +212,9 @@ export const routes: Routes = [
     path: 'mes-reservations',
     component: ReservationsComponent,
   },
-    { path:'demande-accompagnement', component:DemandeComponent},
+    { path:'demande-accompagnement', component:DemandeComponent, canActivate: [AuthGuard]},
     
-    { path: 'demande-accompagnement-coach' , component: DemandecoachComponent},
+    { path: 'demande-accompagnement-coach/:id' , component: DemandecoachComponent, canActivate: [AuthGuard]},
 
     { path: 'retourexperience', component: RetourExperienceComponent}
 ];

@@ -4,6 +4,7 @@ import { apiUrl } from './apiUrl';
 import { Observable } from 'rxjs';
 import { UserModel } from '../Models/users.model';
 import { SecteurActiviteModel } from '../Models/secteuractivite.model';
+import { throwError } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -24,13 +25,31 @@ private http=inject(HttpClient);
     return this.http.get<UserModel>(`${apiUrl}coach/${id}`);
     
   }
-  // Demande d'accompagnement : http://127.0.0.1:8000/api/accompagnement/{id}
-  demanderAccompagnement(receiverId: number): Observable<any> {
-    const headers = new HttpHeaders({
-      'Content-Type': 'application/json',
-      'Authorization': `Bearer ${localStorage.getItem('token')}` // Assuming token is stored in localStorage
-    });
+//  demanderAccompagnement(receiverId: number): Observable<any> {
+//   const headers = new HttpHeaders({
+//     'Content-Type': 'application/json',
+//     'Authorization': `Bearer ${localStorage.getItem('token')}` // Assuming token is stored in localStorage
+//   });
 
-    return this.http.post(`${apiUrl}/${receiverId}`, { headers });
+//   // Construct the URL properly without extra slashes
+//   return this.http.post(`${apiUrl}accompagnement/${receiverId}`, {}, { headers });
+// }
+
+
+demanderAccompagnement(receiverId: number): Observable<any> {
+  const token = localStorage.getItem('access_token');
+  
+  if (!token) {
+      console.error('No authentication token found');
+      return throwError(() => new Error('No authentication token found'));
   }
+
+  const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}`
+  });
+
+  return this.http.post<any>(`${apiUrl}accompagnement/${receiverId}`, {}, { headers });
+
+}
+
 }

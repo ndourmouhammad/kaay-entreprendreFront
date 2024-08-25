@@ -10,7 +10,7 @@
             <div class="col-sm-4 bg-c-lite-green user-profile">
               <div class="card-block text-center text-white">
                 <div class="m-b-25">
-                  <img *ngIf="coach.photo" [src]="coach.photo" alt="{{ coach.name }}" id="image_pro" class="img-radius">
+                  <img *ngIf="coach.photo" [src]="getPhotoUrl(coach.photo)" alt="{{ coach.name }}" id="image_pro" class="img-radius">
                 </div>
                 <h6 class="f-w-600">{{ coach.name }}</h6>
                 <p *ngIf="coach.secteur_activite" class="card-text">Coach en {{ coach.secteur_activite.libelle }}</p>

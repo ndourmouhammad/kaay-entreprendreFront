@@ -8,6 +8,7 @@ import { DatePipe, NgFor, NgIf } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ReservationModel } from '../../../Models/reservation.model';
 import { ReservationsService } from '../../../Services/reservations.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-reservations',
@@ -60,16 +61,30 @@ export class ReservationsComponent implements OnInit {
     const id = Number(this.route.snapshot.paramMap.get('id'));
     this.reservationsService.acceptReservation(reservationId).subscribe(
       (response: any) => {
-        console.log('Reservation Accepted:', response);
-        // this.getReservation(reservationId);
+        // Afficher l'alerte SweetAlert2 en cas de succès
+        Swal.fire({
+          title: 'Réservation approuvée!',
+          text: 'La réservation a été approuvée avec succès. Veuillez consulter la liste des reservations pour voir les changements.',
+          icon: 'success',
+          confirmButtonText: 'OK'
+        });
+  
+        // Actualiser la liste des réservations
         this.getReservation(id);
-        
       },
       (error: any) => {
-        console.error('Reservation Error:', error);
+        // Afficher l'alerte SweetAlert2 en cas d'erreur
+        Swal.fire({
+          title: 'Erreur!',
+          text: 'Une erreur s\'est produite lors de l\'approbation de la réservation.',
+          icon: 'error',
+          confirmButtonText: 'OK'
+        });
+  
+        // Afficher l'erreur dans la console
+        //console.error('Reservation Error:', error);
       }
     );
-
   }
 
   // Méthode pour désapprouver une reservation
@@ -77,14 +92,30 @@ export class ReservationsComponent implements OnInit {
     const id = Number(this.route.snapshot.paramMap.get('id'));
     this.reservationsService.refuserReservation(reservationId).subscribe(
       (response: any) => {
-        console.log('Reservation Rejected:', response);
-        // this.getReservation(reservationId);
+        // Afficher l'alerte SweetAlert2 en cas de succès
+        Swal.fire({
+          title: 'Réservation désapprouvée!',
+          text: 'La réservation a été désapprouvée avec succès. Veuillez consulter la liste des reservations pour voir les changements.',
+          icon: 'success',
+          confirmButtonText: 'OK'
+        });
+  
+        // Actualiser la liste des réservations
         this.getReservation(id);
       },
       (error: any) => {
-        console.error('Reservation Error:', error);
+        // Afficher l'alerte SweetAlert2 en cas d'erreur
+        Swal.fire({
+          title: 'Erreur!',
+          text: 'Une erreur s\'est produite lors du rejet de la réservation.',
+          icon: 'error',
+          confirmButtonText: 'OK'
+        });
+  
+        // Afficher l'erreur dans la console
+        //console.error('Reservation Error:', error);
       }
-    )
+    );
   }
 
   getReservation(id: number): void {

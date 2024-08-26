@@ -5,14 +5,15 @@
     <h1 class="h4 mt-4" *ngIf="guide"><h2>{{ guide.titre }}</h2></h1>
     <div class="guide-card p-4 shadow-sm" *ngIf="guide">
         <div class="steps-container">
-            <div
-              class="step"
-              *ngFor="let etape of guide.etapes"
-              (click)="showEtape(etape)"
-              [class.active]="selectedEtape?.id === etape.id"
-            >
-              ETAPE {{ etape.id }}
-            </div>
+          <div
+          class="step"
+          *ngFor="let etape of guide.etapes; let i = index"
+          (click)="showEtape(etape)"
+          [class.active]="selectedEtape?.id === etape.id"
+        >
+          ETAPE {{ i + 1 }} <!-- Display step number starting from 1 -->
+        </div>
+        
           </div>
           
           <div id="contentToConvert" class="content-section" *ngIf="selectedEtape">

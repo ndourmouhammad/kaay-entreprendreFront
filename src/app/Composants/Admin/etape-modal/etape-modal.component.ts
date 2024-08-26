@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, Input } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import { NgxEditorModule } from 'ngx-editor';
@@ -7,9 +7,6 @@ import { Editor } from 'ngx-editor';
 import { GuideService } from '../../../Services/guide.service';
 
 import DOMPurify from 'dompurify';
-
-
-
 
 @Component({
   standalone: true,
@@ -22,6 +19,7 @@ import DOMPurify from 'dompurify';
   styleUrls: ['./etape-modal.component.css']
 })
 export class EtapeModalComponent implements OnInit, OnDestroy {
+  @Input() etape: any;  // Accept the selected step as an input
   etapeForm: FormGroup;
   editor: Editor;
 
@@ -36,7 +34,17 @@ export class EtapeModalComponent implements OnInit, OnDestroy {
     this.editor = new Editor();
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    // If editing, initialize form with the selected step's data
+    if (this.etape) {
+      this.etapeForm.patchValue({
+        libelle: this.etape.libelle,
+        description: this.etape.description,
+        guide_id: this.etape.guide_id,
+        // You may need additional logic for pieces_jointes if editing
+      });
+    }
+  }
 
   onSubmit(): void {
     if (this.etapeForm.valid) {
@@ -45,11 +53,10 @@ export class EtapeModalComponent implements OnInit, OnDestroy {
       
       // Sanitize the description before appending it to formData
       const sanitizedDescription = DOMPurify.sanitize(this.etapeForm.get('description')?.value);
-      formData.append('description', sanitizedDescription);  // Use sanitized content
+      formData.append('description', sanitizedDescription);
 
       // Add guide_id = 1
       formData.append('guide_id', '1');
-      
 
       // Add file if present
       const file = this.etapeForm.get('pieces_jointes')?.value;
@@ -57,16 +64,30 @@ export class EtapeModalComponent implements OnInit, OnDestroy {
         formData.append('pieces_jointes', file);
       }
 
-      // Handle form submission here
-      this.guideService.addEtape(formData).subscribe({
-        next: (response) => {
-          console.log('Success:', response);
-          this.activeModal.close('submit');
-        },
-        error: (error) => {
-          console.error('Error:', error);
-        }
-      });
+      if (this.etape) {
+        // If editing, call the update method
+        this.guideService.updateEtape(formData, this.etape.id).subscribe({
+          next: (response) => {
+            console.log('Success:', response);
+            this.activeModal.close('submit');
+          },
+          error: (error) => {
+            console.error('Error:', error);
+          }
+        });
+      }
+      else {
+        // If adding, call the add method
+        this.guideService.addEtape(formData).subscribe({
+          next: (response) => {
+            console.log('Success:', response);
+            this.activeModal.close('submit');
+          },
+          error: (error) => {
+            console.error('Error:', error);
+          }
+        });
+      }
     }
   }
 

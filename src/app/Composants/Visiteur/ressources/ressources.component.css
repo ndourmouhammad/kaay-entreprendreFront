@@ -49,9 +49,10 @@ details[open] {
 
 summary {
 	padding: 1rem;
+  width: 200px;
 	cursor: pointer;
 	border-radius: 5px;
-	background-color: #fff;
+	background-color: #FFF;
 	list-style: none;
 }
 
@@ -180,26 +181,16 @@ label span {
 }
 
 .body {
-
-  justify-content: center;
   align-items: center;
   display: flex;
   flex-wrap: wrap;
  margin: 8% auto 10%;
-  gap: 30px;
- 
+  gap: 50px;
+ justify-content: center;
   width: 1420px;
  
 }
 
-.row {
-  display: flex;
-  flex-grow:1;
-  flex-direction: row;
-
-  justify-content: space-evenly;
-  margin:auto;
-}
 .card-image img{
   width: 100%;
   /*   object-fit:fill; */
@@ -212,7 +203,6 @@ label span {
 }
 
 .container {
-  font-family: Arial;
   width: 324.234px;
   height: 449.172px;
   border-radius: 20px;
@@ -289,5 +279,15 @@ label span {
     flex-direction: column;
     justify-content: space-between;
     margin: 20px auto;
+  }
+  .body {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+   margin: 8% auto 10%;
+    gap: 30px;
+   
+    width: 350px;
+   
   }
 }

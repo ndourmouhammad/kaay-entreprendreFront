@@ -131,5 +131,12 @@ onCVSelected(event: Event) {
       }
     );
   }
+ 
+  showPassword: boolean = false;
+
+
+  togglePasswordVisibility(): void {
+    this.showPassword = !this.showPassword;
+  }
   
 }

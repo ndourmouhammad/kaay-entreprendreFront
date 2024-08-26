@@ -1,4 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+@font-face {font-family: 'LemonTuesday'; src:url('https://files.jcink.net/uploads/septembersunday/LemonTuesday.eot'); 
+   src:url('https://files.jcink.net/uploads/septembersunday/LemonTuesday.eot?#iefix') format('embedded-opentype'),
+    url('https://files.jcink.net/uploads/septembersunday/LemonTuesday.woff') format('woff'),
+     url('https://files.jcink.net/uploads/septembersunday/LemonTuesday.ttf') format('truetype'), 
+     url('http://https://files.jcink.net/uploads/septembersunday/LemonTuesday.svg') format('svg'); font-weight: normal; font-style: normal; }
 *{
     
     box-sizing: border-box;
@@ -9,32 +15,8 @@ body{
     margin: 0;
     font-family: Poppins, sans-serif;
 }
-.banner{
-    margin-top: 10px;
-    background-color: #00214A;
-    height: 217px;
-    border-radius: 10px;
-    border: 1px solid white;
-}
-.banner h1{
-    color: #fff;
-}
-.profil{
-    width: 421px;
-    height: 411px;
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-    margin-top: -5%;
-   
-    
-}
-.profil2{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 10px auto;
-}
+
+
 .rese{
     width: 591px;
     height: 625px;
@@ -42,56 +24,13 @@ body{
     border-radius: 10px;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     position: relative;
-    margin-top:5%;
    
 }
-.rese .titre{
-    width: 281px;
-    height: 53px;
-    border: 1px solid rgba(0, 0, 0, 0.425);
-    border-radius: 10px;
-    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
-   margin: 10px;
-   text-align: justify;
-   font-size: 16px;
-}
-.info_profil{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: auto;
-    gap: 15%;
-}
-.profil2 button{
-    width: 102px;
-    height: 28px;
-    background-color: #00214A;
-    border-radius: 100px;
-    color: white;
-    margin: 10px auto 10px;
 
-}
-.data{
-    border: 1px solid rgba(0, 0, 0, 0.452);
-    width: 333px;
-    height: 230px;
-    margin: auto;
-}
-.info{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: flex-start;
-    margin:10px auto;
-}
-.info button{
-    width: 70px;
-    height: 30px;
-    background-color: #00214A;
-    color: #fff;
-    border-radius: 10px;
-}
-table 			      { 
+
+
+table 			      
+{ 
     border-spacing: 1; 
     border-collapse: collapse; 
     background:white;
@@ -99,7 +38,7 @@ table 			      {
     overflow:hidden;
     max-width:800px; 
     width:100%;
-    margin:10% auto;
+    margin:5% auto;
 
     position:relative;
     
@@ -125,222 +64,22 @@ table 			      {
   }
  
   
-  blockquote {
-    color:white;
-    text-align:center;
-  }
-  footer{
-    margin-top: 35%;
-  }
-  @media screen and (max-width: 390px) {
-    .info_profil{
-       display: block;
-        flex-direction: column;
-        align-items: center;
-        margin: auto;
-        gap: 15%;
-    }
-    .profil{
-        width: 370px;
-        height: 411px;
-        background-color: #fff;
-        border-radius: 10px;
-        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-        position: relative;
-        margin: 8% auto;
-        font-size: 14px;
-       
-        
-    }
-    .profil2{
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin: 10px auto;
-    }
-    .rese{
-        width: 370px;
-        height: 625px;
-        background-color: #fff;
-        border-radius: 10px;
-        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-        position: relative;
-       margin: 5% auto;
-       
-    }
-    table 			      { 
-        border-spacing: 1; 
-        border-collapse: collapse; 
-        background:white;
-        border-radius:6px;
-        overflow:hidden;
-        max-width:370px; 
-        width:100%;
-        margin:10% auto;
-    
-        position:relative;
-        
-        *               { position:relative }
-        
-        td,th           { padding-left:8px}
-      
-        thead tr        { 
-          height:60px;
-          background:#f7f6f2;
-          font-size:16px;
-        }
-        
-        tbody tr        { height:48px; border-bottom:1px solid #F49B33 ;
-          &:last-child  { border:0; }
-        }
-        
-           td,th 					{ text-align:left;
-              &.l 					{ text-align:right }
-              &.c 					{ text-align:center }
-              &.r 					{ text-align:center }
-          }
-      }
-      footer{
-        margin-top: 250%;
-      }
-  }
 
-* {
-   box-sizing: border-box;
-   margin: 0;
-   padding: 0;
-   font-family: Poppins, sans-serif;
-}
 
-body {
-   margin: 0;
-   font-family: Poppins, sans-serif;
-}
 
-.banner {
-   margin-top: 20px;
-   background-color: #00214A;
-   height: 217px;
-   border-radius: 10px;
-   border: 1px solid white;
-}
-
-.banner h1 {
+.button{
+   margin:auto 100px;
+   padding: 8px 15px;
+ background-color: #00214A;
    color: #fff;
-   margin: auto 10px;
-}
+   border: none;
+   border-radius: 5px;
+   cursor: pointer;
+   position: absolute;
+   font-weight: 800;
+  
 
-.profil {
-   width: 90%; /* Ajustement pour être plus flexible */
-   max-width: 421px;
-   height: auto; /* Hauteur automatique pour s'adapter au contenu */
-   background-color: #fff;
-   border-radius: 10px;
-   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-   margin-top: 5%; 
-   padding: 20px;
 }
-
-.profil2 {
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   margin: 10px auto;
-   gap: 80px; /* Réduction de l'écart pour les petits écrans */
-}
-
-.profil2 img {
-   width: 100px;
-   height: 100px;
-   border-radius: 50%;
-}
-
-.rese {
-   width: 90%;
-   max-width: 591px;
-   height: auto;
-   background-color: #fff;
-   border-radius: 10px;
-   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-   position: relative;
-   padding: 20px;
-}
-
-.rese .titre {
-   margin-top: 10%;
-   margin-left: 10%;
-   font-size: 20px;
-   font-weight: bold;
-   width: 80%;
-}
-
-.rese .listep {
-   color: #F49B33;
-   background-color: #F49B33;
-   width: 80%;
-   height: 2px;
-   margin: auto;
-}
-
-.info_profil {
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   margin: auto;
-   gap: 15%;
-}
-
-.profil2 button {
-   width: 102px;
-   height: 28px;
-   background-color: #00214A;
-   border-radius: 100px;
-   color: white;
-   margin: 10px auto;
-}
-
-.data {
-   border: 1px solid rgba(0, 0, 0, 0.452);
-   width: 90%;
-   max-width: 333px;
-   height: auto;
-   margin: 10%;
-   text-align: justify;
-   padding: 15px;
-}
-
-.data1 {
-   margin-left: 10px;
-}
-
-.info {
-   display: flex;
-   flex-direction: row;
-   justify-content: space-between;
-   align-items: flex-start;
-   margin: 10px auto;
-}
-
-.info button {
-   width: 70px;
-   height: 30px;
-   background-color: #00214A;
-   color: #fff;
-   border-radius: 10px;
-}
-
-table {
-   border-spacing: 1;
-   border-collapse: collapse;
-   background: white;
-   border-radius: 6px;
-   overflow: hidden;
-   max-width: 800px;
-   width: 100%;
-   margin: 0 auto;
-   position: relative;
-}
-
 td, th {
    padding-left: 8px;
 }
@@ -371,79 +110,139 @@ td.c, th.c {
 blockquote {
    color: white;
    text-align: center;
+} 
+.profil-head{
+   gap: 50%;
 }
-footer{
-   margin-top:30%;
+.profil-table {
+   border: 1px solid #fff;
+   padding: 15px;
+   background: #ffffff6b!important;
+    height:auto;
+   }
+.profil-head {
+   flex: 1;
+    align-items: center; 
+     display: flex;
+     flex-wrap: wrap;
+      justify-content: center;
+      height: 180px;
+      background: #00214A; 
+      background-image: url(https://www.transparenttextures.com/patterns/xv.png);  
+      color: #fff;
+      text-shadow: 2px 2px rgba(0, 0, 0, 0.8); 
+      font-size: 36px;
+   }
+   .titre{
+      text-align: center;
+      font-size: 18px;
+      font-weight: bold;
+      color: #00214A;
+   }
+.profil-body {
+   background: #f6f6f6;
+   align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+     justify-content: center;
+      border: 1px solid #D2D2D2;
+       border-bottom:none;
+       padding: 5px;
+      }
 
+.profil-line {
+   background: #00214A; 
+   line-height:60px; 
+   font-family: Raleway;
+   text-align:center;
+    color: #fff;
+     text-transform:uppercase;
+      font-size:10px; 
+      border:1px solid #D2D2D2;
+   }
+.profil-userpic {
+   border:1px solid #D2D2D2;
+    padding:3px;
+     margin-top:5px;
+     padding-bottom:0px;
+   }
+.profil-avatar {
+   border: 1px solid #D2D2D2;
+   height:150px;
+   width: 150px;
+   border-radius: 100px;
+   
+    margin-top:5px;
+     margin-bottom:5px;
+   }
+.profil-part {
+   display:block;
+   flex:1;
+   background: #FBFBFB;
 }
-/* Media Queries pour le Responsive Design */
+.profil-right {
+   display:flex;
+   flex: 1;
+    align-items: center; 
+     display: flex;
+     flex-wrap: wrap; 
+     justify-content: center;
+      margin-left: -21px; 
+      margin-top: -20px;
+   }
+.profil-infos {
+   flex:2;
+   background: #FFF;
+   background-image: url(https://www.transparenttextures.com/patterns/xv.png);
+    border: 1px solid #D2D2D2;
+     border: 1px solid #D2D2D2;
+      margin:50px;
+
+      
+   }
+.profil-bloc {background: #fff; margin: 100px 100px 20px;border:1px solid #D2D2D2; border-bottom: none;width: 80%;}
+.bloc-line {
+   border-bottom: 1px solid #D2D2D2; 
+   padding:14px;
+    font-family: Raleway;
+     color: #555;
+      font-weight: 600;
+
+        font-size: 16px;
+         text-align:right;}
+.bloc-line label {float:left;color: #00214A; font-weight: 600;}
+.bloc-line:first-child:before  {content:'\e932'; font-family:'honeybee'; font-size:18px; color: orange; float: left; margin-right: 16px;}
+.bloc-line:nth-child(2):before {content:'\e932'; font-family:'honeybee'; font-size:16px; color: orange; float: left; margin-right: 10px;}
+.bloc-line:nth-child(3):before {content:'\e932'; font-family:'honeybee'; font-size:16px; color: orange; float: left; margin-right: 10px;}
+.bloc-line:nth-child(4):before {content:'\e932'; font-family:'honeybee'; font-size:16px; color: orange; float: left; margin-right: 10px;}
+.bloc-line:nth-child(5):before {content:'\e932'; font-family:'honeybee'; font-size:16px; color: orange; float: left; margin-right: 10px;}
+.bloc-line:nth-child(6):before {content:'\e932'; font-family:'honeybee'; font-size:16px; color: orange; float: left; margin-right: 10px;}
+.bloc-line:nth-child(7):before {content:'\e932'; font-family:'honeybee'; font-size:16px; color: orange; float: left; margin-right: 10px;}
+.bloc-line:nth-child(8):before {content:'\e932'; font-family:'honeybee'; font-size:16px; color: orange; float: left; margin-right: 10px;}
+.bloc-line:nth-child(9):before {content:'\e932'; font-family:'honeybee'; font-size:16px; color: orange; float: left; margin-right: 10px;}
 
 @media (max-width: 768px) {
-   .profil, .rese {
-      width: 100%;
-      margin-top: 10%;
-   }
-
-   .profil2 {
-      flex-direction: column;
-      gap: 10px;
-   }
-
-   .info_profil {
-      flex-direction: column;
-      gap: 10px;
-   }
-
-   .info {
-      flex-direction: column;
-      align-items: center;
-      gap: 10px;
-   }
-
-   table {
-      width: 100%;
-   }
-
-   thead tr {
-      font-size: 14px;
-   }
-
-   tbody tr {
-      font-size: 12px;
-   }
-   footer{
-      margin-top:100%;
-   
-   }
+  th,td{
+   font-size: 14px;
+  };
+  table{
+   width: 95%;
+  }
+  .profil-infos{
+   width:70%;
+   margin:auto;
+}
 }
 
 @media (max-width: 480px) {
-   .profil2 img {
-      width: 80px;
-      height: 80px;
-   }
-
-   .profil2 button {
-      width: 90px;
-      height: 25px;
-   }
-
-   .info button {
-      width: 60px;
-      height: 25px;
-   }
-
-   .rese .titre {
-      font-size: 18px;
-      margin-left: 5%;
-   }
-
-   blockquote {
-      font-size: 14px;
-   }
-   footer{
-      margin-top:250%;
-   
-   }
+th,td{
+   font-size: 14px;
 }
-
+table{
+   width: 95%;
+}
+.profil-infos{
+   width: 80%;
+   margin:auto;
+}
+}

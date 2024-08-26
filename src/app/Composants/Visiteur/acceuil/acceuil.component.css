@@ -90,7 +90,7 @@ margin: 10px;
   }
   .description button{
   background-color: #FF9700;
-  width: 200px;
+  width: 24rem;
   height: 50px;
   border: none;
   color: #fff;
@@ -554,13 +554,13 @@ footer{
 
  .description button {
    background-color: #FF9700;
-   width: 50%; /* Ajuste la largeur du bouton pour s'adapter à l'écran */
-   height: 40px;
+   width: 70%; /* Ajuste la largeur du bouton pour s'adapter à l'écran */
+   height: 3.5rem;
    border: none;
    color: #fff;
    font-size: 14px; /* Réduit la taille de la police pour les petits écrans */
    font-weight: bold;
-   margin: 10px auto;
+   margin: 100px auto;
    display: block;
  }
 

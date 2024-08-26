@@ -7,7 +7,7 @@ import { NgFor, NgIf } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { environment } from '../../../../environnements/environments';
-
+import Swal from 'sweetalert2';
 declare var bootstrap: any;
 
 
@@ -104,18 +104,38 @@ export class RetourExperienceComponent implements OnInit {
   }
 
   onDeleteRetourExperience(id: number) {
-    if (confirm("Are you sure you want to delete this experience?")) {
+    Swal.fire({
+      title: 'Êtes-vous sûr?',
+      text: "Cette action ne peut pas être annulée!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Oui, supprimer!',
+      cancelButtonText: 'Annuler'
+    }).then((result) => {
+      if (result.isConfirmed) {
         this.retourExperienceService.deleteRetourExperience(id).subscribe({
-            next: (response) => {
-                console.log('Experience deleted:', response.message);
-                this.getRetourExperience(); // Refresh the list after deletion
-            },
-            error: (error) => {
-                console.error('Error deleting experience:', error);
-            }
+          next: (response) => {
+            Swal.fire(
+              'Supprimé!',
+              'L\'expérience a été supprimée.',
+              'success'
+            );
+            this.getRetourExperience(); // Rafraîchir la liste après suppression
+          },
+          error: (error) => {
+            Swal.fire(
+              'Erreur!',
+              'Il y a eu un problème lors de la suppression de l\'expérience.',
+              'error'
+            );
+          }
         });
-    }
-}
+      }
+    });
+  }
+  
 
  // Open the edit modal and populate it with the selected experience
  openEditModal(retour: RetourExperienceModel) {

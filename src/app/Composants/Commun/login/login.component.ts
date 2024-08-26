@@ -4,6 +4,7 @@ import { Router, RouterLink, RouterModule } from '@angular/router';
 import { AuthService } from '../../../Services/auth.service';
 import { UserModel } from '../../../Models/users.model';
 import { Role } from '../../../Models/roles.model';
+import { NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-login',
@@ -11,7 +12,8 @@ import { Role } from '../../../Models/roles.model';
   imports: [
     RouterLink,
     RouterModule,
-    FormsModule
+    FormsModule,
+    NgIf
   ],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
@@ -24,43 +26,47 @@ export class LoginComponent {
 
   // Declaration des variables
   userObject: UserModel = {};
+  loginError: boolean = false;
 
   // Declaration des méthodes
-  login() {
-    if (this.userObject.email && this.userObject.password) {
-      this.authService.login(this.userObject).subscribe(
-        (response: any) => {
-          console.log(response.access_token);
-          console.log(response.user);
+ // Declaration des méthodes
+ login() {
+  if (this.userObject.email && this.userObject.password) {
+    this.authService.login(this.userObject).subscribe(
+      (response: any) => {
+        console.log(response.access_token);
+        console.log(response.user);
 
-          if (response.user) {
-            localStorage.setItem('access_token', response.access_token);
-            localStorage.setItem('user', JSON.stringify(response.user));
-            console.log(localStorage.getItem('user'));
-            // si role = 'admin' ->dashboard/admin ou role = 'super_admin ->dashboard/super-admin ou role = 'entrepreneur ->dashboard/entrepreneur
+        if (response.user) {
+          localStorage.setItem('access_token', response.access_token);
+          localStorage.setItem('user', JSON.stringify(response.user));
+          console.log(localStorage.getItem('user'));
 
-            if (response.user.roles) {
-              if (response.user.roles.some((role: Role) => role.name === 'admin')) {
-                this.router.navigateByUrl('dashboard-admin');
-              }
-              else if (response.user.roles.some((role: Role) => role.name ==='coach')) {
-                this.router.navigateByUrl('dashboard-coach');
-              }
-              else if (response.user.roles.some((role: Role) => role.name === 'entrepreneur')) {
-                this.router.navigateByUrl('Acceuil');
-              }
+          if (response.user.roles) {
+            if (response.user.roles.some((role: Role) => role.name === 'admin')) {
+              this.router.navigateByUrl('dashboard-admin');
+            } else if (response.user.roles.some((role: Role) => role.name === 'coach')) {
+              this.router.navigateByUrl('dashboard-coach');
+            } else if (response.user.roles.some((role: Role) => role.name === 'entrepreneur')) {
+              this.router.navigateByUrl('Acceuil');
             }
-            else {
-              this.router.navigateByUrl('');
-            }
+          } else {
+            this.router.navigateByUrl('');
           }
-        },
-        (error) => {
-          console.error(error);
+
+          this.loginError = false; // Réinitialiser l'erreur de connexion
         }
-      );
-    }
+      },
+      (error) => {
+        console.error(error);
+        this.loginError = true; // Afficher le message d'erreur
+      }
+    );
+  } else {
+    this.loginError = true; // Afficher le message d'erreur si les champs sont vides
   }
+}
+
   
   logout() {
     return this.authService.logout().subscribe(

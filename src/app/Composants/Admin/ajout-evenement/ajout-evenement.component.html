@@ -13,7 +13,6 @@
                 <!-- Remplacez par des messages d'erreur statiques si nécessaire -->
                 <div class="alert alert-danger mt-4 d-none">Votre compte est désactivé. Veuillez contacter l'administrateur.</div>
                 
-<<<<<<< HEAD
                 <form [formGroup]="evenementForm" (ngSubmit)="onSubmit()" enctype="multipart/form-data" class="mt-5">
                     <div class="form-row">
                       <div class="form-group col-md-6">
@@ -88,84 +87,6 @@
                     </div>
                   </form>
                   
-=======
-                <form enctype="multipart/form-data" class="mt-5">
-                    <div class="form-row">
-                        <div class="form-group col-md-6">
-                            <label for="theme">Thème</label>
-                            <input type="text" class="form-control" id="theme" name="theme" value="">
-                            <!-- Message d'erreur -->
-                            <span class="invalid-feedback d-none" role="alert">
-                                <strong>Erreur pour le nom</strong>
-                            </span>
-                        </div>
-                        <div class="form-group col-md-6">
-                            <label for="nombre_places">Nombre de places</label>
-                            <input type="text" class="form-control" id="nombre_places" name="nombre_places" value="">
-                            <!-- Message d'erreur -->
-                            <span class="invalid-feedback d-none" role="alert">
-                                <strong>Erreur pour le nom</strong>
-                            </span>
-                        </div>
-                        
-                    </div>
-
-                    <div class="form-row">
-                        <div class="form-group col-md-6">
-                            <label for="date_debut">Date de début</label>
-                            <input type="date" class="form-control" id="date_debut" name="date_debut" value="">
-                            <!-- Message d'erreur -->
-                            <span class="invalid-feedback d-none" role="alert">
-                                <strong>Erreur pour le nom</strong>
-                            </span>
-                        </div>
-                        <div class="form-group col-md-6">
-                            <label for="date_fin">Date de fin</label>
-                            <input type="date" class="form-control" id="date_fin" name="date_fin" value="">
-                            <!-- Message d'erreur -->
-                            <span class="invalid-feedback d-none" role="alert">
-                                <strong>Erreur pour le nom</strong>
-                            </span>
-                        </div>
-                        
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group col-md-12">
-                            <label for="lieu">Lieu de l'événement</label>
-                            <input type="text" class="form-control" id="lieu" name="lieu" value="">
-                            <!-- Message d'erreur -->
-                            <span class="invalid-feedback d-none" role="alert">
-                                <strong>Erreur pour le nom</strong>
-                            </span>
-                        </div>
-                    </div>
-
-                    
-
-                    <div class="form-group">
-                        <label for="description">Description</label>
-                        <textarea class="form-control" id="description" name="description" rows="5"></textarea>
-                        <!-- Message d'erreur -->
-                        <span class="invalid-feedback d-none" role="alert">
-                            <strong>Erreur pour la description</strong>
-                        </span>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="image">Image</label>
-                        <input type="file" class="form-control-file" id="image" name="image">
-                        <!-- Message d'erreur -->
-                        <span class="invalid-feedback d-none" role="alert">
-                            <strong>Erreur pour l'image</strong>
-                        </span>
-                    </div>
-
-                    <div class="d-flex justify-content-between">
-                        <button type="submit" class="btn evenement ">Ajouter</button>
-                        <a routerLink="/evenement-admin" class="btn btn-annuler ">Annuler</a>
-                    </div>
-                </form>
->>>>>>> AmilioratioPage
             </div>
         </div>
     </div>

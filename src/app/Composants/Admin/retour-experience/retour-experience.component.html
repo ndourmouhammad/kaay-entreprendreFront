@@ -88,9 +88,10 @@
               (change)="onFileSelected($event)"
               accept="image/*"
               name="image"
+              
             />
           </div>
-          <button type="submit" class="btn btn-primary" [disabled]="!addRetourExperienceForm.valid">Ajouter</button>
+          <button type="submit" class="btn btn-warning" [disabled]="!addRetourExperienceForm.valid">Ajouter</button>
         </form>
       </div>
     </div>

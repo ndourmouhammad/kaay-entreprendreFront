@@ -9,6 +9,7 @@ import { CommonModule } from '@angular/common';
 import { SecteurActiviteModel } from '../../../Models/secteuractivite.model';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../../../environnements/environments';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-demandecoach',
@@ -51,22 +52,36 @@ export class DemandecoachComponent implements OnInit {
   }
 
   sendRequest(): void {
-    
-
     if (this.coach) {
       this.coachService.demanderAccompagnement(this.coach.id).subscribe(
         response => {
-          alert('Demande d\'accompagnement envoyée avec succès!');
+          Swal.fire({
+            icon: 'success',
+            title: 'Demande envoyée',
+            text: 'Demande d\'accompagnement envoyée avec succès!',
+            confirmButtonText: 'OK'
+          });
         },
         error => {
-          console.error('Erreur lors de l\'envoi de la demande', error);
-          alert('Erreur lors de l\'envoi de la demande.');
+          //console.error('Erreur lors de l\'envoi de la demande', error);
+          Swal.fire({
+            icon: 'error',
+            title: 'Erreur',
+            text: 'Erreur lors de l\'envoi de la demande.',
+            confirmButtonText: 'OK'
+          });
         }
       );
     } else {
-      alert('Aucun coach sélectionné.');
+      Swal.fire({
+        icon: 'warning',
+        title: 'Aucun coach sélectionné',
+        text: 'Aucun coach sélectionné.',
+        confirmButtonText: 'OK'
+      });
     }
   }
+  
 
   getPhotoUrl(photoPath: string): string {
     return `${this.baseUrl}${photoPath}`;

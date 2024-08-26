@@ -1,0 +1,34 @@
+<div class="modal-header">
+    <h4 class="modal-title">Ajouter ou Modifier une Étape</h4>
+    <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form [formGroup]="etapeForm" (ngSubmit)="onSubmit()">
+      <div>
+        <label for="libelle">Libelle</label>
+        <input id="libelle" formControlName="libelle" type="text" />
+      </div>
+  
+      <div>
+        <label for="pieces_jointes">Pièces Jointes</label>
+        <input id="pieces_jointes" type="file" (change)="onFileChange($event, 'pieces_jointes')" />
+      </div>
+  
+      <div>
+        <label for="description">Description</label>
+        <div class="NgxEditor__Wrapper">
+          <ngx-editor-menu [editor]="editor"></ngx-editor-menu>
+          <ngx-editor 
+            [editor]="editor" 
+            [formControl]="getControl('description')" 
+            [placeholder]="'Type here...'"
+          ></ngx-editor>
+        </div>
+      </div>
+  
+      <button type="submit" [disabled]="etapeForm.invalid">Submit</button>
+    </form>
+  </div>
+  

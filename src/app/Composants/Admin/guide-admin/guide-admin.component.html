@@ -1,38 +1,47 @@
 <header class="container">
     <app-header-admin></app-header-admin>
-</header>
-
-<div class="container mb-5">
+  </header>
+  
+  <div class="container mb-5">
     <h1 class="h4 mt-4" *ngIf="guide"><h2>{{ guide.titre }}</h2></h1>
-    
+  
+    <button class="btn btn-primary mb-5 mt-3" (click)="showEtape(null)" style="background-color: #ff8500; border-color: #ff8500">
+      Ajouter une nouvelle étape
+    </button>
+  
     <div class="guide-card p-4 shadow-sm" *ngIf="guide">
-        <div class="dropdown">
-            <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" aria-haspopup="true" aria-expanded="false" (click)="toggleDropdown()" style="background-color: #ff8500; border-color: #ff8500">
-                ETAPE : {{ selectedEtape?.libelle }}
-            </button>
-            <div 
-            class="dropdown-menu" 
-            [class.show]="dropdownOpen" 
-            aria-labelledby="dropdownMenuButton">
-            <a 
-              class="dropdown-item" 
-              *ngFor="let etape of guide.etapes; let i = index" 
-              (click)="selectEtape(etape)"
-              [class.active]="selectedEtape?.id === etape.id">
-              ETAPE {{ i + 1 }} <!-- Display step number starting from 1 -->
-            </a>
-          </div>
-          
+      <div class="dropdown">
+        <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" aria-haspopup="true" aria-expanded="false" (click)="toggleDropdown()" style="background-color: #00214A; border-color: #00214A">
+          ETAPE : {{ selectedEtape?.libelle }}
+        </button>
+        <div class="dropdown-menu" [class.show]="dropdownOpen" aria-labelledby="dropdownMenuButton">
+          <a class="dropdown-item" *ngFor="let etape of guide.etapes; let i = index" (click)="selectEtape(etape)" [class.active]="selectedEtape?.id === etape.id">
+            ETAPE {{ i + 1 }} <!-- Display step number starting from 1 -->
+          </a>
         </div>
-
-        <div id="contentToConvert" class="content-section" *ngIf="selectedEtape">
-            <div class="content-text">
-              <h4>{{ selectedEtape.libelle }}</h4>
-              <p class="text-muted">{{ selectedEtape.description }}</p>
-            </div>
-            <a href="http://" target="_blank" rel="noopener noreferrer" class="content-icon">
-                <p><a [href]="getFileUrl(selectedEtape.pieces_jointes)" target="_blank"><img src="../../../../assets/pdflogo.png" alt=""></a></p>
-            </a>
+      </div>
+  
+      <div id="contentToConvert" class="content-section" *ngIf="selectedEtape">
+        <div class="content-text">
+          <h4>{{ selectedEtape.libelle }}</h4>
+          <p class="text-muted">{{ selectedEtape.description }}</p>
         </div>
+        <a href="http://" target="_blank" rel="noopener noreferrer" class="content-icon">
+          <p><a [href]="getFileUrl(selectedEtape.pieces_jointes)" target="_blank"><img src="../../../../assets/pdflogo.png" alt=""></a></p>
+        </a>
+      </div>
+      
+      <div *ngIf="selectedEtape" class="mt-5 d-flex justify-content-between buttons">
+        <!-- Bouton pour modifier ouvrir un modal pour la modification de l'étape -->
+      <button class="btn btn-primary mb-5 mt-3" (click)="showEtape(selectedEtape)" style="background-color: #ff8500; border-color: #ff8500">
+        Modifier cette étape
+      </button>
+  
+      <!-- Bouton pour supprimer l'étape -->
+      <button class="btn btn-primary mb-5 mt-3" (click)="deleteEtape(selectedEtape.id)" style="background-color: #ff8500; border-color: #ff8500">
+        Supprimer cette étape
+      </button>
+      </div>
     </div>
-</div>
+  </div>
+  

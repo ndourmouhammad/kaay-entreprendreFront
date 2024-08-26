@@ -100,4 +100,27 @@ a .content-icon {
     .content-section {
         flex-direction: column;
     }
+
+    .content-text {
+        margin-right: 0;
+    }
+
+    .dropdown-menu {
+        width: 100%;
+    }
+
+    .dropdown-item {
+        cursor: pointer;
+    }
+
+    .dropdown-item.active {
+        background-color: #00214A;
+        color: white;
+    }
+    .buttons {
+        flex-direction: column;
+        width: 15rem;
+      justify-content: center;
+     
+    }
 }

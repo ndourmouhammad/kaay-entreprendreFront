@@ -47,7 +47,7 @@ fetchRessoureces() {
     (response: any) => {
       if (Array.isArray(response)) {
         console.log('Ressources:', response);  
-        this.tabRessources = response.reverse().slice(0, 6);
+        this.tabRessources = response.reverse().slice();
       } else {
         console.error('API response is not an array:', response);
       }

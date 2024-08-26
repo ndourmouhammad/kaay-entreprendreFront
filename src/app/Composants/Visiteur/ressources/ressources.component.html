@@ -29,11 +29,13 @@
         <img *ngIf="ressource.image" [src]="getPhotoUrl(ressource.image)" alt="{{ ressource.titre }}">
         <!-- <img *ngIf="user.photo" [src]="getPhotoUrl(user.photo)" alt="Profile Picture" class="rounded-circle img-fluid profile-pic"> -->
       </div>
-      <div class="card-text">
+      <div class="card-text"  [routerLink]="['/detail-ressource', ressource.id]">
         {{ ressource.titre }}
       </div>
       <div class="card-divider"></div>
-      <a [routerLink]="['/detail-ressource', ressource.id]" target="_blank" class="card-link-text">Voir le contenu</a>
+      
+        <!-- <button class="btnDetail mt-3" target="_blank">Voir le contenu</button> -->
+      
     </div>
   </div>
 </section>

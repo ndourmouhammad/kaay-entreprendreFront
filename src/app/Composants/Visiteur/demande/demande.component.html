@@ -2,59 +2,60 @@
   <app-header1></app-header1>
 </header>
 
-<nav>
-  <ul class="primary-menu">
-    
-    <li  *ngFor="let secteur of secteurs" (click)="onSecteurClick(secteur.id)"><a>{{ secteur.libelle }}</a><div class="flyout__tab"></div></li> 
-  </ul>
+<div class="dropdown">
+  <button class="dropbtn">List des secteurs</button>
+  <div class="dropdown-content">
+      <a  *ngFor="let secteur of secteurs" (click)="onSecteurClick(secteur.id)">{{ secteur.libelle }}</a>
 
-</nav>
+
+  </div>
+ </div>
 
         <!--Deuxième Section de Cartes-->
         <body>
           <div class="container mt-5 mb-5">
             <div class="d-flex justify-content-between mb-3">
-          
-                
+
+
             </div>
             <div class="row g-2">
-          
+
                 <div class="col-md-3"  *ngFor="let coach of coaches" >
-          
+
                     <div class="card p-2 py-3 text-center">
-          
+
                         <div class="img mb-2">
-          
+
                             <img *ngIf="coach.photo"  [src]="getPhotoUrl(coach.photo)" alt="{{ coach.name }}"  class="rounded-circle">
-                            
+
                         </div>
-          
+
                         <h5 class="mb-0">{{ coach.name }}</h5>
                         <small *ngIf="coach.secteur_activite">Coach en {{ coach.secteur_activite.libelle }}</small>
-          
+
                         <div class="ratings mt-2">
-          
+
                             <i class="fa fa-star"></i>
                             <i class="fa fa-star"></i>
                             <i class="fa fa-star"></i>
                             <i class="fa fa-star"></i>
-                            
+
                         </div>
-          
+
                         <div class="mt-4 apointment">
-          
+
                             <button [routerLink]="['/demande-accompagnement-coach', coach.id]" style="cursor: pointer;" class="btn btn-success text-uppercase">Voir Profil</button>
-                            
+
                         </div>
-          
+
                     </div>
-                    
+
                 </div>
-        
-                
+
+
             </div>
-               
-          
+
+
            </div>
         </body>
 

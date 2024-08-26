@@ -1,62 +1,61 @@
 <app-header1></app-header1>
 
-<div *ngIf="userProfil" class="banner">
-  <h1>Mon Profil</h1>
-  <div class="info_profil">
-    <div class="profil">
-      <div class="profil2">
-        <div>
-         <img *ngIf="userProfil.photo" [src]="getPhotoUrl(userProfil.photo)" alt="{{ userProfil.name }}">
-        </div>
-        <div>
-          <button (click)="goToEdit()">Modifier</button>
-        </div>
-      </div>
-      <div class="data">
-        <div class="data1">
-          <h6>PRÉNOM ET NOM</h6>
-          <div class="info">
-            <p>{{ userProfil.name }}</p>
-          </div>
-          <h6>EMAIL</h6>
-          <div class="info">
-            <p>{{ userProfil.email }}</p>
-          </div>
-          <h6>TÉLÉPHONE</h6>
-          <div class="info">
-            <p>{{ userProfil.telephone }}</p>
-          </div>
-        </div>
-      </div>
-    </div>
-    
-    <div class="rese">
-      <div class="titre">Liste des Réservations</div>
-      <div class="table">
-        <table>
-          <thead>
-            <tr>
-              <th>Numéro</th>
-              <th>Date</th>
-              <th>Événement</th>
-              <th>Statut</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let reservation of resvation; let i = index">
-              <td>{{ i + 1 }}</td>
-              <td>{{ reservation.created_at | date:'dd/MM/yyyy' }}</td>
-              <td>{{ reservation.evenement?.theme }}</td>
-              <td>{{ reservation.status }}</td>
-            </tr>
-          </tbody>
-        </table>
-        <blockquote>Responsive Table</blockquote>
-      </div>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous"><link href="https://fonts.googleapis.com/css?family=Major+Mono+Display|Montserrat:400,600,600i,700,700i,800,800i,900,900i|Open+Sans+Condensed:300,700|Raleway:400,600,600i,700,700i,800,800i,900,900i|Staatliches" rel="stylesheet"><link href="//dl.dropbox.com/s/vpi3f9s7nhpe7v7/honeybee.css" rel="stylesheet">
+
+<div class="profil-table" *ngIf="userProfil">
+  <div class="profil-head">
+    {{ userProfil.name }}
+    <div class="profil-avatar">
+      <img  *ngIf="userProfil.photo" [src]="getPhotoUrl(userProfil.photo)" alt="{{ userProfil.name }}">
     </div>
   </div>
-</div>
+  <div class="profil-body">
+  <div class="profil-part">
+    <div class="profil-right">
+    <div class="profil-infos">
+      <div class="profil-bloc">
+        <div class="bloc-line"><div><label>PRÉNOM ET NOM</label>{{ userProfil.name }}</div></div>
+        <div class="bloc-line"><div><label>EMAIL</label>{{ userProfil.email }}</div></div>
+        <div class="bloc-line"><div><label>TÉLÉPHONE</label>{{ userProfil.telephone }}</div></div>
+        <div class="bloc-line"><div><label>ADRESSE</label>{{ userProfil.adresse}}</div></div>
+      </div>
+      <button class="button" (click)="goToEdit()">Modifier</button>
+      <div class="profil-stats">
+        <div class="">
+          <div class="titre">Liste des Réservations</div>
+          <div>
+            <table>
+              <thead>
+                <tr>
+                  <th>Numéro</th>
+                  <th>Date</th>
+                  <th>Événement</th>
+                  <th>Statut</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let reservation of resvation; let i = index">
+                  <td>{{ i + 1 }}</td>
+                  <td>{{ reservation.created_at | date:'dd/MM/yyyy' }}</td>
+                  <td>{{ reservation.evenement?.theme }}</td>
+                  <td>{{ reservation.status }}</td>
+                </tr>
+              </tbody>
+            </table>
+                  </div>
+        </div>
+      </div>
+    </div>
+     
+    </div>
+ </div>
+ </div>
+ </div>
+ 
 
 <footer>
   <app-footer></app-footer>
 </footer>
+
+  
+  

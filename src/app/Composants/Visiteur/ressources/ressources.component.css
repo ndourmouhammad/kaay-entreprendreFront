@@ -185,8 +185,8 @@ label span {
   display: flex;
   flex-wrap: wrap;
  margin: 8% auto 10%;
-  gap: 30px;
- 
+  gap: 50px;
+ justify-content: center;
   width: 1420px;
  
 }
@@ -203,7 +203,6 @@ label span {
 }
 
 .container {
-  font-family: Arial;
   width: 324.234px;
   height: 449.172px;
   border-radius: 20px;

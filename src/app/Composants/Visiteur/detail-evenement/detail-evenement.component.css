@@ -63,8 +63,8 @@ body {
   }
 
   .small-image {
-    width: 90px;
-    height: 150px;
+    width: 20%;
+    height: 20%;
   }
   .btn-dark{
     background: #FF9700;

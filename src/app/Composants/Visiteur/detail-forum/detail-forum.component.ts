@@ -89,7 +89,8 @@ export class DetailForumComponent implements OnInit {
         (response) => {
           this.newComment.contenu = ''; // Réinitialiser le formulaire
           
-          this.loadComments(this.discussion.id); 
+         // Recharger les commentaires
+         location.reload(); 
         },
         (error: any) => console.error('Erreur lors de l\'ajout du commentaire:', error)
       );

@@ -8,6 +8,8 @@ import { DatePipe, NgFor, NgIf } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ReservationModel } from '../../../Models/reservation.model';
 import { ReservationsService } from '../../../Services/reservations.service';
+import Swal from 'sweetalert2';
+
 
 
 @Component({
@@ -40,7 +42,7 @@ export class EvenementsDetailsAdminComponent implements OnInit {
   ngOnInit(): void {
     const id = Number(this.route.snapshot.paramMap.get('id'));
     if (isNaN(id)) {
-      console.error('Invalid ID parameter');
+      //console.error('Invalid ID parameter');
       return;
     }
     this.getEvenement(id);
@@ -50,11 +52,11 @@ export class EvenementsDetailsAdminComponent implements OnInit {
   getEvenement(id: number): void {
     this.eventService.getEvenement(id).subscribe(
       (response: any) => {
-        console.log('Event Data:', response);
+        //console.log('Event Data:', response);
         this.event = response.data || {}; // Ensure event is assigned correctly
       },
       (error: any) => {
-        console.error('Event Error:', error);
+        //console.error('Event Error:', error);
       }
     );
   }
@@ -62,12 +64,12 @@ export class EvenementsDetailsAdminComponent implements OnInit {
   getReservation(id: number): void {
     this.reservationsService.getReservations(id).subscribe(
       (response: any) => {
-        console.log('Reservation Data:', response);
+        //console.log('Reservation Data:', response);
         this.reservation = response; // Assign data to reservation
-        console.log('Reservations:', this.reservation);
+        //console.log('Reservations:', this.reservation);
       },
       (error: any) => {
-        console.error('Reservation Error:', error);
+        //console.error('Reservation Error:', error);
         this.reservation = []; // Ensure reservation is always an array
       }
     );
@@ -77,35 +79,69 @@ export class EvenementsDetailsAdminComponent implements OnInit {
     return `${this.baseUrl}${photoPath}`;
   }
 
-  // Méthode pour approuver une reservation
-  approveReservation(reservationId: number): void {
-    const id = Number(this.route.snapshot.paramMap.get('id'));
-    this.reservationsService.acceptReservation(reservationId).subscribe(
-      (response: any) => {
-        console.log('Reservation Accepted:', response);
-        this.getReservation(id);
-        
-      },
-      (error: any) => {
-        console.error('Reservation Error:', error);
-      }
-    );
+  // Méthode pour approuver une réservation
+approveReservation(reservationId: number): void {
+  const id = Number(this.route.snapshot.paramMap.get('id'));
+  this.reservationsService.acceptReservation(reservationId).subscribe(
+    (response: any) => {
+      // Afficher l'alerte SweetAlert2 en cas de succès
+      Swal.fire({
+        title: 'Réservation approuvée!',
+        text: 'La réservation a été approuvée avec succès. Veuillez consulter la liste des reservations pour voir les changements.',
+        icon: 'success',
+        confirmButtonText: 'OK'
+      });
 
-  }
+      // Actualiser la liste des réservations
+      this.getReservation(id);
+    },
+    (error: any) => {
+      // Afficher l'alerte SweetAlert2 en cas d'erreur
+      Swal.fire({
+        title: 'Erreur!',
+        text: 'Une erreur s\'est produite lors de l\'approbation de la réservation.',
+        icon: 'error',
+        confirmButtonText: 'OK'
+      });
 
-  // Méthode pour désapprouver une reservation
-  rejectReservation(reservationId: number): void {
-    const id = Number(this.route.snapshot.paramMap.get('id'));
-    this.reservationsService.refuserReservation(reservationId).subscribe(
-      (response: any) => {
-        console.log('Reservation Rejected:', response);
-        this.getReservation(id);
-      },
-      (error: any) => {
-        console.error('Reservation Error:', error);
-      }
-    )
-  }
+      // Afficher l'erreur dans la console
+      //console.error('Reservation Error:', error);
+    }
+  );
+}
+
+
+  // Méthode pour désapprouver une réservation
+rejectReservation(reservationId: number): void {
+  const id = Number(this.route.snapshot.paramMap.get('id'));
+  this.reservationsService.refuserReservation(reservationId).subscribe(
+    (response: any) => {
+      // Afficher l'alerte SweetAlert2 en cas de succès
+      Swal.fire({
+        title: 'Réservation désapprouvée!',
+        text: 'La réservation a été désapprouvée avec succès. Veuillez consulter la liste des reservations pour voir les changements.',
+        icon: 'success',
+        confirmButtonText: 'OK'
+      });
+
+      // Actualiser la liste des réservations
+      this.getReservation(id);
+    },
+    (error: any) => {
+      // Afficher l'alerte SweetAlert2 en cas d'erreur
+      Swal.fire({
+        title: 'Erreur!',
+        text: 'Une erreur s\'est produite lors du rejet de la réservation.',
+        icon: 'error',
+        confirmButtonText: 'OK'
+      });
+
+      // Afficher l'erreur dans la console
+      //console.error('Reservation Error:', error);
+    }
+  );
+}
+
   
   
 }

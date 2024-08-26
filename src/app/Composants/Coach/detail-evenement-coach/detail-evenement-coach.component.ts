@@ -8,6 +8,8 @@ import { environment } from '../../../../environnements/environments';
 import { DatePipe, NgFor, NgIf } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { HttpErrorResponse } from '@angular/common/http';
+import Swal from 'sweetalert2';
+
 
 
 @Component({
@@ -49,11 +51,11 @@ export class DetailEvenementCoachComponent implements OnInit {
   getEvenement(id: number): void {
     this.eventService.getEvenement(id).subscribe(
       (response: any) => {
-        console.log('Event Data:', response);
+        //console.log('Event Data:', response);
         this.event = response.data || {}; // Ensure event is assigned correctly
       },
       (error: any) => {
-        console.error('Event Error:', error);
+        //console.error('Event Error:', error);
       }
     );
   }
@@ -63,26 +65,47 @@ export class DetailEvenementCoachComponent implements OnInit {
     return `${this.baseUrl}${photoPath}`;
   }
 
+  
   reserveEvent(): void {
     const formData = new FormData();
-    // Add necessary data to formData if needed
-    // For example, if there's a form input for reservation details, include it here.
-
+    // Ajouter les données nécessaires à formData si nécessaire
+    // Par exemple, si vous avez un champ de formulaire pour les détails de la réservation, incluez-le ici.
+  
     if (this.event && this.event.id) {
       this.ReservationsService.addReservation(formData, this.event.id).subscribe(
         (response: any) => {
-          console.log('Reservation successful:', response);
-          // Handle successful reservation, e.g., show a success message
+          // Afficher l'alerte SweetAlert2 en cas de succès
+          Swal.fire({
+            title: 'Réservation réussie!',
+            text: 'Votre réservation a été effectuée avec succès. Veuillez consulter votre mail pour plus d\'informations.',
+            icon: 'success',
+            confirmButtonText: 'OK'
+          });
+  
+          // Autres actions en cas de succès, si nécessaire
+          // Par exemple, rediriger l'utilisateur ou actualiser la liste des réservations
+  
         },
         (error: HttpErrorResponse) => {
+          // Afficher l'alerte SweetAlert2 en cas d'erreur
+          Swal.fire({
+            title: 'Échec de la réservation!',
+            text: 'Une erreur s\'est produite lors de la réservation. Veuillez réessayer.',
+            icon: 'error',
+            confirmButtonText: 'OK'
+          });
+  
+          // Afficher l'erreur dans la console
           console.error('Reservation failed:', error);
-          // Handle error, e.g., show an error message
         }
       );
     } else {
-      console.error('Event ID is not available');
+      // Afficher l'alerte SweetAlert2 si l'ID de l'événement n'est pas disponible
+      Swal.fire({
+        title: 'Erreur!',
+        text: 'L\'ID de l\'événement n\'est pas disponible.',
+  
+      });
     }
   }
-  
-
 }

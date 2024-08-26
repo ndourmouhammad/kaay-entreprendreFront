@@ -10,7 +10,26 @@ html, body {
   padding-top: 2rem;
   padding-bottom: 2rem;
 }
-
+.password-container {
+  position: relative;
+  width: 100%;
+ }
+ 
+ 
+ .password-container input {
+  padding-right: 40px; /* Espace pour l'icône */
+ }
+ 
+ 
+ .toggle-password {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  user-select: none;
+ }
+ 
 
 .btn-warning {
   color: #fbf8f5;

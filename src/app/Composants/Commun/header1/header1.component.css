@@ -56,9 +56,6 @@ header {
     text-decoration: underline;
     font-size: 18px;
 }
-.nav-links a.active {
-    color: #FF9700;
-}
 
 .connexion-btn {
     padding: 8px 15px;
@@ -208,7 +205,11 @@ header {
         font-weight: bold;
     }
 
-    
+    .navbar.active {
+        display: flex; 
+        max-height: 300px; 
+        opacity: 1;
+    }
 
     .nav-links {
         display: flex; 
@@ -228,7 +229,6 @@ header {
 
     .user-menu {
         position: fixed; 
-        bottom: 10px; 
         right: 10px; 
         width: calc(100% - 20px);
         display: flex;
@@ -236,12 +236,12 @@ header {
         gap: 10px;
         background-color: #fff;
         padding: 10px;
-        box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
-        z-index: 1000;
+       
+        margin-top: 20rem;
     }
 
     .button {
-        width: 100%;
+        width: 40%;
     }
 
     .hamburger-menu.open .bar:nth-child(1) {
@@ -280,8 +280,10 @@ header {
         font-weight: bold;
     }
 
-    #navbarNav ul li a.active {
-        color: #ff9700;
+    .navbar.active {
+        display: flex; 
+        max-height: 300px; 
+        opacity: 1;
     }
 
 
@@ -304,7 +306,7 @@ header {
     }
     .user-menu {
       
-        bottom: 10px; 
+        position: fixed; 
         right: 10px; 
         width: calc(100% - 20px);
         display: flex;
@@ -312,8 +314,9 @@ header {
         gap: 10px;
         background-color: #fff;
         padding: 10px;
-        box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
-        z-index: 1000;
+       
+        margin-top: 20rem;
+        
     }
    
     .hamburger-menu {
@@ -338,4 +341,3 @@ header {
         transform: rotate(-45deg) translate(5px, -5px); 
     }
 }
-

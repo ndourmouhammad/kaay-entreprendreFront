@@ -192,8 +192,8 @@ export const routes: Routes = [
 
   { path: 'ressources', component: RessourcesComponent, canActivate: [AuthGuard] },
   { path: 'detail-ressource', component: DetailRessourceComponent , canActivate: [AuthGuard]},
-  { path: 'profil-entrepreneur', component: UserProfilComponent , canActivate: [AuthGuard]},
-  { path: 'modifier-profil', component: ModifierProfilComponent , canActivate: [AuthGuard]},
+  { path: 'profil-entrepreneur', component: UserProfilComponent },
+  { path: 'modifier-profil/:id', component: ModifierProfilComponent },
 
  { path:'demande-accompagnement', component:DemandeComponent, canActivate: [AuthGuard]},
 
@@ -205,9 +205,9 @@ export const routes: Routes = [
     { path: 'demande-accompagnement-coach' , component: DemandecoachComponent, canActivate: [AuthGuard]},
 
     { path: 'retourexperience', component: RetourExperienceAccueilComponent},
-  { path: 'detail-ressource/:id', component: DetailRessourceComponent },
-  { path: 'profil-entrepreneur', component: UserProfilComponent, canActivate: [AuthGuard] },
-  { path: 'modifier-profil/:id', component: ModifierProfilComponent },
+  { path: 'detail-ressource/:id', component: DetailRessourceComponent, canActivate: [AuthGuard] },
+  // { path: 'profil-entrepreneur', component: UserProfilComponent },
+  // { path: 'modifier-profil/:id', component: ModifierProfilComponent },
   {
     path: 'mes-reservations',
     component: ReservationsComponent,

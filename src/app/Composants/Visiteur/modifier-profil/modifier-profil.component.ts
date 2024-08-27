@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { Header2Component } from '../../Commun/header2/header2.component';
 import { FooterComponent } from '../../Commun/footer/footer.component';
 import { Header1Component } from '../../Commun/header1/header1.component';
 import { ModelProfil } from '../../../Models/profil.model';
@@ -14,7 +13,7 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-modifier-profil',
   standalone: true,
-  imports: [RouterOutlet, Header2Component, FooterComponent, Header1Component, CommonModule, FormsModule],
+  imports: [RouterOutlet, FooterComponent, Header1Component, CommonModule, FormsModule],
   templateUrl: './modifier-profil.component.html',
   styleUrls: ['./modifier-profil.component.css']
 })

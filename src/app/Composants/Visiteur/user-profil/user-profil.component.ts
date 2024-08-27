@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { RouterLink, RouterModule, RouterOutlet } from '@angular/router';
-import { Header2Component } from '../../Commun/header2/header2.component';
 import { FooterComponent } from '../../Commun/footer/footer.component';
 import { Header1Component } from '../../Commun/header1/header1.component';
 import { ProfilService } from '../../../Services/profil.service';
@@ -18,7 +17,7 @@ import { throwError } from 'rxjs';
   standalone: true,
   imports: [ 
     RouterOutlet,
-    Header2Component,
+
     FooterComponent,
     RouterLink,
     RouterModule,

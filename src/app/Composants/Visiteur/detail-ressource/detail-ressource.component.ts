@@ -1,5 +1,4 @@
 import { Header1Component } from '../../Commun/header1/header1.component';
-import { Header2Component } from '../../Commun/header2/header2.component';
 import { FooterComponent } from '../../Commun/footer/footer.component';
 import { Component, OnInit } from '@angular/core';
 import { RessourceService } from '../../../Services/ressource.service';
@@ -14,7 +13,6 @@ import { environment } from '../../../../environnements/environments';
   standalone: true,
   imports: [
     Header1Component,
-    Header2Component,
     FooterComponent,CommonModule
   ],
   templateUrl: './detail-ressource.component.html',

@@ -23,7 +23,6 @@ import { LoginComponent } from './Composants/Commun/login/login.component';
 import { administrationGuard } from './Guards/administration.guard';
 import { coachGuard } from './Guards/coach.guard';
 import { Header1Component } from './Composants/Commun/header1/header1.component';
-import { Header2Component } from './Composants/Commun/header2/header2.component';
 import { AcceuilComponent } from './Composants/Visiteur/acceuil/acceuil.component';
 import { FooterComponent } from './Composants/Commun/footer/footer.component';
 import { RessourcesComponent } from './Composants/Visiteur/ressources/ressources.component';
@@ -186,7 +185,6 @@ export const routes: Routes = [
   { path: 'forum-detail/:id', component: DetailForumComponent, canActivate: [AuthGuard] },
 
   { path: 'header1', component: Header1Component },
-  { path: 'header2', component: Header2Component },
   { path: 'Acceuil', component: AcceuilComponent, },
   { path: 'footer', component: FooterComponent },
 

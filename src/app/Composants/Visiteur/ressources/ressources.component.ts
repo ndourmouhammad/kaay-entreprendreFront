@@ -2,7 +2,6 @@ import { Component, OnInit, inject } from '@angular/core';
 import { RouterLink, RouterModule, RouterOutlet } from '@angular/router';
 import { Header1Component } from '../../Commun/header1/header1.component';
 import { FooterComponent } from '../../Commun/footer/footer.component';
-import { Header2Component } from '../../Commun/header2/header2.component';
 import { RessourceService } from '../../../Services/ressource.service';
 import { ModelRessource } from '../../../Models/ressource.model';
 import { NgFor, NgIf } from '@angular/common';
@@ -17,7 +16,6 @@ import { environment } from '../../../../environnements/environments';
     RouterOutlet,
     Header1Component,
     FooterComponent,
-    Header2Component,
     RouterLink,
     RouterModule,
     NgFor,

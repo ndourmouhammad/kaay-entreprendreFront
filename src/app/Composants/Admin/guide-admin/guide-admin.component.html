@@ -24,7 +24,7 @@
       <div id="contentToConvert" class="content-section" *ngIf="selectedEtape">
         <div class="content-text">
           <h4>{{ selectedEtape.libelle }}</h4>
-          <p class="text-muted">{{ selectedEtape.description }}</p>
+          <div [innerHTML]="selectedEtape.description"></div>
         </div>
         <a href="http://" target="_blank" rel="noopener noreferrer" class="content-icon">
           <p><a [href]="getFileUrl(selectedEtape.pieces_jointes)" target="_blank"><img src="../../../../assets/pdflogo.png" alt=""></a></p>

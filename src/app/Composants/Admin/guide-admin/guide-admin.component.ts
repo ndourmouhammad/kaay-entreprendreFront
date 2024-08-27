@@ -21,8 +21,9 @@ import Swal from 'sweetalert2';
     RouterLink,
     RouterModule,
     CommonModule,
+    
     NgxEditorModule,
-    EtapeModalComponent
+    EtapeModalComponent,
   ],
   templateUrl: './guide-admin.component.html',
   styleUrls: ['./guide-admin.component.css']

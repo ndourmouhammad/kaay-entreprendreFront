@@ -13,6 +13,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 import Swal from 'sweetalert2';
 
 
+
 @Component({
   selector: 'app-detail-evenement',
   standalone: true,
@@ -40,6 +41,7 @@ export class DetailEvenementComponent implements OnInit {
   
     event: EvenementModel = {}; // Provide a default value if needed
     baseUrl: string = environment.apiUrl;
+    userHasReserved: boolean = false; // Flag to check if the user has reserved
   
     ngOnInit(): void {
       const id = Number(this.route.snapshot.paramMap.get('id'));
@@ -48,6 +50,7 @@ export class DetailEvenementComponent implements OnInit {
         return;
       }
       this.getEvenement(id);
+      this.checkUserReservation(id); // Added id parameter
     }
   
     getEvenement(id: number): void {
@@ -58,6 +61,20 @@ export class DetailEvenementComponent implements OnInit {
         },
         (error: any) => {
           //console.error('Event Error:', error);
+        }
+      );
+
+      
+    }
+
+    checkUserReservation(eventId: number): void {
+      // Example logic to check if the user has already reserved
+      this.ReservationsService.checkUserReservation(eventId).subscribe(
+        (response: any) => {
+          this.userHasReserved = response.hasReserved; // Adjust based on your API response
+        },
+        (error: any) => {
+          console.error('Failed to check reservation status:', error);
         }
       );
     }

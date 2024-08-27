@@ -1,33 +1,33 @@
-<header >
+<header>
   <app-header1></app-header1>
 </header>
+
 <div class="container event-section mt-5">
   <div class="mb-4">
     <a routerLink="/evenement" class="btn btn-dark">Retour</a>
   </div>
   <div class="event-image-container">
-    <!-- Utilisation de la méthode pour obtenir le chemin dynamique -->
     <img *ngIf="event.image" [src]="getPhotoUrl(event.image)" alt="Event Image" class="event-image">
-    
   </div>
-  
+
   <div class="event-details">
     <h3>Détails sur l'événement</h3>
     <p><strong>Thème :</strong> {{ event.theme }}</p>
     <p><strong>Description :</strong> {{ event.description }}</p>
     <p><strong>Nombre de places :</strong> {{ event.nombre_places }}</p>
-    <p><strong>prix : </strong>{{event.prix}} FCFA</p>
+    <p><strong>Prix :</strong> {{ event.prix }} FCFA</p>
     <p><strong>Date début :</strong> {{ event.date_debut | date:'dd MMM yyyy' }}</p>
-    <p><strong>Date fin : </strong>{{event.date_fin | date:'dd MMM yyyy'}} </p>
+    <p><strong>Date fin :</strong> {{ event.date_fin | date:'dd MMM yyyy' }}</p>
   </div>
 
   <div class="reserve-section">
-    <button class="reserve-btn" (click)="reserveEvent()">Réserver</button>
+    <!-- Conditionally render the "Reserve" button or the message -->
+    <button class="reserve-btn" *ngIf="!userHasReserved" (click)="reserveEvent()">Réserver</button>
+    <p *ngIf="userHasReserved" class="text-success">Vous avez déjà réservé pour cet événement.</p>
     <img src="assets/images/Group.png" alt="Small Image" class="small-image">
   </div>
 </div>
-  <footer>
-    <app-footer></app-footer>
-  </footer>
 
-  
+<footer>
+  <app-footer></app-footer>
+</footer>

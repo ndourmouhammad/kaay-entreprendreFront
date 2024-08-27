@@ -1,0 +1,75 @@
+.modal-header {
+    background-color: #ffffff;
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+  }
+  
+  .modal-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 0;
+  }
+  
+  .close {
+    background: transparent;
+    border: none;
+    font-size: 1.5rem;
+  }
+  
+  .modal-body {
+    padding: 20px;
+    background-color: #ffffff;
+  }
+  
+  .form-container {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  .form-control {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-top: 5px;
+  }
+  
+  .NgxEditor__Wrapper {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    margin-top: 5px;
+  }
+  
+  .btn {
+    background-color: #f79827; /* Orange color for buttons */
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .btn-primary {
+    background-color: #f79827;
+  }
+  
+  .btn-close {
+    color: #333;
+  }
+  
+  .btn:hover {
+    background-color: #e6861b;
+  }
+  
+  .editor {
+    margin-top: 10px;
+  }
+  

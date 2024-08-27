@@ -72,5 +72,20 @@ export class ReservationsService {
       
         return this.http.post<any>(`${apiUrl}evenements/${id}/reservation`, reservation, { headers });
       }
+
+      // Méthode pour vérifier si un utilisateur a fait une réservation à un event : Route::get('/evenements/{evenement_id}/user-reservation', [ReservationController::class, 'checkUserReservation']);
+      checkUserReservation(id: number): Observable<{ message: string, data: ReservationModel }> {
+        const token = localStorage.getItem('access_token');
+        if (!token) {
+          console.error('No authentication token found');
+          return throwError('No authentication token found');
+        }
+      
+        const headers = new HttpHeaders({
+          'Authorization': `Bearer ${token}`
+        });
+      
+        return this.http.get<any>(`${apiUrl}evenements/${id}/user-reservation`, { headers });
+      }
     
 }
